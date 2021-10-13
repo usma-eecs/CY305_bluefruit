@@ -11,7 +11,31 @@ while True:
 
 '''
 
-# Touch Pad
+# LEDs
+'''
+from adafruit_circuitplayground import cp
+
+# assign all of the pixels to the variable led
+led = cp.pixels
+
+# Set the pixel brightness on a scale from 0 to 1.
+led.brightness = 0.05
+
+while True:
+    # Set each of the neopixels to a different color
+    led[0] = (255, 0, 125)
+    led[1] = (125, 0, 255)
+    led[2] = (0, 0, 255)
+    led[3] = (0, 125, 125)
+    led[4] = (0, 255, 0)
+    led[5] = (125, 255, 0)
+    led[6] = (255, 255, 0)
+    led[7] = (255, 100, 0)
+    led[8] = (255, 0, 0)
+    led[9] = (255, 0, 25)
+'''
+
+# Capacitive Touch
 '''
 from adafruit_circuitplayground import cp
 
@@ -32,36 +56,6 @@ while True:
         print("Touched pad TX")
 '''
 
-# LEDs
-'''
-import time
-from adafruit_circuitplayground import cp
-led = cp.pixels
-
-led.brightness = 0.05
-num_list = list(range(0 , 10))
-while True:
-    ind = 0
-    for num in num_list:
-        if num == 9:
-            num_list[ind] = 0
-        else:
-            num_list[ind] += 1
-        ind += 1
-
-    led[num_list[0]] = (255, 0, 125)
-    led[num_list[1]] = (125, 0, 255)
-    led[num_list[2]] = (0, 0, 255)
-    led[num_list[3]] = (0, 125, 125)
-    led[num_list[4]] = (0, 255, 0)
-    led[num_list[5]] = (125, 255, 0)
-    led[num_list[6]] = (255, 255, 0)
-    led[num_list[7]] = (255, 100, 0)
-    led[num_list[8]] = (255, 0, 0)
-    led[num_list[9]] = (255, 0, 25)
-    time.sleep(0.1)
-'''
-
 # Light sensor
 '''
 import time
@@ -70,44 +64,6 @@ from adafruit_circuitplayground import cp
 while True:
     print((cp.light,))
     time.sleep(3)
-'''
-
-# Temp Sensor
-'''
-import time
-from adafruit_circuitplayground import cp
-led = cp.pixels
-
-led.brightness = 0.05
-
-avg_temp_f2 = 70
-color = (125,0,125)
-
-while True:
-    sum_temp_c = 0
-
-    # add 100 temperature samples together
-    for i in range(100):
-        sum_temp_c += cp.temperature
-
-    # average the temperatures
-    avg_temp_c = sum_temp_c/100
-    # conver the average temperature into F
-    avg_temp_f1 = avg_temp_c * 9 / 5 + 32
-
-    # Display the average temperatures to the console window
-    print("Temperature is: " +str(avg_temp_c) + " C and " +str(avg_temp_f1) + " F")
-
-
-    if avg_temp_f1 < avg_temp_f2 and color[2] <= 245 and color[0] >= 10:
-        color = (color[0]-10,0,color[2]+10)
-    elif avg_temp_f1 > avg_temp_f2 and color[2] >= 10 and color[0] <= 245:
-        color = (color[0]+10,0,color[2]-10)
-    avg_temp_f2 = avg_temp_f1
-
-    for i in range(10):
-        led[i] = color
-    time.sleep(1)
 '''
 
 # Accelerometer
@@ -122,32 +78,47 @@ while True:
     time.sleep(0.1)
 '''
 
+# Temp Sensor
+'''
+import time
+from adafruit_circuitplayground import cp
+
+# Sets the brightness of the neopixels on a scale of 0-1.
+cp.pixels.brightness = 0.1
+
+# Set these based on your ambient temperature in Fahrenheit  for best results!
+minimum_temp = 75
+maximum_temp = 90
+
+# This adjusts how many neopixels light up based on the
+# min and max temperature values from lines 7 and 8.
+def scale_range(value):
+    return int((value - minimum_temp) / (maximum_temp - minimum_temp) * 10)
+
+
+while True:
+    c_sum = 0
+    for i in range(100):
+        c_sum += cp.temperature # Collect the sum of 100 temperature samples
+    c_avg = c_sum/100 # Calculate the average
+    f_avg = c_avg * 1.8 + 32 # Convert the temperature to Fahrenheit
+
+    # Display the temperature in the console so it can be graphed by the plotter
+    print((f_avg,))
+
+    # Determines the number of neopixels to turn on
+    peak = scale_range(f_avg)
+    for i in range(10):
+        if i <= peak:
+            cp.pixels[i] = (0, 255, 255)
+        else:
+            cp.pixels[i] = (0, 0, 0)
+
+    time.sleep(1) # Waits for 1 second
+'''
 
 # Sound Level
 '''
-# The MIT License (MIT)
-#
-# Copyright (c) 2017 Dan Halbert for Adafruit Industries
-# Copyright (c) 2017 Kattni Rembor, Tony DiCola for Adafruit Industries
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
-
 # Circuit Playground Sound Meter
 
 import math
