@@ -9,7 +9,7 @@ led.brightness = 0.05
 # flashes the pixels for a long pulse
 def long():
     led.fill((255,255,255)) # Set all pixels to white
-    time.sleep(0.5) # wait 1/2 second
+    time.sleep(0.75) # wait 1/2 second
     led.fill(0) # Turn off the pixels
     time.sleep(0.25) # wait for 1/4 second
 
@@ -33,19 +33,19 @@ short()
 long()
 long()
 
-time.sleep(1)
+time.sleep(0.75)
 # Flashes the Morse Code for 1
 short()
 for i in range(4):
     long()
 
-time.sleep(1)
+time.sleep(0.75)
 # Plays the Morse Code for 0
 for i in range(5):
     long()
 
-time.sleep(1)
+time.sleep(0.75)
 # Plays the Morse Code for 5
 for i in range(5):
     short()
-# Write your code here :-)
+
