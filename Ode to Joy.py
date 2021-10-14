@@ -1,22 +1,35 @@
 from adafruit_circuitplayground import cp
 
-# Plays the 440 hz tone for 1 second.
-def c_h(t):
-    cp.play_tone(523.25, t)
+# assign all of the pixels to the variable led
+led = cp.pixels
+
+# Set the pixel brightness on a scale from 0 to 1.
+led.brightness = 0.05
 
 def d_h(t):
+    led.fill((255, 0, 125))
     cp.play_tone(587.33, t)
 
+def c_h(t):
+    led.fill((125, 0, 255))
+    cp.play_tone(523.25, t)
+
+
+
 def b_m(t):
+    led.fill((0, 0, 255))
     cp.play_tone(493.88, t)
 
 def a_m(t):
+    led.fill((0, 125, 125))
     cp.play_tone(440, t)
 
 def g_m(t):
+    led.fill((0, 255, 0))
     cp.play_tone(392, t)
 
 def d_m(t):
+    led.fill((255, 0, 0))
     cp.play_tone(293.66, t)
 
 
