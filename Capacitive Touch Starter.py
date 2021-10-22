@@ -5,13 +5,4 @@ while True:
         print("Touched pad A1")
     if cp.touch_A2:
         print("Touched pad A2")
-    if cp.touch_A3:
-        print("Touched pad A3")
-    if cp.touch_A4:
-        print("Touched pad A4")
-    if cp.touch_A5:
-        print("Touched pad A5")
-    if cp.touch_A6:
-        print("Touched pad A6")
-    if cp.touch_TX:
-        print("Touched pad TX")
+# Note that without the LCD attached, A3-A6 and the TX pads can be used the same way
