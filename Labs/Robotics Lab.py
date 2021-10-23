@@ -66,6 +66,6 @@ while True:
         splash.append(text_group)
 
     # Sets the fan speed based off
-    my_servo.throttle = (f_avg-minimum_temp)/10
+    my_servo.throttle = min((f_avg-minimum_temp)/10,1)
 
     time.sleep(1) # Waits for 1 second
