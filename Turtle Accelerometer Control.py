@@ -33,46 +33,48 @@ start_time = time.time()
 play_again = True
 dist = 2
 while play_again:
-    # gets and displays the x, y and z components
-    # of acceleration in meters per second
-
     x, y, z = cp.acceleration
-    direction = tt.heading()
-    #print(direction)
-    turn_x = x * dist/2
-    if x < 0:
-        if direction > 275 or direction < 90:
-            tt.setheading(direction+turn_x)
-        elif direction < 265:
-            tt.setheading(direction-turn_x)
-        else:
-            tt.setheading(270)
+
+    if cp.switch:
+        x_cor, y_cor = tt.pos()
+        tt.goto(x_cor+x*dist*2, y_cor-y*dist*2)
     else:
-        if direction < 85 or direction > 270:
-            tt.setheading(direction+turn_x)
-        elif direction > 95:
-            tt.setheading(direction-turn_x)
+        direction = tt.heading()
+        #print(direction)
+        turn_x = x * dist/2
+        if x < 0:
+            if direction > 275 or direction < 90:
+                tt.setheading(direction+turn_x)
+            elif direction < 265:
+                tt.setheading(direction-turn_x)
+            else:
+                tt.setheading(270)
         else:
-            tt.setheading(90)
-    tt.forward(dist/2)
-    direction = tt.heading()
-    #print(y)
-    turn_y = y * dist/2
-    if y < 0:
-        if direction > 5 and direction < 180:
-            tt.setheading(direction+turn_y)
-        elif direction < 355:
-            tt.setheading(direction-turn_y)
+            if direction < 85 or direction > 270:
+                tt.setheading(direction+turn_x)
+            elif direction > 95:
+                tt.setheading(direction-turn_x)
+            else:
+                tt.setheading(90)
+        tt.forward(dist/2)
+        direction = tt.heading()
+        #print(y)
+        turn_y = y * dist/2
+        if y < 0:
+            if direction > 5 and direction < 180:
+                tt.setheading(direction+turn_y)
+            elif direction < 355:
+                tt.setheading(direction-turn_y)
+            else:
+                tt.setheading(0)
         else:
-            tt.setheading(0)
-    else:
-        if direction > 185:
-            tt.setheading(direction-turn_y)
-        elif direction < 175:
-            tt.setheading(direction+turn_y)
-        else:
-            tt.setheading(180)
-    tt.forward(dist/2)
+            if direction > 185:
+                tt.setheading(direction-turn_y)
+            elif direction < 175:
+                tt.setheading(direction+turn_y)
+            else:
+                tt.setheading(180)
+        tt.forward(dist/2)
     time.sleep(0.1) # waits 1/10 of a second
     count1 += 1
     if count1 > 50:
