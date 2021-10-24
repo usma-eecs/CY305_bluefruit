@@ -39,42 +39,44 @@ while play_again:
     x, y, z = cp.acceleration
     direction = tt.heading()
     #print(direction)
+    turn_x = x * dist/2
     if x < 0:
         if direction > 275 or direction < 90:
-            tt.setheading(direction+x)
+            tt.setheading(direction+turn_x)
         elif direction < 265:
-            tt.setheading(direction-x)
+            tt.setheading(direction-turn_x)
         else:
             tt.setheading(270)
     else:
-        if direction > 95:
-            tt.setheading(direction-x)
-        elif direction < 85:
-            tt.setheading(direction+x)
+        if direction < 85 or direction > 270:
+            tt.setheading(direction+turn_x)
+        elif direction > 95:
+            tt.setheading(direction-turn_x)
         else:
             tt.setheading(90)
-    tt.forward(dist)
+    tt.forward(dist/2)
     direction = tt.heading()
     #print(y)
+    turn_y = y * dist/2
     if y < 0:
         if direction > 5 and direction < 180:
-            tt.setheading(direction+y)
+            tt.setheading(direction+turn_y)
         elif direction < 355:
-            tt.setheading(direction-y)
+            tt.setheading(direction-turn_y)
         else:
             tt.setheading(0)
     else:
         if direction > 185:
-            tt.setheading(direction-y)
+            tt.setheading(direction-turn_y)
         elif direction < 175:
-            tt.setheading(direction+y)
+            tt.setheading(direction+turn_y)
         else:
             tt.setheading(180)
-    tt.forward(dist)
+    tt.forward(dist/2)
     time.sleep(0.1) # waits 1/10 of a second
     count1 += 1
     if count1 > 50:
-        dist += 2
+        dist += 0.5
         count1 = 0
     x, y = tt.pos()
     if x > 122 or x < -122 or y > 122 or y < -122:
@@ -85,21 +87,28 @@ while play_again:
         if time_played > max_score:
             max_score = time_played
         print("You lost after " +str(time_played) + " seconds. You're best time was " + str(max_score) + ". Would you like to play again? (button A for yes, B for no)")
-        '''splash = displayio.Group()
+        splash = displayio.Group()
         display.show(splash)
-        text_group = displayio.Group(scale=1, x=30, y=100)
-        text = "You lost after " +str(count2*5) + " seconds \nWould you like to play again?\n(button A for yes, B for no)"
+        text_group = displayio.Group(scale=1, x=5, y=100)
+        text = "You lost after " +str(time_played) + " seconds.\nYou're best time was " + str(max_score) + ".\nWould you like to play again?\n(A for yes, B for no)"
         text_area = label.Label(terminalio.FONT, text=text, color=0xFFD700)
         text_group.append(text_area)  # Subgroup for text scaling
-        splash.append(text_group)'''
+        splash.append(text_group)
 
         while not(cp.button_a or cp.button_b):
             pass
         if cp.button_b:
             play_again = False
-            splash = displayio.Group()
-            display.show(splash)
         if cp.button_a:
+            displayio.release_displays()
+            display_bus = displayio.FourWire(spi, command=board.TX, chip_select=board.RX)
+            display = ST7789(display_bus, width=240, height=240, rowstart=80,
+                             backlight_pin=board.A3, rotation=180)
+            tt = None
+            tt = turtle(display)
+            tt.pencolor(Color.YELLOW)
+            # Notice you have to set the pen down first!
+            tt.pendown()
             dist = 2
             count1 = 0
             start_time = time.time()
