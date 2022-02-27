@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>CY105 Bluefruit Lab</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="scripts/map_highlight/jquery.maphilight.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/foundation.min.css">
 </head>
 
 <body>
@@ -26,60 +29,141 @@
                         class="fa-solid fa-microchip"></i></span> Understanding your board</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><span style="font-size: 1em; color: blue;"><i
+            <a class="nav-link" href="Sensor_Lab.html"><span style="font-size: 1em; color: blue;"><i
                         class="fa-solid fa-temperature-three-quarters"></i></span> Sensors</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><span style="font-size: 1em; color:blue;"><i
+            <a class="nav-link" href="Robotics_Lab.html"><span style="font-size: 1em; color:blue;"><i
                         class="fa-solid fa-robot"></i></span> Robotics</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><span style="font-size: 1em; color: red;"><i
-                        class="fa-solid fa-bug"></i></span> Troubleshooting</a>
+            <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
+                        class="fa-solid fa-bandage"></i></span> Troubleshooting</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
+                        class="fa-solid fa-book"></i></span> Further Reading</a>
         </li>
     </ul>
-    <div class="modal" id="BluefruitModal" tabindex="-1">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvas"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-body">
+            <img src="Images/Bluefruit.jpg" alt="Bluefruit Board" style="width: 240px" usemap="#BluefruitComponents"
+                class="map">
+            <map name="BluefruitComponents">
+                <!--Inputs-->
+                <area id="rstBtn" shape="rect" coords="112,104,130,125" href="#" title="Rest Button">
+                <area id="switch" shape="rect" coords="105,155,136,172" href="#" title="Switch">
+                <area id="tempSensor" shape="rect" coords="144,62,164,87" href="#" title="Temperature Sensor">
+                <area id="micSensor" shape="rect" coords="165,135,183,149" href="#" title="Microphone">
+                <area id="accelSensor" shape="rect" coords="140,137,157,169" href="#" title="Accelerometer">
+                <area id="lightSensor" shape="rect" coords="85,67,104,95" href="#" title="Light Sensor">
+                <area id="btnA" shape="rect" coords="62,103,88,131" href="#" title="Button A">
+                <area id="btnB" shape="rect" coords="152,103,181,131" href="#" title="Button B">
+                <area class="capTouch" id="A1" shape="circle" coords="222,158,14" title="A1"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A2" shape="circle" coords="222,85,14" title="A2"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A3" shape="circle" coords="203,53,14" title="A3"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A4" shape="circle" coords="39,54,14" title="A4"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A5" shape="circle" coords="22,85,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A6" shape="circle" coords="22,158,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="TX" shape="circle" coords="41,191,14" title="TX"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <!--Outputs-->
+                <area id="speaker" shape="rect" coords="66,134,101,168" href="#" title="Speaker">
+                <area id="redLED" shape="rect" coords="148,15,152,25" href="#" title="Red LED">
+                <area class="neoPixels" id="NP0" shape="circle" coords="81,53,12" title="NeoPixel-0"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP1" shape="circle" coords="53,83,12" title="NeoPixel-1"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP2" shape="circle" coords="42,122,12" title="NeoPixel-2"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP3" shape="circle" coords="53,163,12" title="NeoPixel-3"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP4" shape="circle" coords="84,192,12" title="NeoPixel-4"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP5" shape="circle" coords="161,190,12" title="NeoPixel-5"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP6" shape="circle" coords="191,160,12" title="NeoPixel-6"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP7" shape="circle" coords="201,123,12" title="NeoPixel-7"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP8" shape="circle" coords="191,85,12" title="NeoPixel-8"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP9" shape="circle" coords="161,54,12" title="NeoPixel-9"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <!--Other-->
+                <area id="greenLED" shape="rect" coords="90,14,95,25" href="#" title="Power Indicator LED">
+                <area id="USB" shape="rect" coords="105,5,139,31" href="#" title="USB Port">
+                <area id="CPU" shape="rect" coords="107,65,140,97" href="#" title="CPU">
+            </map>
+            <ol class="list-group list-group-numbered" style="font-size: 10px;">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Sensors/Inputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><a href="#" id="rstBtnList">Reset Button</a></li>
+                                <li><a href="#" id="switchList">Switch</a></li>
+                                <li><a href="#" id="tempList">Temperature</a></li>
+                                <li><a href="#" id="micList">Microphone</a></li>
+                                <li><a href="#" id="accelList">Accelerometer (measures acceleration in 3D)</a></li>
+                                <li><a href="#" id="lightList">Light</a></li>
+                                <li><a href="#" id="btnAList">Button A</a></li>
+                                <li><a href="#" id="btnBList">Button B</a></li>
+                                <li><a href="#" id="capList">Capacitive touch sensors (A1-A6 and TX)</a></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Outputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><a href="#" id="speakerList">Speaker</a></li>
+                                <li><a href="#" id="redLEDList">Red LED (right of the USB)</a></li>
+                                <li><a href="#" id="pixelList">NeoPixels 0 to 10 (counterclockwise from the top left
+                                        NeoPixel)</a></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Other</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><a href="#" id="greenLEDList">Power Indicator (left of the USB)</a></li>
+                                <li><a href="#" id="USBList">USB Port</a></li>
+                                <li><a href="#" id="CPUList">CPU</a></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="modal" id="bitmapModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Bluefruit board</h5>
+                    <h5 class="modal-title">Dragging your Bitmap</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="Images/Understanding/Bluefruit components.jpg" class="img-fluid" alt="Bluefruit Board"
-                        style="width: 75%">
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">Sensors/Inputs</div>
-                                <ol class="alpha">
-                                    <li>Switch</li>
-                                    <li>Temperature</li>
-                                    <li>Microphone</li>
-                                    <li>Accelerometer (measures acceleration in 3D)</li>
-                                    <li>Light</li>
-                                    <li>Button A</li>
-                                    <li>Button B</li>
-                                </ol>
-                                Red Arrows: Capacitive touch sensors (A1-A6 and TX)
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">Outputs</div>
-                                <ol class="alpha" start="H">
-                                    <li>Speaker</li>
-                                    <li>Red LED</li>
-                                </ol>
-                                Yellow arrows: NeoPixels 0 to 10 (counterclockwise from the top left NeoPixel)
-                            </div>
-                        </li>
-                    </ol>
+                    <img src="Videos/Understanding_Display/load_Bitmap.gif" class="img-fluid border border-info"
+                        alt="Dragging Bitmap" style="height: 75%; max-height: 400px;">
                 </div>
             </div>
         </div>
     </div>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="UnderstandingAccordian">
         <div class="accordion-item">
             <h2 class="accordion-header" id="learningHeading">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -88,9 +172,23 @@
                 </button>
             </h2>
             <div id="learningCollapse" class="accordion-collapse collapse show" aria-labelledby="learningHeading"
-                data-bs-parent="#accordionExample">
+                data-bs-parent="#UnderstandingAccordian">
                 <div class="accordion-body">
                     <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Click here
+                                    </button>
+                                </span>
+                                to view the Bluefruit's components. Mouse over the board or the list of components to
+                                highlight each part. You can view this any time by clicking the "Bluefruit Board" button
+                                in the instructions below.
+                            </div>
+                        </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 If you haven't done so already, <a href="https://codewith.mu/en/download">download</a>
@@ -101,8 +199,8 @@
                             <div class="ms-2 me-auto">
                                 In the Mu editor, turn on the Serial display and the Plotter.
                                 <div>
-                                    <img src="Images/Understand_Learning/Serial_Plotter.png" class="img-fluid"
-                                        alt="Bluefruit Board" style="height: 75%">
+                                    <img src="Images/Understand_Learning/Serial_Plotter.png"
+                                        class="img-fluid border border-info" alt="Bluefruit Board" style="height: 75%">
                                 </div>
                             </div>
                         </li>
@@ -112,8 +210,9 @@
                                 If you don't see a tab in the Mu editor named "code.py", click "Load" and navigate to
                                 your CIRCUITPY drive and open the “code” file.
                                 <div>
-                                    <img src="Videos/Understanding_Learning/Load_Code.gif" class="img-fluid"
-                                        alt="Bluefruit Board" style="height: 75%; max-height: 400px;">
+                                    <img src="Videos/Understanding_Learning/Load_Code.gif" id="loadCodeGif"
+                                        class="img-fluid border border-info" alt="Bluefruit Board"
+                                        style="height: 75%; max-height: 400px;">
                                 </div>
                             </div>
                         </li>
@@ -129,7 +228,7 @@
                 </button>
             </h2>
             <div id="inputsCollapse" class="accordion-collapse collapse" aria-labelledby="inputsHeading"
-                data-bs-parent="#accordionExample">
+                data-bs-parent="#UnderstandingAccordian">
                 <div class="accordion-body">
                     <h5 class="text-warning bg-dark">For each of the steps below, delete the code currently in the
                         “code” file you opened in <a id="learning_step3">step 3 of the Learning to Use Your Board</a>
@@ -140,10 +239,14 @@
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 The code below turns the red LED next to the USB cable on and off depending on the
-                                switch's position. 
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#BluefruitModal">
-                                    Bluefruit Board
-                                </button>
+                                switch's position.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Bluefruit Board
+                                    </button>
+                                </span>
                                 <pre><code class="language-python">from adafruit_circuitplayground import cp
 
 while True: #run this code forever.
@@ -155,10 +258,15 @@ while True: #run this code forever.
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                The code below displays “Pushed button A” or “Pushed button B” to the console in the Mu editor depending on which button you currently have pressed.
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#BluefruitModal">
-                                    Bluefruit Board
-                                </button>
+                                The code below displays “Pushed button A” or “Pushed button B” to the console in the Mu
+                                editor depending on which button you currently have pressed.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Bluefruit Board
+                                    </button>
+                                </span>
                                 <pre><code class="language-python">import time
 from adafruit_circuitplayground import cp
 
@@ -172,17 +280,360 @@ while True:
     time.sleep(0.1) #This delays the execution of the while loop's next iteration by 1/10th of a second</code></pre>
                             </div>
                         </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                The code below displays “Touched pad A#” to the console in Mu depending on which
+                                capacitive sensor you are currently touching.Try touching the different pads and make
+                                sure you see both the messages.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                    Bluefruit Board
+                                </button>
+                            </span>
+                                <pre><code class="language-python">import time
+from adafruit_circuitplayground import cp
+
+while True:
+    if cp.touch_A1: # Checks to see if A1 is being touched
+        print("Touched pad A1")
+    if cp.touch_A2:
+        print("Touched pad A2")
+    time.sleep(0.1)
+# Note that without the LCD attached, A3-A6 and the TX pads can be used the same way</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                The code below displays the light level detected by the light sensor. Cover the light
+                                sensor and watch the values change in the Mu serial window.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Bluefruit Board
+                                    </button>
+                                </span>
+                                <pre><code class="language-python">import time
+from adafruit_circuitplayground import cp
+
+while True:
+    # display the level of light detected
+    print((cp.light,))
+    time.sleep(3)</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                The code below displays the x, y, and z acceleration values in meters per second.
+                                Explore tipping the board in different directions and see how the x, y, and z values
+                                change in the console and the plotter windows.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Bluefruit Board
+                                    </button>
+                                </span>
+                                <pre><code class="language-python">import time
+from adafruit_circuitplayground import cp
+
+while True:
+    # gets and displays the x, y and z components
+    # of acceleration in meters per second
+    x, y, z = cp.acceleration
+    print((x, y, z))
+
+    time.sleep(0.1) # waits 1/10 of a second</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                The code below detects the magnitude of sound picked up by the microphone. a. Explore
+                                making different sounds and watch the magnitude of the volume change in the console and
+                                the plotter windows.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Bluefruit Board
+                                    </button>
+                                </span>
+                                <pre><code class="language-python">import time
+from adafruit_circuitplayground import cp
+
+while True:
+    # Checks the magnitude of any sound using
+    # the built in microphone
+    magnitude = cp.sound_level
+    # Displays that volume magnitude
+    print((magnitude,))
+    time.sleep(0.1)</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                The code below detects the temperature in degrees Centigrade, converts it to degrees
+                                Fahrenheit, and then displays and plots that value.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Bluefruit Board
+                                    </button>
+                                </span>
+                                <pre><code class="language-python">import time
+from adafruit_circuitplayground import cp
+
+while True:
+    c_temp = cp.temperature # sample the temperature
+    f_temp = c_temp * 1.8 + 32 # Convert the temperature to Fahrenheit
+    
+    print((f_temp,)) # Display and plot the temperature
+
+    time.sleep(1) # Waits for 1 second</code></pre>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="outputsHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#outputsCollapse" aria-expanded="false" aria-controls="outputsCollapse">
+                    Discovering the board's outputs
+                </button>
+            </h2>
+            <div id="outputsCollapse" class="accordion-collapse collapse" aria-labelledby="outputsHeading"
+                data-bs-parent="#UnderstandingAccordian">
+                <div class="accordion-body">
+                    <h5 class="text-warning bg-dark">For each of the steps below, delete the code currently in the
+                        “code” file you opened in <a id="learning_step3">step 3 of the Learning to Use Your Board</a>
+                        section. Then copy and paste the code from the step you're on into the “code” file. Finally,
+                        click “Save” to watch the code run on your device.
+                    </h5>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                This code sets up and displays the 10 NeoPixels on your Bluefruit board. Remember that
+                                the
+                                led[0] is the NeoPixel to the left of the USB port on your board and the numbering goes
+                                counterclockwise from there. Practice changing the NeoPixels' colors (any value between
+                                0 and 255).
+                                Understand which NeoPixel corresponds to which led[#] in the code above.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Bluefruit Board
+                                    </button>
+                                </span>
+                                <pre><code class="language-python">from adafruit_circuitplayground import cp
+import time
+# assign all of the pixels to the variable led
+led = cp.pixels
+
+# Set the pixel brightness on a scale from 0 to 1.
+led.brightness = 0.05
+
+while True:
+    # Set each of the NeoPixels to a different color
+    # Just like with turtle graphics, each NeoPixel
+    # has a red, green, and blue value represented
+    # by the (#, #, #) tuples below.
+    # Each color can have a value between 0 and 255
+    led[0] = (255, 0, 125)
+    led[1] = (125, 0, 255)
+    led[2] = (0, 0, 255)
+    led[3] = (0, 125, 125)
+led[4] = (0, 255, 0)
+led[5] = (125, 255, 0)
+led[6] = (255, 255, 0)
+led[7] = (255, 100, 0)
+led[8] = (255, 0, 0)
+led[9] = (255, 0, 25)
+
+time.sleep(1) # Waits 1 second.
+
+led.fill((255, 255, 255)) # turns on with specified RGB values
+# Note: for the code above, you have to wrap the colors in an extra set of ()
+time.sleep(1)
+
+led.fill(0) # turns all NeoPixels off
+
+time.sleep(1)</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                The code below plays a 440hz tone for 1 second using the built in speaker.
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                    data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Bluefruit Board
+                                    </button>
+                                </span>
+                                <pre><code class="language-python">from adafruit_circuitplayground import cp
+
+# Plays the 440hz tone for 1 second.
+cp.play_tone(440, 1)</code></pre>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="LCDHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#LCDCollapse" aria-expanded="false" aria-controls="LCDCollapse">
+                    TFT Gizmo Display
+                </button>
+            </h2>
+            <div id="LCDCollapse" class="accordion-collapse collapse" aria-labelledby="LCDHeading"
+                data-bs-parent="#UnderstandingAccordian">
+                <div class="accordion-body">
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                This code creates a gray square within a black square and displays the text Go Army!
+                                Beat Navy!
+                                <br>
+                                <a class="btn btn-info btn-sm"
+                                    href="https://learn.adafruit.com/circuitpython-display-support-using-displayio?view=all"
+                                    target="_blank" role="button">How does the display work?</a>
+                                <pre><code class="language-python"># SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
+import displayio
+import terminalio
+from adafruit_display_text import label
+from adafruit_gizmo import tft_gizmo
+
+# Create the TFT Gizmo display
+display = tft_gizmo.TFT_Gizmo()
+
+# Draw the gray background
+splash = displayio.Group()
+display.show(splash)
+
+color_bitmap = displayio.Bitmap(240, 240, 1) # Creates a 240x240 bitmap with 1 color
+color_palette = displayio.Palette(1) # Creates a color palette of one color
+color_palette[0] = 0xA9A9A9  # Assigns the color Gray to the color palette
+
+bg_sprite = displayio.TileGrid(color_bitmap, pixel_shader=color_palette, x=0, y=0)
+splash.append(bg_sprite)
+
+# Draw a smaller inner rectangle
+inner_bitmap = displayio.Bitmap(200, 200, 1)
+inner_palette = displayio.Palette(1)
+inner_palette[0] = 0x000000  # Black
+inner_sprite = displayio.TileGrid(inner_bitmap, pixel_shader=inner_palette, x=20, y=20)
+splash.append(inner_sprite)
+
+# Draw a label
+text_group = displayio.Group(scale=3, x=30, y=100)
+text = "Go Army! \nBeat Navy!"
+text_area = label.Label(terminalio.FONT, text=text, color=0xFFD700)
+text_group.append(text_area)  # Subgroup for text scaling
+splash.append(text_group)
+
+while True:
+    pass</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                This code runs a modified version of turtle graphics on your device. There are some
+                                differences between this and Turtle Graphics in Replit. <a class="btn btn-info btn-sm"
+                                href="https://learn.adafruit.com/turtle-graphics-gizmo/the-turtle-api"
+                                target="_blank" role="button">Click here</a> for more
+                                information. 
+                                
+                                <pre><code class="language-python">#Turtle Gizmo Square
+#==| Turtle Gizmo Setup start |========================================
+import board
+import busio
+import displayio
+from adafruit_st7789 import ST7789
+from adafruit_turtle import Color, turtle
+displayio.release_displays()
+spi = busio.SPI(board.SCL, MOSI=board.SDA)
+display_bus = displayio.FourWire(spi, command=board.TX, chip_select=board.RX)
+display = ST7789(display_bus, width=240, height=240, rowstart=80,
+                    backlight_pin=board.A3, rotation=180)
+
+
+#==| Turtle Gizmo Setup end |=========================================
+# Create a turtle named tt. This is different from creating a turtle in Turtle Graphics!
+tt = turtle(display)
+
+# Notice you have to set the pen down first!
+tt.pendown()
+
+# You have to use the code below to set the colors. The capitalization is important.
+tt.pencolor(Color.YELLOW)
+
+for i in range(4):
+    tt.forward(80)
+    tt.right(90)
+
+while True:
+    pass</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto" id="bitmapExample">
+                                <p class="text-warning bg-dark">Drag the EECS_Color.bmp image from the Circuit
+                                    Playground Lab Files folder into the CIRCUITPY drive and then run the code below.
+                                </p>
+
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#bitmapModal">
+                                    Click here
+                                </button> to see how to get the bitmap on the board.
+                                    This code display a bitmap (.bmp) file on your LCD. Note: the files can at most be
+                                    240x240 pixels.
+                                <pre><code class="language-python">import displayio
+from adafruit_gizmo import tft_gizmo
+display = tft_gizmo.TFT_Gizmo()
+
+# Setup the file as the bitmap data source
+bitmap = displayio.OnDiskBitmap("/EECS_Color.bmp")
+
+# Create a TileGrid to hold the bitmap
+# Notice that you're using the variable bitmap in here twice!
+tile_grid = displayio.TileGrid(bitmap, pixel_shader=bitmap.pixel_shader)
+
+# Create a Group to hold the TileGrid
+group = displayio.Group()
+
+# Add the TileGrid to the Group
+group.append(tile_grid)
+
+# Add the Group to the Display
+display.show(group)
+
+# Loop forever so you can enjoy your image
+while True:
+    pass</code></pre>
+                            </div>
+                        </li>
                     </ol>
                 </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <script src="highlight.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
+
 </body>
 
 </html>

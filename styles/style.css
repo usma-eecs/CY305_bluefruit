@@ -8,4 +8,28 @@ pre {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-  }
+}
+.carousel{
+	max-width: 550px;
+	margin: auto;
+}
+.floating-message {
+	/* initial opacity/top margin */
+	opacity: 1;
+	margin-top: 0;
+	padding: 5px;
+	box-shadow: 0 0 3px #888;
+	background-color: #FFC;
+	color: #333;
+	border-radius: 5px;
+	font-size: 0.8em;
+	transform: translate(-50%,-120%);
+}
+
+.fade-message-out {
+	/* when 'hidden' it will fade out and float "up" over 1 second */
+	opacity: 0;
+	margin-top: -50px;
+	/*transition: opacity 1s ease-in-out, margin 1s ease-in-out;*/
+	transition: opacity 1s ease-in-out, margin 1s ease-in-out;
+}
