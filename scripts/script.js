@@ -51,9 +51,11 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
 });
 
-//Highlights components of Bluefruit board in pop-out window
-$(function () {
+// Update this if you add new code blocks to the webpages
+const code_blocks = ["Accelerometer","Buttons","Capacitive_Touch","LCD_Bitmap","LCD_Text_and_Background","LCD_Turtle","Light_Sensor","Microphone","NeoPixels","Servo","Speaker","Switch_and_red_LED","Temperature","Lab_Robot","Lab_Temp_Sensor"]
 
+$(function () {
+    //Highlights components of Bluefruit board in pop-out window
     $('.map').maphilight({
         fill: true,
         fillColor: '00ffff',
@@ -134,5 +136,9 @@ $(function () {
     }).mouseout(function (e) {
         $('#CPU').mouseout();
     }).click(function (e) { e.preventDefault(); });
+    //Loads the .py file code and places it in the correct location finding the <pre><code> tags by id
+    for (let code of code_blocks) {
+        $( "."+code+"_code" ).load("https://raw.githubusercontent.com/regnjere/CY105_Lab/main/lab%20code/"+code+".py");
+    } 
 });
 
