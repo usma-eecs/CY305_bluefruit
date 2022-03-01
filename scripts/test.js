@@ -1,4 +1,4 @@
-const code_blocks = ["Buttons","Accelerometer","Capacitive Touch","LCD Bitmap"]//,"LCD Text and Background","LCD Turtle","Light Sensor","Microphone","NeoPixels","Servo","Speaker","Switch and red_LED","Temperature"]
+const code_blocks = ["Accelerometer","Buttons","Capacitive_Touch","LCD_Bitmap","LCD Text and Background","LCD Turtle","Light Sensor","Microphone","NeoPixels","Servo","Speaker","Switch and red_LED","Temperature"]
 $(function () {
     for (let code of code_blocks) {
         console.log(code);
