@@ -22,7 +22,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="Initial_Steps.html"><span style="font-size: 1em; color:blue;"><i
-                        class="fa-solid fa-play"></i></span> Initial Steps</a>
+                        class="fa-solid fa-terminal"></i></span> Initial Steps</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="Understanding_your_board.html"><span
@@ -39,7 +39,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
-                        class="fa-solid fa-bandage"></i></span> Troubleshooting</a>
+                        class="fa-solid fa-bug"></i></span> Troubleshooting</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
@@ -97,7 +97,7 @@
                                     <tbody>
                                         <tr>
                                             <td>brown or black</td>
-                                            <td>gnd</td>
+                                            <td>GND</td>
                                         </tr>
                                         <tr>
                                             <td>red</td>
@@ -141,6 +141,10 @@ import time
 import board
 import pwmio
 from adafruit_motor import servo
+from adafruit_gizmo import tft_gizmo
+
+# Create the TFT Gizmo display
+display = tft_gizmo.TFT_Gizmo()
 
 #Assigns pin A1 as a PWM output (controls the servo)
 pwm = pwmio.PWMOut(board.A1, frequency=50)
@@ -151,7 +155,7 @@ my_servo = servo.ContinuousServo(pwm)
 while True:
     # Runs fullspeed counterclockwise for 2 seconds
     print("Counter clockwise")
-    my_servo.throttle = 1.0
+    my_servo.throttle = 0.5
     time.sleep(2.0)
     # Stops for 2 seconds
     print("stop")
@@ -159,7 +163,7 @@ while True:
     time.sleep(2.0)
     # Runs fullspeed clockwise for 2 seconds
     print("Clockwise")
-    my_servo.throttle = -1.0
+    my_servo.throttle = -0.5
     time.sleep(2.0)
     # Stops for 4 seconds
     print("stop")
@@ -235,10 +239,10 @@ min_scale_temp = base_temp - 5
 max_scale_temp = base_temp + 5
 
 # Sets the temperature at which the servo will turn off.
-# The -4 here is so that the temperature can drop below
+# The -2 here is so that the temperature can drop below
 # the base temperature and the servo will slow down, stopping
 # when it gets two degrees lower
-min_temp_servo = base_temp - 4
+min_temp_servo = base_temp - 2
 
 # This adjusts how many neopixels light up based on the
 # min and max temperature values from lines 7 and 8.
@@ -253,10 +257,11 @@ while True:
     # clears the text from the LCD
     splash = displayio.Group()
     display.show(splash)
-    
-    #SENSE
+
+
     c_sum = 0
     for i in range(100):
+        #SENSE
         c_sum += cp.temperature # Sum 100 temperature samples
     c_avg = c_sum/100 # Calculate the average
     f_avg = c_avg * 1.8 + 32 # Convert the temperature to Fahrenheit
@@ -266,21 +271,21 @@ while True:
         max_temp = f_avg
     elif f_avg < min_temp:
         min_temp = f_avg
-    
+
     #THINK
     # Sets the fan speed based off the current and minimum servo temperature
     # set on line 36
     speed = (f_avg-min_temp_servo)/8
 
-    # Adjust the speed if it's out of the 0 to 1 range.
+    # Adjust the speed if it's out of the 0 to 0.5 range.
     if speed < 0:
         speed = 0 # stop the servo if the temperature is too low
-    elif speed > 1:
-        speed = 1 # max the servo speed if temperature is too high
+    elif speed > 0.5:
+        speed = 0.5 # max the servo speed if temperature is too high
 
-    
+
     print((speed,)) #Display the speed to the Mu editor console and plotter
-    
+
     #ACT
     my_servo.throttle = speed
 
