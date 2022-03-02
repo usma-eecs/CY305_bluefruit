@@ -65,7 +65,6 @@ $(function () {
     }).mouseout(function (e) {
         $('#rstBtn').mouseout();
     }).click(function (e) { e.preventDefault(); });
-
     $('#capList').mouseover(function (e) {
         $('#A2').mouseover();
     }).mouseout(function (e) {
@@ -136,6 +135,23 @@ $(function () {
     }).mouseout(function (e) {
         $('#CPU').mouseout();
     }).click(function (e) { e.preventDefault(); });
+    //Highlights wiring in Robotics Lab
+    $('#gndWireTbl').mouseover(function (e) {
+        $('#gndWire1').mouseover();
+    }).mouseout(function (e) {
+        $('#gndWire1').mouseout();
+    }).click(function (e) { e.preventDefault(); });
+    $('#pwrWireTbl').mouseover(function (e) {
+        $('#pwrWire1').mouseover();
+    }).mouseout(function (e) {
+        $('#pwrWire1').mouseout();
+    }).click(function (e) { e.preventDefault(); });
+    $('#ctlWireTbl').mouseover(function (e) {
+        $('#ctlWire1').mouseover();
+    }).mouseout(function (e) {
+        $('#ctlWire1').mouseout();
+    }).click(function (e) { e.preventDefault(); });
+
     //Loads the .py file code and places it in the correct location finding the <pre><code> tags by id
     for (let code of code_blocks) {
         $.get("https://raw.githubusercontent.com/regnjere/CY105_Lab/main/lab%20code/"+code+".py", function(data, status){

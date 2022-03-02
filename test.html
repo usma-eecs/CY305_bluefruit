@@ -13,52 +13,85 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/foundation.min.css">
-    <link rel="icon" type="image/x-icon" href="Images/favicon.jpg">
 </head>
 
 <body>
-    <pre><code class="language-python">x = 5
-import turtle
-for i in range(5):
-  pass
-    </code></pre>
-    <br>
-    <pre><code class="Accelerometer_code language-python"></code></pre>
-    <br>
-    <pre><code class="Buttons_code language-python"></code></pre>
-    <br>
-    <pre><code class="Capacitive_Touch_code language-python"></code></pre>
-    <br>
-    <pre><code class="LCD_Bitmap_code language-python"></code></pre>
-    <br>
-    <pre><code class="LCD_Text_and_Background_code language-python"></code></pre>
-    <br>
-    <pre><code class="LCD_Turtle_code language-python"></code></pre>
-    <br>
-    <pre><code class="Light_Sensor_code language-python"></code></pre>
-    <br>
-    <pre><code class="Microphone_code language-python"></code></pre>
-    <br>
-    <pre><code class="NeoPixels_code language-python"></code></pre>
-    <br>
-    <pre><code class="Servo_code language-python"></code></pre>
-    <br>
-    <pre><code class="Speaker_code language-python"></code></pre>
-    <br>
-    <pre><code class="Switch_and_red_LED_code language-python"></code></pre>
-    <br>
-    <pre><code class="Temperature_code language-python"></code></pre>
-    <br>
-    <pre><code class="Lab_Temp_Sensor_code language-python"></code></pre>
-    <br>
-    <pre><code class="Lab_Robot_code language-python"></code></pre>
-    <br>
+    <img class="map" src="Images/Robot/wiring.jpg" alt="Wiring"
+        style="height: 200px"  usemap="#wiringMap">
+            img-fluid border border-info border-4
+            data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="right" title='If you took the breadboard apart, you would see that each column of pins is connected
+        by a metal strip.
+    <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring"
+        style="width: 200px">'-->
+    <map name="wiringMap">
+        <area id="gndWire1" class="grounds" shape="poly" coords="102,43,108,43,108,52,88,67,67,79,63,73" href="#" title="Ground Wire" data-maphilight='{"groupBy":".grounds"}'>
+        <area id="gndWire2" class="grounds" shape="rect" coords="65,71,78,140" href="#" title="Ground Wire" data-maphilight='{"groupBy":".grounds"}'>
+        <area id="pwrWire1" class="pwrWires" shape="poly" coords="47,44,53,43,55,59,61,69,61,75,55,75,50,63,47,48" href="#" title="3.3V Wire" data-maphilight='{"groupBy":".pwrWires"}'>
+        <area id="pwrWire2" class="pwrWires" shape="rect" coords="55,70,65,140" href="#" title="3.3V Wire" data-maphilight='{"groupBy":".pwrWires"}'>
+        <area id="ctlWire1"  class="ctlWires" shape="poly" coords="56,42,64,42,64,48,57,64,51,76,45,76,45,70,51,59" href="#" title="A1 (control wire)" data-maphilight='{"groupBy":".ctlWires"}'>
+        <area id="ctlWire2"  class="ctlWires" shape="rect" coords="46,69,56,140" href="#" title="A1 (control wire)" data-maphilight='{"groupBy":".ctlWires"}'>
+    </map>
+
+    <img src="Images/Bluefruit.jpg" alt="Bluefruit Board" style="width: 240px" usemap="#BluefruitComponents"
+        class="map">
+    <map name="BluefruitComponents">
+        <!--Inputs-->
+        <area id="rstBtn" shape="rect" coords="112,104,130,125" href="#" title="Reset Button">
+        <area id="switch" shape="rect" coords="105,155,136,172" href="#" title="Switch">
+        <area id="tempSensor" shape="rect" coords="144,62,164,87" href="#" title="Temperature Sensor">
+        <area id="micSensor" shape="rect" coords="165,135,183,149" href="#" title="Microphone">
+        <area id="accelSensor" shape="rect" coords="140,137,157,169" href="#" title="Accelerometer">
+        <area id="lightSensor" shape="rect" coords="85,67,104,95" href="#" title="Light Sensor">
+        <area id="btnA" shape="rect" coords="62,103,88,131" href="#" title="Button A">
+        <area id="btnB" shape="rect" coords="152,103,181,131" href="#" title="Button B">
+        <area class="capTouch" id="A1" shape="circle" coords="222,158,14" title="A1"
+            data-maphilight='{"groupBy":".capTouch"}'>
+        <area class="capTouch" id="A2" shape="circle" coords="222,85,14" title="A2"
+            data-maphilight='{"groupBy":".capTouch"}'>
+        <area class="capTouch" id="A3" shape="circle" coords="203,53,14" title="A3"
+            data-maphilight='{"groupBy":".capTouch"}'>
+        <area class="capTouch" id="A4" shape="circle" coords="39,54,14" title="A4"
+            data-maphilight='{"groupBy":".capTouch"}'>
+        <area class="capTouch" id="A5" shape="circle" coords="22,85,14" title="A5"
+            data-maphilight='{"groupBy":".capTouch"}'>
+        <area class="capTouch" id="A6" shape="circle" coords="22,158,14" title="A5"
+            data-maphilight='{"groupBy":".capTouch"}'>
+        <area class="capTouch" id="TX" shape="circle" coords="41,191,14" title="TX"
+            data-maphilight='{"groupBy":".capTouch"}'>
+        <!--Outputs-->
+        <area id="speaker" shape="rect" coords="66,134,101,168" href="#" title="Speaker">
+        <area id="redLED" shape="rect" coords="148,15,152,25" href="#" title="Red LED">
+        <area class="neoPixels" id="NP0" shape="circle" coords="81,53,12" title="NeoPixel-0"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP1" shape="circle" coords="53,83,12" title="NeoPixel-1"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP2" shape="circle" coords="42,122,12" title="NeoPixel-2"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP3" shape="circle" coords="53,163,12" title="NeoPixel-3"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP4" shape="circle" coords="84,192,12" title="NeoPixel-4"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP5" shape="circle" coords="161,190,12" title="NeoPixel-5"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP6" shape="circle" coords="191,160,12" title="NeoPixel-6"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP7" shape="circle" coords="201,123,12" title="NeoPixel-7"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP8" shape="circle" coords="191,85,12" title="NeoPixel-8"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <area class="neoPixels" id="NP9" shape="circle" coords="161,54,12" title="NeoPixel-9"
+            data-maphilight='{"groupBy":".neoPixels"}'>
+        <!--Other-->
+        <area id="greenLED" shape="rect" coords="90,14,95,25" href="#" title="Power Indicator LED">
+        <area id="USB" shape="rect" coords="105,5,139,31" href="#" title="USB Port">
+        <area id="CPU" shape="rect" coords="107,65,140,97" href="#" title="CPU">
+    </map>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="scripts/script.js"></script>
-    
     <script src="scripts/highlight.min.js"></script>
+
 
 </body>
 

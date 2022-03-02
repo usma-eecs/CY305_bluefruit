@@ -86,7 +86,7 @@
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 Connect wire jumpers for your header to your breadboard as shown in the table and image
-                                below.
+                                below. Mouse over the table below to highlight the connections.
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <tr>
@@ -96,26 +96,42 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>brown or black</td>
+                                            <td id="gndWireTbl">brown or black</td>
                                             <td>GND</td>
                                         </tr>
                                         <tr>
-                                            <td>red</td>
-                                            <td>3.3V</td>
+                                            <td id="pwrWireTbl">red</td>
+                                            <td id>3.3V</td>
                                         </tr>
                                         <tr>
-                                            <td>orage, yellow, white, or blue</td>
+                                            <td id="ctlWireTbl">orange, yellow, white, or blue</td>
                                             <td>A1</td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <!--Need better wiring image.-->
-                                <img class="img-fluid border border-info border-4" src="Images/Robot/wiring.jpg"
-                                    class="img-fluid" alt="Wiring" style="height: 200px" data-bs-toggle="tooltip"
-                                    data-bs-html="true" data-bs-placement="right" title='If you took the breadboard apart, you would see that each column of pins is connected
+                                <img class="map img-fluid border border-info border-4" src="Images/Robot/wiring.jpg"
+                                    alt="Wiring" style="height: 200px" data-bs-toggle="tooltip" data-bs-html="true"
+                                    data-bs-placement="right" title='If you took the breadboard apart, you would see that each column of pins is connected
                                         by a metal strip.
                                     <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring"
-                                        style="width: 200px">'>
+                                        style="width: 200px">' usemap="#wiringMap">
+                                <map name="wiringMap">
+                                    <area id="gndWire1" class="grounds" shape="poly"
+                                        coords="94,39,100,39,100,48,80,63,63,71,58,65" href="#" title="Ground Wire"
+                                        data-maphilight='{"groupBy":".grounds"}'>
+                                    <area id="gndWire2" class="grounds" shape="rect" coords="62,65,70,136" href="#"
+                                        title="Ground Wire" data-maphilight='{"groupBy":".grounds"}'>
+                                    <area id="pwrWire1" class="pwrWires" shape="poly"
+                                        coords="43,40,49,39,51,55,57,65,57,71,51,71,46,59,43,44" href="#"
+                                        title="3.3V Wire" data-maphilight='{"groupBy":".pwrWires"}'>
+                                    <area id="pwrWire2" class="pwrWires" shape="rect" coords="51,71,60,136" href="#"
+                                        title="3.3V Wire" data-maphilight='{"groupBy":".pwrWires"}'>
+                                    <area id="ctlWire1" class="ctlWires" shape="poly"
+                                        coords="52,38,60,38,60,44,53,61,47,72,41,72,41,66,47,55" href="#"
+                                        title="A1 (control wire)" data-maphilight='{"groupBy":".ctlWires"}'>
+                                    <area id="ctlWire2" class="ctlWires" shape="rect" coords="41,66,50,140" href="#"
+                                        title="A1 (control wire)" data-maphilight='{"groupBy":".ctlWires"}'>
+                                </map>
                             </div>
                         </li>
                     </ol>

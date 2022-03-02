@@ -49,11 +49,13 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvas"
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-body">
+            <button type="button" class="btn-close text-reset float-end" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
             <img src="Images/Bluefruit.jpg" alt="Bluefruit Board" style="width: 240px" usemap="#BluefruitComponents"
                 class="map">
             <map name="BluefruitComponents">
                 <!--Inputs-->
-                <area id="rstBtn" shape="rect" coords="112,104,130,125" href="#" title="Rest Button">
+                <area id="rstBtn" shape="rect" coords="112,104,130,125" href="#" title="Reset Button">
                 <area id="switch" shape="rect" coords="105,155,136,172" href="#" title="Switch">
                 <area id="tempSensor" shape="rect" coords="144,62,164,87" href="#" title="Temperature Sensor">
                 <area id="micSensor" shape="rect" coords="165,135,183,149" href="#" title="Microphone">
@@ -350,8 +352,7 @@
                                 </button>
                                 <ol class="alpha">
                                     <li>If button A is pushed, set all the NeoPixels on that side of the board to red
-                                        and
-                                        the other side to blue. If button B is pushed, set the the NeoPixels on that
+                                        and the other side to blue. If button B is pushed, set the the NeoPixels on that
                                         side of the board to red and the other side to blue. If neither button is
                                         pushed, turn off the NeoPixels.</li>
                                     <li>Have the NeoPixels flash red, white, and blue for ½ second each.</li>
@@ -364,18 +365,18 @@
                                 right and B should turn the turtle left. Also, if the switch is on, the turtle should
                                 move forward. If the switch is off, the turtle shouldn't move.
                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#turtleButtonModal">
-                                Starter Code
-                            </button>
+                                    data-bs-target="#turtleButtonModal">
+                                    Starter Code
+                                </button>
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 Use the accelerometer and the NeoPixels to indicate which way the board is tilted.
                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#accelPixelModal">
-                                Starter Code
-                            </button>
+                                    data-bs-target="#accelPixelModal">
+                                    Starter Code
+                                </button>
                             </div>
                         </li>
                     </ol>
@@ -389,23 +390,22 @@
                                     target="_blank">Frequency Chart
                                 </a>. Note: You probably want to work in Octaves 4 or 5
                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#songModal">
-                                Starter Code
-                            </button>
+                                    data-bs-target="#songModal">
+                                    Starter Code
+                                </button>
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 Display three different images on your LCD. Each image should display for three seconds
-                                before going to the next image. Look at the TFT Gizmo Display step 3 code <a
-                                    href="Understanding_your_board.html">here</a> for some starter code. You can choose
-                                your own images (though you'll need to scale them to 240x240 pixels and save them as
-                                bitmaps. You can do this with the paint program.) or you can use the three images
-                                provided in the Circuit Playground Lab Files folder.
+                                before going to the next image. You can choose your own images (though you'll need to
+                                scale them to 240x240 pixels and save them as bitmaps. You can do this with the paint
+                                program.) or you can use the three images provided in the Circuit Playground Lab Files
+                                folder.
                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#bitmapModal">
-                                Starter Code
-                            </button>
+                                    data-bs-target="#bitmapModal">
+                                    Starter Code
+                                </button>
                             </div>
                         </li>
                     </ol>
