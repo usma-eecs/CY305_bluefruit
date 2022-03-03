@@ -3,7 +3,7 @@ from adafruit_gizmo import tft_gizmo
 display = tft_gizmo.TFT_Gizmo()
 
 # Setup the file as the bitmap data source
-bitmap = displayio.OnDiskBitmap("/EECS.bmp")
+bitmap = displayio.OnDiskBitmap("/EECS_Color.bmp")
 
 # Create a TileGrid to hold the bitmap
 # Notice that you're using the variable bitmap in here twice!
