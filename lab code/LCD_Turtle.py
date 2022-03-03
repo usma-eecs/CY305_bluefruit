@@ -1,5 +1,5 @@
 #Turtle Gizmo Square
-#==| Turtle Gizmo Setup start |========================================
+#==| Turtle Gizmo Setup start |===
 import board
 import busio
 import displayio
@@ -12,7 +12,7 @@ display = ST7789(display_bus, width=240, height=240, rowstart=80,
                  backlight_pin=board.A3, rotation=180)
 
 
-#==| Turtle Gizmo Setup end |=========================================
+#==| Turtle Gizmo Setup end |===
 # Create a turtle named tt. This is different from creating a turtle in Turtle Graphics!
 tt = turtle(display)
 
