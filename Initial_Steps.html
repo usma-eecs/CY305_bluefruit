@@ -97,7 +97,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>CY105 development kit printed circuit board (PCB)</td>
+                                <td>CY105 development kit Printed Circuit Board (PCB)</td>
                                 <td>
                                     <div class="text-center">
                                         Front:
@@ -217,15 +217,23 @@
                                 <div class="fw-bold">Solder the headers</div>
                                 <p>While holding the headers in place, flip the board over and solder all the connector
                                     pins. Note: It may be helpful to put the breadboard under the board to help hold it
-                                    in place while soldering. <span class="text-warning bg-dark">DO NOT solder on the
-                                    front of the board.</span> <a class="btn btn-sm btn-info" href="https://youtu.be/Qps9woUGkvI" target="_blank" role="button">Soldering Demo</a>
+                                    in place while soldering. <span class="text-info" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Soldering connects components (in this case the header) to your PCB. Each pad 
+                                        that you soldered the header pin to is connected by a trace to the Bluefruit's output pads.
+                                        Thus each of the holes on the front of the header, are connected to the corresponding output
+                                        of the Bluefruit.">What
+                                        is the point of soldering?</span> <span class="text-warning bg-dark">DO NOT
+                                        solder on the
+                                        front of the board.</span> <a class="btn btn-sm btn-info"
+                                        href="https://youtu.be/Qps9woUGkvI" target="_blank" role="button">Soldering
+                                        Demo</a>
                                 </p>
                                 <img src="Images/solderingGif.gif" class="img-fluid" alt="Headers"
-                                    style="width: 30%; max-height: 200px;">
+                                    style="width: 30vw; max-height: 200px;">
                                 <img src="Images/solderExample.jpg" class="img-fluid" alt="PCB Front"
-                                    style="width: 30%; max-height: 200px;">
+                                    style="width: 30vw; max-height: 200px;">
                                 <img src="Images/Solder_final.jpg" class="img-fluid" alt="PCB Back"
-                                    style="width: 30%; max-height: 200px;">
+                                    style="width: 30vw; max-height: 200px;">
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -233,6 +241,17 @@
                                 <div class="fw-bold">Attach the breadboard</div>
                                 <p>Flip the board back over to the side that says “front.” Peel off the cover on the
                                     back of the breadboard and attach it below the headers as shown in the image below.
+                                    <span class="text-info" data-bs-toggle="tooltip" data-bs-html="true"
+                                        data-bs-placement="right" title='Prototype boards (commonly called breadboards) are used for 
+                                        wiring circuits together without soldering. They allow you to rapidly reconfigure 
+                                        components so you can prototype circuit designs. 
+                                        If you took the breadboard apart, you would see that each column of holes is connected
+                                        by a metal strip. If you connect a wire to one of the holes, anything you plug into 
+                                        another hole in the same column would be connected to that wire. Note that the gap down the center of the board electrically 
+                                        divides the columns of holes in the top half of the board from those in bottom half.
+                                    <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring"
+                                        style="width: 200px">'>What
+                                        is a breadboard?</span>
                                 </p>
                                 <img src="Images/BreadboardAttach.jpg" class="img-fluid" alt="Attach Breadboard"
                                     style="width: 200px">
@@ -312,7 +331,7 @@
                                 All the LEDs around the outside should turn green and you should have a red and green
                                 LED on either side of your USB cable. You should also see CPLAYBOOT show up as a drive
                                 in your computer's <span data-bs-toggle="tooltip" data-bs-html="true"
-                                data-bs-placement="right" title='Press window key and E or click on the folder icon on your task bar.
+                                    data-bs-placement="right" title='Press window key and E or click on the folder icon on your task bar.
                                 <img src="Images/file_explorer.jpg" class="img-fluid" alt="File Explorer"
                                     style="width: 200px">' class="text-info">file explorer</span>.
                                 <p>
@@ -332,8 +351,8 @@
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 Open your downloaded folder and the “Circuit Playground Lab Files” folder inside it.
-                                <img src="Images/Initial Steps_Set Up Adafruit Board/Lab Files.jpg" class="img-fluid" alt="CPLAYBOOT"
-                                        style="max-height: 200px">
+                                <img src="Images/Initial Steps_Set Up Adafruit Board/Lab Files.jpg" class="img-fluid"
+                                    alt="CPLAYBOOT" style="max-height: 200px">
                                 <!--Add "uninstall winrar" -->
                             </div>
                         </li>
@@ -343,7 +362,7 @@
                                 the Circuit Playground Lab Files folder you just opened onto the CPLAYBOOT drive
                                 highlighted in step 3.
                                 <div><img src="Videos/Initial Steps_Set Up Adafruit Board/dragBootFile.gif"
-                                    class="img-fluid" alt="Folders" style="max-height: 400px"></div>
+                                        class="img-fluid" alt="Folders" style="max-height: 400px"></div>
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
