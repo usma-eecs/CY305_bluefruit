@@ -45,6 +45,27 @@
                         class="fa-solid fa-book"></i></span> Further Reading</a>
         </li>
     </ul>
+    <div class="modal" id="breadboardInitialModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">What is a Breadboard?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Prototype boards (commonly called breadboards) are used for
+                    wiring circuits together without soldering. They allow you to rapidly reconfigure
+                    components so you can prototype circuit designs.
+                    If you took the breadboard apart, you would see that each column of holes is connected
+                    by a metal strip. If you connect a wire to one of the holes, anything you plug into
+                    another hole in the same column would be connected to that wire. Note that the gap down the center
+                    of the board electrically
+                    divides the columns of holes in the top half of the board from those in bottom half.
+                    <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring" style="width: 200px">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="accordion" id="initialAccordian">
         <div class="accordion-item">
             <h2 class="accordion-header" id="inventoryHeading">
@@ -217,7 +238,7 @@
                                 <div class="fw-bold">Solder the headers</div>
                                 <p>While holding the headers in place, flip the board over and solder all the connector
                                     pins. Note: It may be helpful to put the breadboard under the board to help hold it
-                                    in place while soldering. <span class="text-info" data-bs-toggle="tooltip"
+                                    in place while soldering. <span class="info text-info" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="Soldering connects components (in this case the header) to your PCB. Each pad 
                                         that you soldered the header pin to is connected by a trace to the Bluefruit's output pads.
                                         Thus each of the holes on the front of the header, are connected to the corresponding output
@@ -241,20 +262,13 @@
                                 <div class="fw-bold">Attach the breadboard</div>
                                 <p>Flip the board back over to the side that says “front.” Peel off the cover on the
                                     back of the breadboard and attach it below the headers as shown in the image below.
-                                    <span class="text-info" data-bs-toggle="tooltip" data-bs-html="true"
-                                        data-bs-placement="right" title='Prototype boards (commonly called breadboards) are used for 
-                                        wiring circuits together without soldering. They allow you to rapidly reconfigure 
-                                        components so you can prototype circuit designs. 
-                                        If you took the breadboard apart, you would see that each column of holes is connected
-                                        by a metal strip. If you connect a wire to one of the holes, anything you plug into 
-                                        another hole in the same column would be connected to that wire. Note that the gap down the center of the board electrically 
-                                        divides the columns of holes in the top half of the board from those in bottom half.
-                                    <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring"
-                                        style="width: 200px">'>What
-                                        is a breadboard?</span>
+                                    <a href="#" class="text-info" data-bs-toggle="modal"
+                                        data-bs-target="#breadboardInitialModal">What
+                                        is a breadboard?</a>
                                 </p>
-                                <img src="Images/BreadboardAttach.jpg" class="img-fluid" alt="Attach Breadboard"
-                                    style="width: 200px">
+                                <img src="Images/BreadboardAttach.jpg" class="img-fluid border border-info border-4"
+                                    alt="Attach Breadboard" style="cursor: pointer; width: 200px" data-bs-toggle="modal"
+                                    data-bs-target="#breadboardInitialModal">
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -333,7 +347,7 @@
                                 in your computer's <span data-bs-toggle="tooltip" data-bs-html="true"
                                     data-bs-placement="right" title='Press window key and E or click on the folder icon on your task bar.
                                 <img src="Images/file_explorer.jpg" class="img-fluid" alt="File Explorer"
-                                    style="width: 200px">' class="text-info">file explorer</span>.
+                                    style="width: 200px">' class="info text-info">file explorer</span>.
                                 <p>
                                     <img src="Images/resetLights.jpg" class="img-fluid" alt="Reset Lights"
                                         style="width: 200px">
@@ -344,13 +358,19 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                Click <a href="Circuit Playground Lab Files.zip" download>here</a> to download the files
+                                Click <a href="downloads/Circuit Playground Lab Files.zip" download>here</a> to download
+                                the files
                                 you will need.
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                Open your downloaded folder and the “Circuit Playground Lab Files” folder inside it.
+                                Open your downloaded folder and the “Circuit Playground Lab Files” folder inside it. If
+                                you see the <span class="info text-info" data-bs-toggle="tooltip" data-bs-html="true"
+                                data-bs-placement="top" title='<img src="Images/Initial Steps_Set Up Adafruit Board/winrar.png" class="img-fluid" alt="winrar"
+                                style="width: 10px">'>WinRAR icon</span>, you will likely need to uninstall the program to access the
+                                files. See the steps in <a href="Troubleshooting.html">Troubleshooting</a>.
+                                <br>
                                 <img src="Images/Initial Steps_Set Up Adafruit Board/Lab Files.jpg" class="img-fluid"
                                     alt="CPLAYBOOT" style="max-height: 200px">
                                 <!--Add "uninstall winrar" -->

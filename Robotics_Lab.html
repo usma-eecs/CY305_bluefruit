@@ -46,6 +46,27 @@
                         class="fa-solid fa-book"></i></span> Further Reading</a>
         </li>
     </ul>
+    <div class="modal" id="breadboardRobotModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">What is a Breadboard?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Prototype boards (commonly called breadboards) are used for
+                    wiring circuits together without soldering. They allow you to rapidly reconfigure
+                    components so you can prototype circuit designs.
+                    If you took the breadboard apart, you would see that each column of holes is connected
+                    by a metal strip. If you connect a wire to one of the holes, anything you plug into
+                    another hole in the same column would be connected to that wire. Note that the gap down the center
+                    of the board electrically
+                    divides the columns of holes in the top half of the board from those in bottom half.
+                    <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring" style="width: 200px">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="accordion" id="robotAccordian">
         <div class="accordion-item">
             <h2 class="accordion-header" id="setupHeading">
@@ -110,11 +131,8 @@
                                     </tbody>
                                 </table>
                                 <img class="map img-fluid border border-info border-4" src="Images/Robot/wiring.jpg"
-                                    alt="Wiring" style="height: 200px" data-bs-toggle="tooltip" data-bs-html="true"
-                                    data-bs-placement="right" title='If you took the breadboard apart, you would see that each column of pins is connected
-                                        by a metal strip.
-                                    <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring"
-                                        style="width: 200px">' usemap="#wiringMap">
+                                    alt="Wiring" style="cursor: pointer; height: 200px" data-bs-toggle="modal"
+                                    data-bs-target="#breadboardRobotModal" usemap="#wiringMap" id="robotWiring">
                                 <map name="wiringMap">
                                     <area id="gndWire1" class="grounds" shape="poly"
                                         coords="94,39,100,39,100,48,80,63,63,71,58,65" href="#" title="Ground Wire"

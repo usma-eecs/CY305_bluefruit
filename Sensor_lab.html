@@ -46,7 +46,7 @@
                         class="fa-solid fa-book"></i></span> Further Reading</a>
         </li>
     </ul>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvas"
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvasSensor"
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-body">
             <button type="button" class="btn-close text-reset float-end" data-bs-dismiss="offcanvas"
@@ -105,21 +105,26 @@
                 <area id="USB" shape="rect" coords="105,5,139,31" href="#" title="USB Port">
                 <area id="CPU" shape="rect" coords="107,65,140,97" href="#" title="CPU">
             </map>
+            <div style="font-size: 10px;">(Mouse over links below to highlight the items on the image above)</div>
             <ol class="list-group list-group-numbered" style="font-size: 10px;">
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">Sensors/Inputs</div>
                         <ol class="alpha">
                             <div>
-                                <li><a href="#" id="rstBtnList">Reset Button</a></li>
-                                <li><a href="#" id="switchList">Switch</a></li>
-                                <li><a href="#" id="tempList">Temperature</a></li>
-                                <li><a href="#" id="micList">Microphone</a></li>
-                                <li><a href="#" id="accelList">Accelerometer (measures acceleration in 3D)</a></li>
-                                <li><a href="#" id="lightList">Light</a></li>
-                                <li><a href="#" id="btnAList">Button A</a></li>
-                                <li><a href="#" id="btnBList">Button B</a></li>
-                                <li><a href="#" id="capList">Capacitive touch sensors (A1-A6 and TX)</a></li>
+                                <li><span class="info text-info" id="rstBtnList">Reset Button</span></li>
+                                <li><span class="info text-info" id="switchList">Switch</span></li>
+                                <li><span class="info text-info" id="tempList">Temperature</span></li>
+                                <li><span class="info text-info" id="micList">Microphone</span></li>
+                                <li><span class="info text-info" id="accelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        title="(measures acceleration in 3D)">Accelerometer</span></li>
+                                <li><span class="info text-info" id="lightList">Light</span></li>
+                                <li><span class="info text-info" id="btnAList">Button A</span></li>
+                                <li><span class="info text-info" id="btnBList">Button B</span></li>
+                                <li><span class="info text-info" id="capList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Pads A1-A6 and TX">Capacitive touch
+                                        sensors</span></li>
                             </div>
                         </ol>
                     </div>
@@ -129,10 +134,12 @@
                         <div class="fw-bold">Outputs</div>
                         <ol class="alpha">
                             <div>
-                                <li><a href="#" id="speakerList">Speaker</a></li>
-                                <li><a href="#" id="redLEDList">Red LED (right of the USB)</a></li>
-                                <li><a href="#" id="pixelList">NeoPixels 0 to 10 (counterclockwise from the top left
-                                        NeoPixel)</a></li>
+                                <li><span class="info text-info" id="speakerList">Speaker</span></li>
+                                <li><span class="info text-info" id="redLEDList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Right of the USB">Red LED</span></li>
+                                <li><span class="info text-info" id="pixelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Counterclockwise from the top left
+                                NeoPixel">NeoPixels 0 to 10</span></li>
                             </div>
                         </ol>
                     </div>
@@ -142,9 +149,10 @@
                         <div class="fw-bold">Other</div>
                         <ol class="alpha">
                             <div>
-                                <li><a href="#" id="greenLEDList">Power Indicator (left of the USB)</a></li>
-                                <li><a href="#" id="USBList">USB Port</a></li>
-                                <li><a href="#" id="CPUList">CPU</a></li>
+                                <li><span class="info text-info" id="greenLEDList">Power Indicator (left of the
+                                        USB)</span></li>
+                                <li><span class="info text-info" id="USBList">USB Port</span></li>
+                                <li><span class="info text-info" id="CPUList">CPU</span></li>
                             </div>
                         </ol>
                     </div>
@@ -282,7 +290,7 @@
                     <p>Your display should show the minimum, maximum and current temperature like the image below if the
                         switch is to the right. If the switch is to the left, the NeoPixels should light up based on the
                         temperature. <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                            data-bs-target="#BluefruitOffcanvasSensor" aria-controls="BluefruitOffcanvasSensor">
                             Bluefruit Board
                         </button></p>
                     <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info" alt="Bluefruit Board"

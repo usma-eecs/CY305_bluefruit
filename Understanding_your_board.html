@@ -111,15 +111,17 @@
                         <div class="fw-bold">Sensors/Inputs</div>
                         <ol class="alpha">
                             <div>
-                                <li><a href="#" id="rstBtnList">Reset Button</a></li>
-                                <li><a href="#" id="switchList">Switch</a></li>
-                                <li><a href="#" id="tempList">Temperature</a></li>
-                                <li><a href="#" id="micList">Microphone</a></li>
-                                <li><a href="#" id="accelList">Accelerometer (measures acceleration in 3D)</a></li>
-                                <li><a href="#" id="lightList">Light</a></li>
-                                <li><a href="#" id="btnAList">Button A</a></li>
-                                <li><a href="#" id="btnBList">Button B</a></li>
-                                <li><a href="#" id="capList">Capacitive touch sensors (A1-A6 and TX)</a></li>
+                                <li><span class="info text-info" id="rstBtnList">Reset Button</span></li>
+                                <li><span class="info text-info" id="switchList">Switch</span></li>
+                                <li><span class="info text-info" id="tempList">Temperature</span></li>
+                                <li><span class="info text-info" id="micList">Microphone</span></li>
+                                <li><span class="info text-info" id="accelList" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="(measures acceleration in 3D)">Accelerometer</span></li>
+                                <li><span class="info text-info" id="lightList">Light</span></li>
+                                <li><span class="info text-info" id="btnAList">Button A</span></li>
+                                <li><span class="info text-info" id="btnBList">Button B</span></li>
+                                <li><span class="info text-info" id="capList" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Pads A1-A6 and TX">Capacitive touch sensors</span></li>
                             </div>
                         </ol>
                     </div>
@@ -129,10 +131,12 @@
                         <div class="fw-bold">Outputs</div>
                         <ol class="alpha">
                             <div>
-                                <li><a href="#" id="speakerList">Speaker</a></li>
-                                <li><a href="#" id="redLEDList">Red LED (right of the USB)</a></li>
-                                <li><a href="#" id="pixelList">NeoPixels 0 to 10 (counterclockwise from the top left
-                                        NeoPixel)</a></li>
+                                <li><span class="info text-info" id="speakerList">Speaker</span></li>
+                                <li><span class="info text-info" id="redLEDList" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Right of the USB">Red LED</span></li>
+                                <li><span class="info text-info" id="pixelList" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Counterclockwise from the top left
+                                    NeoPixel">NeoPixels 0 to 10</span></li>
                             </div>
                         </ol>
                     </div>
@@ -142,9 +146,9 @@
                         <div class="fw-bold">Other</div>
                         <ol class="alpha">
                             <div>
-                                <li><a href="#" id="greenLEDList">Power Indicator (left of the USB)</a></li>
-                                <li><a href="#" id="USBList">USB Port</a></li>
-                                <li><a href="#" id="CPUList">CPU</a></li>
+                                <li><span class="info text-info"id="greenLEDList">Power Indicator (left of the USB)</span></li>
+                                <li><span class="info text-info" id="USBList">USB Port</span></li>
+                                <li><span class="info text-info" id="CPUList">CPU</span></li>
                             </div>
                         </ol>
                     </div>
@@ -180,7 +184,7 @@
                     <ol class="list-group list-group-numbered">
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                <span data-bs-toggle="tooltip"
                                     data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
                                     <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
                                         data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
