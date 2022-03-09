@@ -35,4 +35,5 @@ pre {
 }
 .info{
 	cursor: help;
+	text-decoration: underline;
 }
