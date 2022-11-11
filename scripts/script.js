@@ -52,7 +52,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 });
 
 // Update this if you add new code blocks to the webpages
-const code_blocks = ["Accelerometer","Buttons","Capacitive_Touch","LCD_Bitmap","LCD_Text_and_Background","LCD_Turtle","Light_Sensor","Microphone","NeoPixels","Servo","Speaker","Switch_and_red_LED","Temperature","Lab_Robot","Lab_Temp_Sensor"]
+const code_blocks = ["Accelerometer","Buttons","Capacitive_Touch","Morse_Code_Starter","Nightlight_starter","LCD_Bitmap","LCD_Text_and_Background","LCD_Turtle","Light_Sensor","Microphone","NeoPixels","Servo","Speaker","Switch_and_red_LED","Temperature","Lab_Robot","Lab_Temp_Sensor"]
 
 $(function () {
     //Highlights components of Bluefruit board in pop-out window
@@ -154,7 +154,9 @@ $(function () {
 
     //Loads the .py file code and places it in the correct location finding the <pre><code> tags by id
     for (let code of code_blocks) {
+        console.log(code)
         $.get("https://raw.githubusercontent.com/usma-eecs/CY105_Lab/main/lab%20code/"+code+".py", function(data, status){
+            
             const collection = document.getElementsByClassName(code+"_code" );
             for (let elem of collection) {
                 elem.innerHTML = data;
