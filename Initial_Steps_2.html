@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CY105 Bluefruit Lab</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="scripts/map_highlight/jquery.maphilight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/foundation.min.css">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.jpg">
+</head>
+
+<body>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvas"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-body">
+            <button type="button" class="btn-close text-reset float-end" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            <img src="Images/Bluefruit.jpg" alt="Bluefruit Board" style="width: 240px" usemap="#BluefruitComponents"
+                class="map">
+            <map name="BluefruitComponents">
+                <!--Inputs-->
+                <area id="rstBtn" shape="rect" coords="112,104,130,125" href="#" title="Reset Button">
+                <area id="switch" shape="rect" coords="105,155,136,172" href="#" title="Switch">
+                <area id="tempSensor" shape="rect" coords="144,62,164,87" href="#" title="Temperature Sensor">
+                <area id="micSensor" shape="rect" coords="165,135,183,149" href="#" title="Microphone">
+                <area id="accelSensor" shape="rect" coords="140,137,157,169" href="#" title="Accelerometer">
+                <area id="lightSensor" shape="rect" coords="85,67,104,95" href="#" title="Light Sensor">
+                <area id="btnA" shape="rect" coords="62,103,88,131" href="#" title="Button A">
+                <area id="btnB" shape="rect" coords="152,103,181,131" href="#" title="Button B">
+                <area class="capTouch" id="A1" shape="circle" coords="222,158,14" title="A1"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A2" shape="circle" coords="222,85,14" title="A2"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A3" shape="circle" coords="203,53,14" title="A3"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A4" shape="circle" coords="39,54,14" title="A4"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A5" shape="circle" coords="22,85,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A6" shape="circle" coords="22,158,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="TX" shape="circle" coords="41,191,14" title="TX"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <!--Outputs-->
+                <area id="speaker" shape="rect" coords="66,134,101,168" href="#" title="Speaker">
+                <area id="redLED" shape="rect" coords="148,15,152,25" href="#" title="Red LED">
+                <area class="neoPixels" id="NP0" shape="circle" coords="81,53,12" title="NeoPixel-0"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP1" shape="circle" coords="53,83,12" title="NeoPixel-1"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP2" shape="circle" coords="42,122,12" title="NeoPixel-2"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP3" shape="circle" coords="53,163,12" title="NeoPixel-3"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP4" shape="circle" coords="84,192,12" title="NeoPixel-4"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP5" shape="circle" coords="161,190,12" title="NeoPixel-5"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP6" shape="circle" coords="191,160,12" title="NeoPixel-6"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP7" shape="circle" coords="201,123,12" title="NeoPixel-7"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP8" shape="circle" coords="191,85,12" title="NeoPixel-8"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP9" shape="circle" coords="161,54,12" title="NeoPixel-9"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <!--Other-->
+                <area id="greenLED" shape="rect" coords="90,14,95,25" href="#" title="Power Indicator LED">
+                <area id="USB" shape="rect" coords="105,5,139,31" href="#" title="USB Port">
+                <area id="CPU" shape="rect" coords="107,65,140,97" href="#" title="CPU">
+            </map>
+            <div style="font-size: 10px;">(Mouse over links below to highlight the items on the image above)</div>
+            <ol class="list-group list-group-numbered" style="font-size: 10px;">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Sensors/Inputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="rstBtnList">Reset Button</span></li>
+                                <li><span class="info text-info" id="switchList">Switch</span></li>
+                                <li><span class="info text-info" id="tempList">Temperature</span></li>
+                                <li><span class="info text-info" id="micList">Microphone</span></li>
+                                <li><span class="info text-info" id="accelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        title="(measures acceleration in 3D)">Accelerometer</span></li>
+                                <li><span class="info text-info" id="lightList">Light</span></li>
+                                <li><span class="info text-info" id="btnAList">Button A</span></li>
+                                <li><span class="info text-info" id="btnBList">Button B</span></li>
+                                <li><span class="info text-info" id="capList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Pads A1-A6 and TX">Capacitive touch
+                                        sensors</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Outputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="speakerList">Speaker</span></li>
+                                <li><span class="info text-info" id="redLEDList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Right of the USB">Red LED</span></li>
+                                <li><span class="info text-info" id="pixelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Counterclockwise from the top left
+                                NeoPixel">NeoPixels 0 to 10</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Other</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="greenLEDList">Power Indicator (left of the
+                                        USB)</span></li>
+                                <li><span class="info text-info" id="USBList">USB Port</span></li>
+                                <li><span class="info text-info" id="CPUList">CPU</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="modal" id="bitmapModal" tabindex="-1">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dragging your Bitmap</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="Videos/Understanding/load_Bitmap.gif" class="img-fluid border border-info"
+                        alt="Dragging Bitmap">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="breadboardInitialModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">What is a Breadboard?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Prototype boards (commonly called breadboards) are used for
+                    wiring circuits together without soldering. They allow you to rapidly reconfigure
+                    components so you can prototype circuit designs.
+                    If you took the breadboard apart, you would see that each column of holes is connected
+                    by a metal strip. If you connect a wire to one of the holes, anything you plug into
+                    another hole in the same column would be connected to that wire. Note that the gap down the
+                    center
+                    of the board electrically
+                    divides the columns of holes in the top half of the board from those in bottom half.
+                    <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring" style="width: 200px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <a class="anchor-link" id="initialTop" aria-label="Link to this section: Top"></a>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-terminal"></i></span> Initial Steps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Understanding_your_board.html"><span
+                            style="font-size: 1em; color:blue;"><i class="fa-solid fa-microchip"></i></span>
+                        Understanding your board</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Sensor_lab.html"><span style="font-size: 1em; color: blue;"><i
+                                class="fa-solid fa-temperature-three-quarters"></i></span> Sensors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Robotics_Lab.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-robot"></i></span> Robotics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
+                                class="fa-solid fa-bug"></i></span> Troubleshooting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
+                                class="fa-solid fa-book"></i></span> Further Reading</a>
+                </li>
+            </ul>
+        </div>
+        <div id="mainUnderstanding" class="row">
+            <div class="col-sm-2">
+                <nav class="nav flex-column sticky-top">
+                    <a class="nav-link" href="#initialTop">Top</a>
+                    <a class="nav-link" href="#Inventory">Inventory</a>
+                    <a class="nav-link" href="#Assembly">Assembly</a>
+                    <a class="nav-link" href="#boardSetup">Setup</a>
+                    <a class="nav-link" href="#usingMu">Using Mu</a>
+                </nav>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <h2 class="text-bg-primary p-2">Inventory <a class="anchor-link" id="Inventory"
+                            aria-label="Link to this section: Inventory"></a></h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Circuit Playground Bluefruit</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Bluefruit.jpg" class="img-fluid" alt="Bluefruit Board"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Circuit Playground TFT Gizmo with 12 screws</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/TFT Gizmo.png" class="img-fluid" alt="TFT Gizmo"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>USB A to USB Micro Cable</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/USB.jpg" class="img-fluid" alt="USB Cable"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>CY105 development kit Printed Circuit Board (PCB)</td>
+                                <td>
+                                    <div class="text-center">
+                                        Front:
+                                        <img src="Images/Initial Steps/Board_Front.jpg" class="img-fluid"
+                                            alt="PCB Front" style="height: 200px">
+                                        Back:
+                                        <img src="Images/Initial Steps/Board_Back.jpg" class="img-fluid" alt="PCB Back"
+                                            style="height: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Breadboard</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Breadboard.jpg" class="img-fluid"
+                                            alt="Breadboard" style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Acrylic stand and mounting hardware</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Stand.jpeg" class="img-fluid" alt="Stand"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>12 pin female header</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Headers.jpg" class="img-fluid" alt="Header"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Jumper Wires</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Jumper_wires.png" class="img-fluid"
+                                            alt="Jumper Wires" style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Servo</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Servo.jpg" class="img-fluid" alt="Servo"
+                                            style="height: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    <p>Servo Horn(s)</p>
+                                    <p class="text-muted">(Provided by your instructor)</p>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Servo_horn.jpg" class="img-fluid"
+                                            alt="Servo Horns" style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    Double Headers (these are probably attached to the servo)
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Doublesided_headers.jpg" class="img-fluid"
+                                            alt="Doublesided headers" style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <h2 class="text-bg-primary p-2">Assembly <a class="anchor-link" id="Assembly"
+                            aria-label="Link to this section: Assembly"></a></h2>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Headers</div>
+                                <p>Insert the headers (image below) through the small holes on the front of the
+                                    PCB.
+                                    Make sure the connector is flush with the surface of the PCB.</p>
+                                <div>
+                                    <img src="Images/Initial Steps/Headers.jpg" class="img-fluid" alt="Headers"
+                                        style="height: 100px">
+                                    <img src="Images/Initial Steps/Board_Front.jpg" class="img-fluid" alt="PCB Front"
+                                        style="height: 100px">
+                                    <img src="Images/Initial Steps/Board_Back.jpg" class="img-fluid" alt="PCB Back"
+                                        style="height: 100px">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Solder the headers</div>
+                                <p>While holding the headers in place, flip the board over and solder all the
+                                    connector
+                                    pins. Note: It may be helpful to put the breadboard under the PCB to help
+                                    hold
+                                    it
+                                    in place while soldering. <span class="info text-info" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Soldering connects components (in this case the header) to your PCB. Each pad 
+                                that you soldered the header pin to is connected by a trace to the Bluefruit's output pads.
+                                Thus each of the holes on the front of the header, are connected to the corresponding output
+                                of the Bluefruit.">What
+                                        is the point of soldering?</span> <span class="text-warning bg-dark">DO
+                                        NOT
+                                        solder on the
+                                        front of the board.</span> <a class="btn btn-sm btn-info"
+                                        href="https://youtu.be/Qps9woUGkvI" target="_blank" role="button">Soldering
+                                        Demo</a>
+                                </p>
+                                <img src="Images/Initial Steps/solderingGif.gif" class="img-fluid" alt="Headers"
+                                    style="width: 30vw; max-height: 200px;">
+                                <img src="Images/Initial Steps/solderExample.jpg" class="img-fluid" alt="PCB Front"
+                                    style="width: 30vw; max-height: 200px;">
+                                <img src="Images/Initial Steps/Solder_final.jpg" class="img-fluid" alt="PCB Back"
+                                    style="width: 30vw; max-height: 200px;">
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Attach the breadboard</div>
+                                <p>Flip the board back over to the side that says “front.” Peel off the cover on
+                                    the
+                                    back of the breadboard and attach it below the headers as shown in the image
+                                    below. <span class="text-warning bg-dark">Attach it as close as possible to
+                                        the
+                                        headers to leave room for the stand's screws!</span>
+                                    <a href="#" class="text-info" data-bs-toggle="modal"
+                                        data-bs-target="#breadboardInitialModal">What
+                                        is a breadboard?</a>
+                                </p>
+                                <img src="Images/Initial Steps/BreadboardAttach.jpg"
+                                    class="img-fluid border border-info border-4" alt="Attach Breadboard"
+                                    style="cursor: pointer; width: 200px" data-bs-toggle="modal"
+                                    data-bs-target="#breadboardInitialModal">
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Bolt the Bluefruit and the display</div>
+                                <p>
+                                    Attach the display (TFT Gizmo) to the front (image bottom/left) and the
+                                    Bluefruit to
+                                    the back (image bottom/right) of the circuit board using the 12 provided
+                                    screws.
+                                    Start each of the screws in the order highlighted below (image middle/left).
+                                    Once
+                                    they are all started, then tighten them down so that standoffs are flush
+                                    with
+                                    the
+                                    front of the board (image middle/right). Note: The TFT Gizmo label on the
+                                    display
+                                    and the USB connector on the Bluefruit should be aligned towards the top of
+                                    the
+                                    board.
+                                    <span class="text-warning bg-dark">You'll have to remove the orange screw
+                                        covers
+                                        on
+                                        the display's standoffs. </span>
+                                    <span class="text-white bg-danger">Be gentle when using the screws to attach
+                                        the
+                                        display. It is fragile!</span>
+                                </p>
+                                <img src="Images/Initial Steps/bolt_Order.jpg" class="img-fluid" alt="Bolt order"
+                                    style="max-width: 200px;">
+                                <img src="Images/Initial Steps/standoffs.jpg" class="img-fluid" alt="Standoffs"
+                                    style="max-width: 200px;">
+                                <p>Once complete, it should look like this:</p>
+                                <img src="Images/Initial Steps/Display_bolt.jpg" class="img-fluid"
+                                    alt="Front Bolt Display" style="height: 30vh; max-width: 200px;">
+                                <img src="Images/Initial Steps/Display_bolt_back.jpg" class="img-fluid"
+                                    alt="Back Bolt Display" style="height: 30vh; max-width: 200px;">
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Instructor Check</div>
+                                <p class="text-white bg-danger">Verify with your instructor that you have
+                                    correctly
+                                    assembled the kit!</p>
+                                <span style="font-size: 18em; color: red;">
+                                    <i class="fa-solid fa-hand"></i>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Stand</div>
+                                <p>Attach the circuit board to the acrylic stand.</p>
+                                <img src="Images/Initial Steps/standFront.JPEG" class="img-fluid" alt="Front Stand"
+                                    style="width: 200px">
+                                <img src="Images/Initial Steps/standBack.JPEG" class="img-fluid" alt="Back Stand"
+                                    style="width: 200px">
+                            </div>
+                        </li>
+
+                    </ol>
+                </div>
+                <div class="row">
+                    <h2 class="text-bg-primary p-2">Setup your Adafruit board<a class="anchor-link" id="boardSetup"
+                            aria-label="Link to this section: Setup your Adafruit board"></a></h2>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Using the USB cable, plug your board into your computer
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Rapidly push the “reset” button in the middle of your board two times:
+                                <p><img src="Images/Initial Steps/ResetButton.png" class="img-fluid" alt="Reset Button"
+                                        style="width: 200px"></p>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                All the LEDs around the outside should turn green and you should have a red
+                                and green LED on either side of your USB cable. You should also see CPLAYBOOT show up
+                                as a drive
+                                in your computer's <span data-bs-toggle="tooltip" data-bs-html="true"
+                                    data-bs-placement="right" title='Press window key and E or click on the folder icon on your task bar.
+                        <img src="Images/Initial Steps/file_explorer.jpg" class="img-fluid" alt="File Explorer"
+                            style="width: 200px">' class="info text-info">file explorer</span>.
+                                <p>
+                                    <img src="Images/Initial Steps/resetLights.jpg" class="img-fluid" alt="Reset Lights"
+                                        style="width: 200px">
+                                    <img src="Images/Initial Steps/CPLAYBOOT.png" class="img-fluid" alt="CPLAYBOOT"
+                                        style="width: 200px">
+                                </p>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Click <a href="downloads/Circuit Playground Lab Files.zip" download>here</a>
+                                to
+                                download
+                                the files
+                                you will need.
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Open your downloaded folder and the “Circuit Playground Lab Files” folder
+                                inside
+                                it.
+                                If
+                                you see the <span class="info text-info" data-bs-toggle="tooltip" data-bs-html="true"
+                                    data-bs-placement="top" title='<img src="Images/Initial Steps/winrar.png" class="img-fluid" alt="winrar"
+                        style="width: 10px">'>WinRAR icon</span>, you will likely need to uninstall the program
+                                to access the
+                                files. See the steps in <a href="Troubleshooting.html">Troubleshooting</a>.
+                                <br>
+                                <img src="Images/Initial Steps/Lab Files.jpg" class="img-fluid" alt="CPLAYBOOT"
+                                    style="max-height: 200px">
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Drag the file named
+                                adafruit-circuitpython-circuitplayground_bluefruit-en_US-#.#.#
+                                from
+                                the Circuit Playground Lab Files folder you just opened onto your CPLAYBOOT
+                                drive
+                                highlighted in step 3.
+                                <div><img src="Videos/Initial Steps/dragBootFile.gif" class="img-fluid" alt="Folders"
+                                        style="max-height: 400px"></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                After a few seconds, the outer ring of LEDs should start flashing green and
+                                the
+                                drive
+                                name should change to CIRCUITPY. When you click on that drive, you should
+                                see
+                                the
+                                files
+                                and folders below.
+                                <div><img src="Images/Initial Steps/CIRCUITPY.jpg" class="img-fluid" alt="Folders"
+                                        style="max-height: 200px"></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                If you closed it, open the "Circuit Playground Lab Files" folder you
+                                downloaded.
+                                Then
+                                open the "lib files" folder.
+                                <p>Drag/copy all the documents (shown in the video below) from that folder
+                                    /into
+                                    the
+                                    "lib" folder in your
+                                    CIRCUITPY drive. <span class="text-warning bg-dark">Do not copy the “lib
+                                        files”
+                                        folder, just the items inside it!</span></p>
+                                <img src="Videos/Initial Steps/Copying Lib Files.gif" class="img-fluid" alt="Headers"
+                                    style="max-height: 400px;">
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="row">
+                    <h2 class="text-bg-primary p-2">Using Mu<a class="anchor-link" id="usingMu"
+                            aria-label="Link to this section: Using Mu"></a></h2>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <span data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Display Bluefruit's inputs and outputs.">
+                                    <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                        Click here
+                                    </button>
+                                </span>
+                                to view the Bluefruit's components. Mouse over the board or the list of components
+                                to
+                                highlight each part. You can view this any time by clicking the "Bluefruit Board"
+                                button
+                                in the instructions below.
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                If you haven't done so already, <a href="https://codewith.mu/en/download">download</a>
+                                and install Mu Editor. Select "CircuitPython" for the "mode".
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Open the Mu Editor.
+                                <div><img src="Images/Initial Steps/openMu.jpg" class="img-fluid border border-info"
+                                        alt="Opening Mu" style="max-height: 100px">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                In the Mu editor, turn on the Serial display and the Plotter.
+                                <div>
+                                    <img src="Images/Understanding/Serial_Plotter.png"
+                                        class="img-fluid border border-info" alt="Bluefruit Board"
+                                        style="max-height: 100px">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start"
+                            id="learning_step3">
+                            <div class="ms-2 me-auto">
+                                If you don't see a tab in the Mu editor named "code.py", click "Load" and navigate
+                                to
+                                your CIRCUITPY drive and open the “code” file.
+                                <div>
+                                    <img src="Videos/Understanding/Load_Code.gif" id="loadCodeGif"
+                                        class="img-fluid border border-info" alt="Bluefruit Board"
+                                        style="max-height: 400px;">
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/highlight.min.js"></script>
+
+</body>
+
+</html>

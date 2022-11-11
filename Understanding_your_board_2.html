@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CY105 Bluefruit Lab</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="scripts/map_highlight/jquery.maphilight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/foundation.min.css">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.jpg">
+</head>
+
+<body>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvas"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-body">
+            <button type="button" class="btn-close text-reset float-end" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            <img src="Images/Bluefruit.jpg" alt="Bluefruit Board" style="width: 240px" usemap="#BluefruitComponents"
+                class="map">
+            <map name="BluefruitComponents">
+                <!--Inputs-->
+                <area id="rstBtn" shape="rect" coords="112,104,130,125" href="#" title="Reset Button">
+                <area id="switch" shape="rect" coords="105,155,136,172" href="#" title="Switch">
+                <area id="tempSensor" shape="rect" coords="144,62,164,87" href="#" title="Temperature Sensor">
+                <area id="micSensor" shape="rect" coords="165,135,183,149" href="#" title="Microphone">
+                <area id="accelSensor" shape="rect" coords="140,137,157,169" href="#" title="Accelerometer">
+                <area id="lightSensor" shape="rect" coords="85,67,104,95" href="#" title="Light Sensor">
+                <area id="btnA" shape="rect" coords="62,103,88,131" href="#" title="Button A">
+                <area id="btnB" shape="rect" coords="152,103,181,131" href="#" title="Button B">
+                <area class="capTouch" id="A1" shape="circle" coords="222,158,14" title="A1"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A2" shape="circle" coords="222,85,14" title="A2"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A3" shape="circle" coords="203,53,14" title="A3"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A4" shape="circle" coords="39,54,14" title="A4"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A5" shape="circle" coords="22,85,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A6" shape="circle" coords="22,158,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="TX" shape="circle" coords="41,191,14" title="TX"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <!--Outputs-->
+                <area id="speaker" shape="rect" coords="66,134,101,168" href="#" title="Speaker">
+                <area id="redLED" shape="rect" coords="148,15,152,25" href="#" title="Red LED">
+                <area class="neoPixels" id="NP0" shape="circle" coords="81,53,12" title="NeoPixel-0"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP1" shape="circle" coords="53,83,12" title="NeoPixel-1"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP2" shape="circle" coords="42,122,12" title="NeoPixel-2"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP3" shape="circle" coords="53,163,12" title="NeoPixel-3"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP4" shape="circle" coords="84,192,12" title="NeoPixel-4"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP5" shape="circle" coords="161,190,12" title="NeoPixel-5"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP6" shape="circle" coords="191,160,12" title="NeoPixel-6"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP7" shape="circle" coords="201,123,12" title="NeoPixel-7"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP8" shape="circle" coords="191,85,12" title="NeoPixel-8"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP9" shape="circle" coords="161,54,12" title="NeoPixel-9"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <!--Other-->
+                <area id="greenLED" shape="rect" coords="90,14,95,25" href="#" title="Power Indicator LED">
+                <area id="USB" shape="rect" coords="105,5,139,31" href="#" title="USB Port">
+                <area id="CPU" shape="rect" coords="107,65,140,97" href="#" title="CPU">
+            </map>
+            <div style="font-size: 10px;">(Mouse over links below to highlight the items on the image above)</div>
+            <ol class="list-group list-group-numbered" style="font-size: 10px;">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Sensors/Inputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="rstBtnList">Reset Button</span></li>
+                                <li><span class="info text-info" id="switchList">Switch</span></li>
+                                <li><span class="info text-info" id="tempList">Temperature</span></li>
+                                <li><span class="info text-info" id="micList">Microphone</span></li>
+                                <li><span class="info text-info" id="accelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        title="(measures acceleration in 3D)">Accelerometer</span></li>
+                                <li><span class="info text-info" id="lightList">Light</span></li>
+                                <li><span class="info text-info" id="btnAList">Button A</span></li>
+                                <li><span class="info text-info" id="btnBList">Button B</span></li>
+                                <li><span class="info text-info" id="capList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Pads A1-A6 and TX">Capacitive touch
+                                        sensors</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Outputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="speakerList">Speaker</span></li>
+                                <li><span class="info text-info" id="redLEDList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Right of the USB">Red LED</span></li>
+                                <li><span class="info text-info" id="pixelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Counterclockwise from the top left
+                                    NeoPixel">NeoPixels 0 to 10</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Other</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="greenLEDList">Power Indicator (left of the
+                                        USB)</span></li>
+                                <li><span class="info text-info" id="USBList">USB Port</span></li>
+                                <li><span class="info text-info" id="CPUList">CPU</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="modal" id="bitmapModal" tabindex="-1">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dragging your Bitmap</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="Videos/Understanding/load_Bitmap.gif" class="img-fluid border border-info"
+                        alt="Dragging Bitmap">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sensorTabModals">
+        <div class="modal modal-fullscreen-md-down" id="MorseCodeModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>NeoPixels</h6>
+                        <pre><code class="NeoPixels_code language-python"></code></pre>
+                        <h6>Speaker</h6>
+                        <pre><code class="Speaker_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="NightlightModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>NeoPixels</h6>
+                        <pre><code class="NeoPixels_code language-python"></code></pre>
+                        <h6>Light Sensor</h6>
+                        <pre><code class="Light_Sensor_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="switchButtonPixelModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>NeoPixels</h6>
+                        <pre><code class="NeoPixels_code language-python"></code></pre>
+                        <h6>Buttons</h6>
+                        <pre><code class="Buttons_code language-python"></code></pre>
+                        <h6>Switch</h6>
+                        <pre><code class="Switch_and_red_LED_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="turtleButtonModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Buttons</h6>
+                        <pre><code class="Buttons_code language-python"></code></pre>
+                        <h6>Turtles</h6>
+                        <pre><code class="LCD_Turtle_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="accelPixelModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Accelerometer</h6>
+                        <pre><code class="Accelerometer_code language-python"></code></pre>
+                        <h6>NeoPixels</h6>
+                        <pre><code class="NeoPixels_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="songModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Speaker</h6>
+                        <pre><code class="Speaker_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="bitmapModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Bitmap</h6>
+                        <pre><code class="LCD_Bitmap_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <a class="anchor-link" id="understandingTop" aria-label="Link to this section: Top"></a>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Initial_Steps.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-terminal"></i></span> Initial Steps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Sensor_lab.html"><span style="font-size: 1em; color: blue;"><i
+                                class="fa-solid fa-temperature-three-quarters"></i></span>Temperature Sensor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-microchip"></i></span> Exploring your board</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Robotics_Lab.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-robot"></i></span> Robotics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
+                                class="fa-solid fa-bug"></i></span> Troubleshooting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
+                                class="fa-solid fa-book"></i></span> Further Reading</a>
+                </li>
+            </ul>
+        </div>
+        <div id="mainExploring" class="row">
+            <div class="row">
+                <div class="col-sm-2">
+                    <nav class="nav flex-column sticky-top">
+                        <a class="nav-link" href="#understandingTop">Top</a>
+                        <a class="nav-link" href="#DiscoveringInputs">Inputs</a>
+                        <a class="nav-link" href="#DiscoveringOutputs">Outputs</a>
+                        <a class="nav-link" href="#TFTGizmoDisplay">Display</a>
+                        <a class="nav-link" href="#Explorations">Explorations</a>
+                    </nav>
+                </div>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <h2 class="text-bg-primary p-2">Discovering the board's Inputs <a class="anchor-link"
+                                id="DiscoveringInputs"
+                                aria-label="Link to this section: Discovering the board's Inputs"></a></h2>
+                        <h5 class="text-warning bg-dark">For each of the steps below, delete the code currently in the
+                            “code” file you opened in <a id="learning_step3">step 3 of the Learning to Use Your
+                                Board</a>
+                            section. Then copy and paste the code from the step you're on into the “code” file. Finally,
+                            click “Save” to watch the code run on your device.
+                        </h5>
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    The code below turns the red LED next to the USB cable on and off depending on the
+                                    switch's position.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="Switch_and_red_LED_code language-python"></code></pre>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    The code below displays “Pushed button A” or “Pushed button B” to the console in the
+                                    Mu
+                                    editor depending on which button you currently have pressed.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="Buttons_code language-python"></code></pre>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    The code below displays “Touched pad A#” to the console in Mu depending on which
+                                    capacitive sensor you are currently touching.Try touching the different pads and
+                                    make
+                                    sure you see both the messages.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="Capacitive_Touch_code language-python"></code></pre>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    The code below displays the light level detected by the light sensor. Cover the
+                                    light
+                                    sensor and watch the values change in the Mu serial window.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="Light_Sensor_code language-python"></code></pre>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    The code below displays the x, y, and z acceleration values in meters per second.
+                                    Explore tipping the board in different directions and see how the x, y, and z values
+                                    change in the console and the plotter windows.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="Accelerometer_code language-python"></code></pre>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    The code below detects the magnitude of sound picked up by the microphone. a.
+                                    Explore
+                                    making different sounds and watch the magnitude of the volume change in the console
+                                    and
+                                    the plotter windows.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="Microphone_code language-python"></code></pre>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    The code below detects the temperature in degrees Centigrade, converts it to degrees
+                                    Fahrenheit, and then displays and plots that value.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="Temperature_code language-python"></code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="row">
+                        <h2 class="text-bg-primary p-2">Discovering the board's outputs <a class="anchor-link"
+                                id="DiscoveringOutputs"
+                                aria-label="Link to this section: Discovering the board's outputs"></a></h2>
+                        <h5 class="text-warning bg-dark">For each of the steps below, delete the code currently in
+                            the
+                            “code” file you opened in <a id="learning_step3">step 3 of the Learning to Use Your
+                                Board</a>
+                            section. Then copy and paste the code from the step you're on into the “code” file.
+                            Finally,
+                            click “Save” to watch the code run on your device.
+                        </h5>
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    This code sets up and displays the 10 NeoPixels on your Bluefruit board.
+                                    Remember that
+                                    the
+                                    led[0] is the NeoPixel to the left of the USB port on your board and the
+                                    numbering goes
+                                    counterclockwise from there. Practice changing the NeoPixels' colors (any value
+                                    between
+                                    0 and 255).
+                                    Understand which NeoPixel corresponds to which led[#] in the code above.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="NeoPixels_code language-python"></code></pre>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    The code below plays a 440hz tone for 1 second using the built in speaker.
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                            data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                            Bluefruit Board
+                                        </button>
+                                    </span>
+                                    <pre><code class="Speaker_code language-python"></code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="row">
+                        <h2 class="text-bg-primary p-2">TFT Gizmo Display <a class="anchor-link" id="TFTGizmoDisplay"
+                                aria-label="Link to this section: TFT Gizmo Display"></a></h2>
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    This code creates a gray square within a black square and displays the text Go Army!
+                                    Beat Navy!
+                                    <br>
+                                    <a class="btn btn-info btn-sm"
+                                        href="https://learn.adafruit.com/circuitpython-display-support-using-displayio?view=all"
+                                        target="_blank" role="button">How does the display work?</a>
+                                    <pre><code class="LCD_Text_and_Background_code language-python"></code></pre>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    This code runs a modified version of turtle graphics on your device. There are some
+                                    differences between this and Turtle Graphics in Replit. <a
+                                        class="btn btn-info btn-sm"
+                                        href="https://learn.adafruit.com/turtle-graphics-gizmo/the-turtle-api"
+                                        target="_blank" role="button">Click here</a> for more
+                                    information.
+                                    <br>
+                                    <pre><code class="LCD_Turtle_code language-python"></code></pre>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto" id="bitmapExample">
+                                    <h5 class="text-warning bg-dark">Drag the EECS.bmp image from the Circuit
+                                        Playground Lab Files folder into the CIRCUITPY drive and then run the code
+                                        below.
+                                    </h5>
+
+                                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#bitmapModal">
+                                        Click here
+                                    </button> to see how to get the bitmap on the board.
+                                    This code display a bitmap (.bmp) file on your LCD. Note: the files can at most be
+                                    240x240 pixels.
+                                    <br>
+                                    <pre><code class="LCD_Bitmap_code language-python"></code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="row">
+                        <h2 class="text-bg-primary p-2">Sensor Explorations <a class="anchor-link"
+                            id="Explorations"
+                            aria-label="Link to this section: Sensor Explorations"></a></h2>
+                            Pick one of the following explorations.
+                            <p class="text-white bg-danger">Once complete, verify this with your instructor. This is part of
+                                your
+                                grade! </p>
+                            <div class="fw-bold">Easy Options</div>
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Transmit a message in Morse Code using the NeoPixels or Speaker. <a
+                                            class="btn btn-info btn-sm"
+                                            href="https://upload.wikimedia.org/wikipedia/commons/b/b5/International_Morse_Code.svg"
+                                            role="button" target="_blank">Morse Code Details
+                                        </a>
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#MorseCodeModal">
+                                            Starter Code
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Create a nightlight. If the light level gets below a certain level (recommend 30), turn
+                                        the NeoPixels on in whatever color you want. Once the light is above another level
+                                        (should be three or four levels greater than the turn on level), turn the NeoPixels off.
+                                        Make sure you have a delay of at least 1 second between each iteration.
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#NightlightModal">
+                                            Starter Code
+                                        </button>
+                                    </div>
+                                </li>
+                            </ol>
+                            <div class="fw-bold">Moderate Options</div>
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        If the switch is on, the code should do step a. If the switch is off, the code should do
+                                        step b.
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#switchButtonPixelModal">
+                                            Starter Code
+                                        </button>
+                                        <ol class="alpha">
+                                            <li>If button A is pushed, set all the NeoPixels on that side of the board to red
+                                                and the other side to blue. If button B is pushed, set the the NeoPixels on that
+                                                side of the board to red and the other side to blue. If neither button is
+                                                pushed, turn off the NeoPixels.</li>
+                                            <li>Have the NeoPixels flash red, white, and blue for ½ second each.</li>
+                                        </ol>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Using the A and B buttons steer your turtle around the screen. A should turn the turtle
+                                        right and B should turn the turtle left. Also, if the switch is on, the turtle should
+                                        move forward. If the switch is off, the turtle shouldn't move.
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#turtleButtonModal">
+                                            Starter Code
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Use the accelerometer and the NeoPixels to indicate which way the board is tilted.
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#accelPixelModal">
+                                            Starter Code
+                                        </button>
+                                    </div>
+                                </li>
+                            </ol>
+                            <div class="fw-bold">Hard Options</div>
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Play a short song using the built-in speaker and the notes to frequency information
+                                        here: <a class="btn btn-info btn-sm"
+                                            href="https://professionalcomposers.com/note-frequency-chart/" role="button"
+                                            target="_blank">Frequency Chart
+                                        </a>. Note: You probably want to work in Octaves 4 or 5
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#songModal">
+                                            Starter Code
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Display three different images on your LCD. Each image should display for three seconds
+                                        before going to the next image. You can choose your own images (though you'll need to
+                                        scale them to 240x240 pixels and save them as bitmaps. You can do this with the paint
+                                        program.) or you can use the three images provided in the Circuit Playground Lab Files
+                                        folder.
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#bitmapModal">
+                                            Starter Code
+                                        </button>
+                                    </div>
+                                </li>
+                            </ol>
+                            <p style="font-size: 18em; color: red;">
+                                <i class="fa-solid fa-hand"></i>
+                            </p>
+                            <p class="text-white bg-danger">Verify this with your instructor. This is part of your grade! </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        <script src="scripts/script.js"></script>
+        <script src="scripts/highlight.min.js"></script>
+
+</body>
+
+</html>
