@@ -13,7 +13,7 @@ from adafruit_gizmo import tft_gizmo
 display = tft_gizmo.TFT_Gizmo()
 
 #Assigns pin A1 as a PWM output (controls the servo)
-pwm = pwmio.PWMOut(board.A1, frequency=50)
+pwm = pwmio.PWMOut(board.A1, frequency=25)
 
 # Create a servo object named my_servo.
 my_servo = servo.ContinuousServo(pwm)
@@ -30,7 +30,7 @@ while True:
     text_group.append(text_area)
     splash.append(text_group)
     print("Counter clockwise")
-    my_servo.throttle = 0.5
+    my_servo.throttle = 1
     time.sleep(2.0)
     # Stops for 2 seconds
     splash = displayio.Group()
@@ -55,7 +55,7 @@ while True:
     text_group.append(text_area)
     splash.append(text_group)
     print("Clockwise")
-    my_servo.throttle = -0.5
+    my_servo.throttle = -1
     time.sleep(2.0)
     # Stops for 4 seconds
     splash = displayio.Group()

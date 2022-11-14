@@ -9,7 +9,7 @@ from adafruit_display_text import label
 from adafruit_gizmo import tft_gizmo
 
 #create a PWM object on pin A1
-pwm = pwmio.PWMOut(board.A1, frequency=50)
+pwm = pwmio.PWMOut(board.A1, frequency=25)
 
 # Create a servo object, my_servo.
 my_servo = servo.ContinuousServo(pwm)
@@ -67,11 +67,11 @@ while True:
     # set on line 36
     speed = (f_avg-min_temp_servo)/8
 
-    # Adjust the speed if it's out of the 0 to 0.5 range.
+    # Adjust the speed if it's out of the 0 to 1 range.
     if speed < 0:
         speed = 0 # stop the servo if the temperature is too low
-    elif speed > 0.5:
-        speed = 0.5 # max the servo speed if temperature is too high
+    elif speed > 1:
+        speed = 1 # max the servo speed if temperature is too high
 
 
     print((speed,)) #Display the speed to the Mu editor console and plotter
