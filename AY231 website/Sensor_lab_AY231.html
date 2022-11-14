@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CY105 Bluefruit Lab</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="scripts/map_highlight/jquery.maphilight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/foundation.min.css">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.jpg">
+</head>
+
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">Welcome</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Initial_Steps.html"><span style="font-size: 1em; color:blue;"><i
+                        class="fa-solid fa-terminal"></i></span> Initial Steps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="Understanding_your_board.html"><span
+                    style="font-size: 1em; color:blue;"><i class="fa-solid fa-microchip"></i></span> Understanding your
+                board</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#"><span style="font-size: 1em; color: blue;"><i
+                        class="fa-solid fa-temperature-three-quarters"></i></span> Sensors</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Robotics_Lab.html"><span style="font-size: 1em; color:blue;"><i
+                        class="fa-solid fa-robot"></i></span> Robotics</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
+                        class="fa-solid fa-bug"></i></span> Troubleshooting</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
+                        class="fa-solid fa-book"></i></span> Further Reading</a>
+        </li>
+    </ul>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvasSensor"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-body">
+            <button type="button" class="btn-close text-reset float-end" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            <img src="Images/Bluefruit.jpg" alt="Bluefruit Board" style="width: 240px" usemap="#BluefruitComponents"
+                class="map">
+            <map name="BluefruitComponents">
+                <!--Inputs-->
+                <area id="rstBtn" shape="rect" coords="112,104,130,125" href="#" title="Reset Button">
+                <area id="switch" shape="rect" coords="105,155,136,172" href="#" title="Switch">
+                <area id="tempSensor" shape="rect" coords="144,62,164,87" href="#" title="Temperature Sensor">
+                <area id="micSensor" shape="rect" coords="165,135,183,149" href="#" title="Microphone">
+                <area id="accelSensor" shape="rect" coords="140,137,157,169" href="#" title="Accelerometer">
+                <area id="lightSensor" shape="rect" coords="85,67,104,95" href="#" title="Light Sensor">
+                <area id="btnA" shape="rect" coords="62,103,88,131" href="#" title="Button A">
+                <area id="btnB" shape="rect" coords="152,103,181,131" href="#" title="Button B">
+                <area class="capTouch" id="A1" shape="circle" coords="222,158,14" title="A1"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A2" shape="circle" coords="222,85,14" title="A2"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A3" shape="circle" coords="203,53,14" title="A3"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A4" shape="circle" coords="39,54,14" title="A4"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A5" shape="circle" coords="22,85,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A6" shape="circle" coords="22,158,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="TX" shape="circle" coords="41,191,14" title="TX"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <!--Outputs-->
+                <area id="speaker" shape="rect" coords="66,134,101,168" href="#" title="Speaker">
+                <area id="redLED" shape="rect" coords="148,15,152,25" href="#" title="Red LED">
+                <area class="neoPixels" id="NP0" shape="circle" coords="81,53,12" title="NeoPixel-0"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP1" shape="circle" coords="53,83,12" title="NeoPixel-1"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP2" shape="circle" coords="42,122,12" title="NeoPixel-2"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP3" shape="circle" coords="53,163,12" title="NeoPixel-3"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP4" shape="circle" coords="84,192,12" title="NeoPixel-4"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP5" shape="circle" coords="161,190,12" title="NeoPixel-5"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP6" shape="circle" coords="191,160,12" title="NeoPixel-6"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP7" shape="circle" coords="201,123,12" title="NeoPixel-7"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP8" shape="circle" coords="191,85,12" title="NeoPixel-8"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP9" shape="circle" coords="161,54,12" title="NeoPixel-9"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <!--Other-->
+                <area id="greenLED" shape="rect" coords="90,14,95,25" href="#" title="Power Indicator LED">
+                <area id="USB" shape="rect" coords="105,5,139,31" href="#" title="USB Port">
+                <area id="CPU" shape="rect" coords="107,65,140,97" href="#" title="CPU">
+            </map>
+            <div style="font-size: 10px;">(Mouse over links below to highlight the items on the image above)</div>
+            <ol class="list-group list-group-numbered" style="font-size: 10px;">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Sensors/Inputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="rstBtnList">Reset Button</span></li>
+                                <li><span class="info text-info" id="switchList">Switch</span></li>
+                                <li><span class="info text-info" id="tempList">Temperature</span></li>
+                                <li><span class="info text-info" id="micList">Microphone</span></li>
+                                <li><span class="info text-info" id="accelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        title="(measures acceleration in 3D)">Accelerometer</span></li>
+                                <li><span class="info text-info" id="lightList">Light</span></li>
+                                <li><span class="info text-info" id="btnAList">Button A</span></li>
+                                <li><span class="info text-info" id="btnBList">Button B</span></li>
+                                <li><span class="info text-info" id="capList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Pads A1-A6 and TX">Capacitive touch
+                                        sensors</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Outputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="speakerList">Speaker</span></li>
+                                <li><span class="info text-info" id="redLEDList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Right of the USB">Red LED</span></li>
+                                <li><span class="info text-info" id="pixelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Counterclockwise from the top left
+                                NeoPixel">NeoPixels 0 to 10</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Other</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="greenLEDList">Power Indicator (left of the
+                                        USB)</span></li>
+                                <li><span class="info text-info" id="USBList">USB Port</span></li>
+                                <li><span class="info text-info" id="CPUList">CPU</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div id="sensorTabModals">
+        <div class="modal modal-fullscreen-md-down" id="MorseCodeModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>NeoPixels</h6>
+                        <pre><code class="NeoPixels_code language-python"></code></pre>
+                        <h6>Speaker</h6>
+                        <pre><code class="Speaker_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="NightlightModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>NeoPixels</h6>
+                        <pre><code class="NeoPixels_code language-python"></code></pre>
+                        <h6>Light Sensor</h6>
+                        <pre><code class="Light_Sensor_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="switchButtonPixelModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>NeoPixels</h6>
+                        <pre><code class="NeoPixels_code language-python"></code></pre>
+                        <h6>Buttons</h6>
+                        <pre><code class="Buttons_code language-python"></code></pre>
+                        <h6>Switch</h6>
+                        <pre><code class="Switch_and_red_LED_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="turtleButtonModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Buttons</h6>
+                        <pre><code class="Buttons_code language-python"></code></pre>
+                        <h6>Turtles</h6>
+                        <pre><code class="LCD_Turtle_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="accelPixelModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Accelerometer</h6>
+                        <pre><code class="Accelerometer_code language-python"></code></pre>
+                        <h6>NeoPixels</h6>
+                        <pre><code class="NeoPixels_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="songModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Speaker</h6>
+                        <pre><code class="Speaker_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-fullscreen-md-down" id="bitmapModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Starter Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Bitmap</h6>
+                        <pre><code class="LCD_Bitmap_code language-python"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion" id="sensorAccordian">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="tempLabHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#tempLabCollapse" aria-expanded="true" aria-controls="tempLabCollapse">
+                    Temperature Sensor
+                </button>
+            </h2>
+            <div id="tempLabCollapse" class="accordion-collapse collapse show" aria-labelledby="tempLabHeading"
+                data-bs-parent="#sensorAccordian">
+                <div class="accordion-body">
+                    Delete the code currently in the “code” file you opened in <a
+                        href="Understanding_your_board.html#learningHeading">step 4 of the Learning to Use Your Board
+                        section</a>. Copy and paste the code below into the “code” file and then click “Save”.
+                    <pre><code class="Lab_Temp_Sensor_code language-python"></code></pre>
+                    <p>Your display should show the minimum, maximum and current temperature like the image below if the
+                        switch is to the right. If the switch is to the left, the NeoPixels should light up based on the
+                        temperature. <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#BluefruitOffcanvasSensor" aria-controls="BluefruitOffcanvasSensor">
+                            Bluefruit Board
+                        </button></p>
+                    <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info" alt="Bluefruit Board"
+                        style="width: 200px">
+                    <img src="Images/Sensor/Back_LED_Temp.jpg" class="img-fluid border border-info"
+                        alt="Bluefruit Board" style="width: 200px">
+
+                    <p style="font-size: 18em; color: red;">
+                        <i class="fa-solid fa-hand"></i>
+                    </p>
+                    <p class="text-white bg-danger">Verify this with your instructor. This is part of your grade! </p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="sensorExplorationsHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#SensorExplorations" aria-expanded="false"
+                    aria-controls="collapseSensorExplorations">
+                    Sensor Explorations
+                </button>
+            </h2>
+            <div id="SensorExplorations" class="accordion-collapse collapse" aria-labelledby="sensorExplorationsHeader"
+                data-bs-parent="#sensorAccordian">
+                <div class="accordion-body">
+                    Pick one of the following explorations.
+                    <p class="text-white bg-danger">Once complete, verify this with your instructor. This is part of
+                        your
+                        grade! </p>
+                    <div class="fw-bold">Easy Options</div>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Transmit a message in Morse Code using the NeoPixels or Speaker. <a
+                                    class="btn btn-info btn-sm"
+                                    href="https://upload.wikimedia.org/wikipedia/commons/b/b5/International_Morse_Code.svg"
+                                    role="button" target="_blank">Morse Code Details
+                                </a>
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#MorseCodeModal">
+                                    Starter Code
+                                </button>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Create a nightlight. If the light level gets below a certain level (recommend 30), turn
+                                the NeoPixels on in whatever color you want. Once the light is above another level
+                                (should be three or four levels greater than the turn on level), turn the NeoPixels off.
+                                Make sure you have a delay of at least 1 second between each iteration.
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#NightlightModal">
+                                    Starter Code
+                                </button>
+                            </div>
+                        </li>
+                    </ol>
+                    <div class="fw-bold">Moderate Options</div>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                If the switch is on, the code should do step a. If the switch is off, the code should do
+                                step b.
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#switchButtonPixelModal">
+                                    Starter Code
+                                </button>
+                                <ol class="alpha">
+                                    <li>If button A is pushed, set all the NeoPixels on that side of the board to red
+                                        and the other side to blue. If button B is pushed, set the the NeoPixels on that
+                                        side of the board to red and the other side to blue. If neither button is
+                                        pushed, turn off the NeoPixels.</li>
+                                    <li>Have the NeoPixels flash red, white, and blue for ½ second each.</li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Using the A and B buttons steer your turtle around the screen. A should turn the turtle
+                                right and B should turn the turtle left. Also, if the switch is on, the turtle should
+                                move forward. If the switch is off, the turtle shouldn't move.
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#turtleButtonModal">
+                                    Starter Code
+                                </button>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Use the accelerometer and the NeoPixels to indicate which way the board is tilted.
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#accelPixelModal">
+                                    Starter Code
+                                </button>
+                            </div>
+                        </li>
+                    </ol>
+                    <div class="fw-bold">Hard Options</div>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Play a short song using the built-in speaker and the notes to frequency information
+                                here: <a class="btn btn-info btn-sm"
+                                    href="https://professionalcomposers.com/note-frequency-chart/" role="button"
+                                    target="_blank">Frequency Chart
+                                </a>. Note: You probably want to work in Octaves 4 or 5
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#songModal">
+                                    Starter Code
+                                </button>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Display three different images on your LCD. Each image should display for three seconds
+                                before going to the next image. You can choose your own images (though you'll need to
+                                scale them to 240x240 pixels and save them as bitmaps. You can do this with the paint
+                                program.) or you can use the three images provided in the Circuit Playground Lab Files
+                                folder.
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#bitmapModal">
+                                    Starter Code
+                                </button>
+                            </div>
+                        </li>
+                    </ol>
+                    <p style="font-size: 18em; color: red;">
+                        <i class="fa-solid fa-hand"></i>
+                    </p>
+                    <p class="text-white bg-danger">Verify this with your instructor. This is part of your grade! </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/highlight.min.js"></script>
+
+</body>
+
+</html>

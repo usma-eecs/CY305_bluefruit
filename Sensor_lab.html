@@ -10,44 +10,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="scripts/map_highlight/jquery.maphilight.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/foundation.min.css">
     <link rel="icon" type="image/x-icon" href="Images/favicon.jpg">
 </head>
 
 <body>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">Welcome</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="Initial_Steps.html"><span style="font-size: 1em; color:blue;"><i
-                        class="fa-solid fa-terminal"></i></span> Initial Steps</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="Understanding_your_board.html"><span
-                    style="font-size: 1em; color:blue;"><i class="fa-solid fa-microchip"></i></span> Understanding your
-                board</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="#"><span style="font-size: 1em; color: blue;"><i
-                        class="fa-solid fa-temperature-three-quarters"></i></span> Sensors</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="Robotics_Lab.html"><span style="font-size: 1em; color:blue;"><i
-                        class="fa-solid fa-robot"></i></span> Robotics</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
-                        class="fa-solid fa-bug"></i></span> Troubleshooting</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
-                        class="fa-solid fa-book"></i></span> Further Reading</a>
-        </li>
-    </ul>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvasSensor"
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvas"
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-body">
             <button type="button" class="btn-close text-reset float-end" data-bs-dismiss="offcanvas"
@@ -140,7 +110,7 @@
                                         data-bs-placement="top" title="Right of the USB">Red LED</span></li>
                                 <li><span class="info text-info" id="pixelList" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="Counterclockwise from the top left
-                                NeoPixel">NeoPixels 0 to 10</span></li>
+                                    NeoPixel">NeoPixels 0 to 10</span></li>
                             </div>
                         </ol>
                     </div>
@@ -161,277 +131,92 @@
             </ol>
         </div>
     </div>
-    <div id="sensorTabModals">
-        <div class="modal modal-fullscreen-md-down" id="MorseCodeModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Starter Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6>NeoPixels</h6>
-                        <pre><code class="NeoPixels_code language-python"></code></pre>
-                        <h6>Speaker</h6>
-                        <pre><code class="Speaker_code language-python"></code></pre>
-                    </div>
+    <div class="modal" id="bitmapModal" tabindex="-1">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dragging your Bitmap</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-        </div>
-        <div class="modal modal-fullscreen-md-down" id="NightlightModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Starter Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6>NeoPixels</h6>
-                        <pre><code class="NeoPixels_code language-python"></code></pre>
-                        <h6>Light Sensor</h6>
-                        <pre><code class="Light_Sensor_code language-python"></code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal modal-fullscreen-md-down" id="switchButtonPixelModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Starter Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6>NeoPixels</h6>
-                        <pre><code class="NeoPixels_code language-python"></code></pre>
-                        <h6>Buttons</h6>
-                        <pre><code class="Buttons_code language-python"></code></pre>
-                        <h6>Switch</h6>
-                        <pre><code class="Switch_and_red_LED_code language-python"></code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal modal-fullscreen-md-down" id="turtleButtonModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Starter Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6>Buttons</h6>
-                        <pre><code class="Buttons_code language-python"></code></pre>
-                        <h6>Turtles</h6>
-                        <pre><code class="LCD_Turtle_code language-python"></code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal modal-fullscreen-md-down" id="accelPixelModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Starter Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6>Accelerometer</h6>
-                        <pre><code class="Accelerometer_code language-python"></code></pre>
-                        <h6>NeoPixels</h6>
-                        <pre><code class="NeoPixels_code language-python"></code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal modal-fullscreen-md-down" id="songModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Starter Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6>Speaker</h6>
-                        <pre><code class="Speaker_code language-python"></code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal modal-fullscreen-md-down" id="bitmapModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Starter Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6>Bitmap</h6>
-                        <pre><code class="LCD_Bitmap_code language-python"></code></pre>
-                    </div>
+                <div class="modal-body">
+                    <img src="Videos/Understanding/load_Bitmap.gif" class="img-fluid border border-info"
+                        alt="Dragging Bitmap">
                 </div>
             </div>
         </div>
     </div>
-    <div class="accordion" id="sensorAccordian">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="tempLabHeading">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#tempLabCollapse" aria-expanded="true" aria-controls="tempLabCollapse">
-                    Temperature Sensor
-                </button>
-            </h2>
-            <div id="tempLabCollapse" class="accordion-collapse collapse show" aria-labelledby="tempLabHeading"
-                data-bs-parent="#sensorAccordian">
-                <div class="accordion-body">
-                    Delete the code currently in the “code” file you opened in <a
-                        href="Understanding_your_board.html#learningHeading">step 4 of the Learning to Use Your Board
-                        section</a>. Copy and paste the code below into the “code” file and then click “Save”.
-                    <pre><code class="Lab_Temp_Sensor_code language-python"></code></pre>
-                    <p>Your display should show the minimum, maximum and current temperature like the image below if the
-                        switch is to the right. If the switch is to the left, the NeoPixels should light up based on the
-                        temperature. <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#BluefruitOffcanvasSensor" aria-controls="BluefruitOffcanvasSensor">
-                            Bluefruit Board
-                        </button></p>
-                    <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info" alt="Bluefruit Board"
-                        style="width: 200px">
-                    <img src="Images/Sensor/Back_LED_Temp.jpg" class="img-fluid border border-info"
-                        alt="Bluefruit Board" style="width: 200px">
+    <div class="container-fluid">
+        <div class="row">
+            <a class="anchor-link" id="understandingTop" aria-label="Link to this section: Top"></a>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Initial_Steps.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-terminal"></i></span> Initial Steps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"><span style="font-size: 1em; color: blue;"><i
+                                class="fa-solid fa-temperature-three-quarters"></i></span>Temperature Sensor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="Exploration.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-microchip"></i></span> Exploring your board</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Robotics_Lab.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-robot"></i></span> Robotics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
+                                class="fa-solid fa-bug"></i></span> Troubleshooting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
+                                class="fa-solid fa-book"></i></span> Further Reading</a>
+                </li>
+            </ul>
+        </div>
+        <div id="mainSensorLab" class="row">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <h2 class="text-bg-primary p-2">Temperature Sensor</h2>
+                        <div>
+                        Delete the code currently in the “code” file you opened in <a
+                            href="Initial_Steps_2.html#usingMu">step 4 of the Learning to Use Your
+                            Board section</a>. Copy and paste the code below into the “code” file and then click “Save”.
+                        <pre><code class="Lab_Temp_Sensor_code language-python"></code></pre>
+                        </div>
+                        <p>Your display should show the minimum, maximum and current temperature like the image below if
+                            the
+                            switch is to the right. If the switch is to the left, the NeoPixels should light up based on
+                            the
+                            temperature. <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#BluefruitOffcanvasSensor" aria-controls="BluefruitOffcanvasSensor">
+                                Bluefruit Board
+                            </button></p>
+                        <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info"
+                            alt="Bluefruit Board" style="width: 200px">
+                        <img src="Images/Sensor/Back_LED_Temp.jpg" class="img-fluid border border-info"
+                            alt="Bluefruit Board" style="width: 200px">
 
-                    <p style="font-size: 18em; color: red;">
-                        <i class="fa-solid fa-hand"></i>
-                    </p>
-                    <p class="text-white bg-danger">Verify this with your instructor. This is part of your grade! </p>
+                        <p style="font-size: 18em; color: red;">
+                            <i class="fa-solid fa-hand"></i>
+                        </p>
+                        <p class="text-white bg-danger">Verify this with your instructor. This is part of your grade!
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="sensorExplorationsHeader">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#SensorExplorations" aria-expanded="false"
-                    aria-controls="collapseSensorExplorations">
-                    Sensor Explorations
-                </button>
-            </h2>
-            <div id="SensorExplorations" class="accordion-collapse collapse" aria-labelledby="sensorExplorationsHeader"
-                data-bs-parent="#sensorAccordian">
-                <div class="accordion-body">
-                    Pick one of the following explorations.
-                    <p class="text-white bg-danger">Once complete, verify this with your instructor. This is part of
-                        your
-                        grade! </p>
-                    <div class="fw-bold">Easy Options</div>
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                Transmit a message in Morse Code using the NeoPixels or Speaker. <a
-                                    class="btn btn-info btn-sm"
-                                    href="https://upload.wikimedia.org/wikipedia/commons/b/b5/International_Morse_Code.svg"
-                                    role="button" target="_blank">Morse Code Details
-                                </a>
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#MorseCodeModal">
-                                    Starter Code
-                                </button>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                Create a nightlight. If the light level gets below a certain level (recommend 30), turn
-                                the NeoPixels on in whatever color you want. Once the light is above another level
-                                (should be three or four levels greater than the turn on level), turn the NeoPixels off.
-                                Make sure you have a delay of at least 1 second between each iteration.
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#NightlightModal">
-                                    Starter Code
-                                </button>
-                            </div>
-                        </li>
-                    </ol>
-                    <div class="fw-bold">Moderate Options</div>
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                If the switch is on, the code should do step a. If the switch is off, the code should do
-                                step b.
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#switchButtonPixelModal">
-                                    Starter Code
-                                </button>
-                                <ol class="alpha">
-                                    <li>If button A is pushed, set all the NeoPixels on that side of the board to red
-                                        and the other side to blue. If button B is pushed, set the the NeoPixels on that
-                                        side of the board to red and the other side to blue. If neither button is
-                                        pushed, turn off the NeoPixels.</li>
-                                    <li>Have the NeoPixels flash red, white, and blue for ½ second each.</li>
-                                </ol>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                Using the A and B buttons steer your turtle around the screen. A should turn the turtle
-                                right and B should turn the turtle left. Also, if the switch is on, the turtle should
-                                move forward. If the switch is off, the turtle shouldn't move.
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#turtleButtonModal">
-                                    Starter Code
-                                </button>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                Use the accelerometer and the NeoPixels to indicate which way the board is tilted.
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#accelPixelModal">
-                                    Starter Code
-                                </button>
-                            </div>
-                        </li>
-                    </ol>
-                    <div class="fw-bold">Hard Options</div>
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                Play a short song using the built-in speaker and the notes to frequency information
-                                here: <a class="btn btn-info btn-sm"
-                                    href="https://professionalcomposers.com/note-frequency-chart/" role="button"
-                                    target="_blank">Frequency Chart
-                                </a>. Note: You probably want to work in Octaves 4 or 5
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#songModal">
-                                    Starter Code
-                                </button>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                Display three different images on your LCD. Each image should display for three seconds
-                                before going to the next image. You can choose your own images (though you'll need to
-                                scale them to 240x240 pixels and save them as bitmaps. You can do this with the paint
-                                program.) or you can use the three images provided in the Circuit Playground Lab Files
-                                folder.
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#bitmapModal">
-                                    Starter Code
-                                </button>
-                            </div>
-                        </li>
-                    </ol>
-                    <p style="font-size: 18em; color: red;">
-                        <i class="fa-solid fa-hand"></i>
-                    </p>
-                    <p class="text-white bg-danger">Verify this with your instructor. This is part of your grade! </p>
-                </div>
 
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <script src="scripts/script.js"></script>
-    <script src="scripts/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        <script src="scripts/script.js"></script>
+        <script src="scripts/highlight.min.js"></script>
 
 </body>
 

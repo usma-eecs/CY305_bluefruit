@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CY105 Bluefruit Lab</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="scripts/map_highlight/jquery.maphilight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/foundation.min.css">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.jpg">
+</head>
+
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">Welcome</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><span style="font-size: 1em; color:blue;"><i
+                        class="fa-solid fa-terminal"></i></span> Initial Steps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Understanding_your_board.html"><span style="font-size: 1em; color:blue;"><i
+                        class="fa-solid fa-microchip"></i></span> Understanding your board</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Sensor_lab.html"><span style="font-size: 1em; color: blue;"><i
+                        class="fa-solid fa-temperature-three-quarters"></i></span> Sensors</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Robotics_Lab.html"><span style="font-size: 1em; color:blue;"><i
+                        class="fa-solid fa-robot"></i></span> Robotics</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
+                        class="fa-solid fa-bug"></i></span> Troubleshooting</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
+                        class="fa-solid fa-book"></i></span> Further Reading</a>
+        </li>
+    </ul>
+    <div class="modal" id="breadboardInitialModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">What is a Breadboard?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Prototype boards (commonly called breadboards) are used for
+                    wiring circuits together without soldering. They allow you to rapidly reconfigure
+                    components so you can prototype circuit designs.
+                    If you took the breadboard apart, you would see that each column of holes is connected
+                    by a metal strip. If you connect a wire to one of the holes, anything you plug into
+                    another hole in the same column would be connected to that wire. Note that the gap down the center
+                    of the board electrically
+                    divides the columns of holes in the top half of the board from those in bottom half.
+                    <img src="Images/Robot/breadboard_backside.jpg" class="img-fluid" alt="Wiring" style="width: 200px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion" id="initialAccordian">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="inventoryHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#inventoryCollapse" aria-expanded="true" aria-controls="inventoryCollapse">
+                    Inventory
+                </button>
+            </h2>
+            <div id="inventoryCollapse" class="accordion-collapse collapse show" aria-labelledby="inventoryHeading"
+                data-bs-parent="#initialAccordian">
+                <div class="accordion-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Circuit Playground Bluefruit</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Bluefruit.jpg" class="img-fluid" alt="Bluefruit Board"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Circuit Playground TFT Gizmo with 12 screws</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/TFT Gizmo.png" class="img-fluid" alt="TFT Gizmo"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>USB A to USB Micro Cable</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/USB.jpg" class="img-fluid" alt="USB Cable"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>CY105 development kit Printed Circuit Board (PCB)</td>
+                                <td>
+                                    <div class="text-center">
+                                        Front:
+                                        <img src="Images/Initial Steps/Board_Front.jpg" class="img-fluid" alt="PCB Front"
+                                            style="height: 200px">
+                                        Back:
+                                        <img src="Images/Initial Steps/Board_Back.jpg" class="img-fluid" alt="PCB Back"
+                                            style="height: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Breadboard</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Breadboard.jpg" class="img-fluid" alt="Breadboard"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Acrylic stand and mounting hardware</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Stand.jpeg" class="img-fluid" alt="Stand" style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>12 pin female header</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Headers.jpg" class="img-fluid" alt="Header"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Jumper Wires</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Jumper_wires.png" class="img-fluid" alt="Jumper Wires"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Servo</td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Servo.jpg" class="img-fluid" alt="Servo" style="height: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    <p>Servo Horn(s)</p>
+                                    <p class="text-muted">(Provided by your instructor)</p>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Initial Steps/Servo_horn.jpg" class="img-fluid" alt="Servo Horns"
+                                            style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    Double Headers (these are probably attached to the servo)
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <img src="Images/Doublesided_headers.jpg" class="img-fluid"
+                                            alt="Doublesided headers" style="width: 200px">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="assemblyHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#assemblyCollapse" aria-expanded="false" aria-controls="assemblyCollapse">
+                    Assembly
+                </button>
+            </h2>
+            <div id="assemblyCollapse" class="accordion-collapse collapse" aria-labelledby="assemblyHeading"
+                data-bs-parent="#initialAccordian">
+                <div class="accordion-body">
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Headers</div>
+                                <p>Insert the headers (image below) through the small holes on the front of the PCB.
+                                    Make sure the connector is flush with the surface of the PCB.</p>
+                                <div>
+                                    <img src="Images/Initial Steps/Headers.jpg" class="img-fluid" alt="Headers" style="height: 100px">
+                                    <img src="Images/Initial Steps/Board_Front.jpg" class="img-fluid" alt="PCB Front"
+                                        style="height: 100px">
+                                    <img src="Images/Initial Steps/Board_Back.jpg" class="img-fluid" alt="PCB Back"
+                                        style="height: 100px">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Solder the headers</div>
+                                <p>While holding the headers in place, flip the board over and solder all the connector
+                                    pins. Note: It may be helpful to put the breadboard under the PCB to help hold it
+                                    in place while soldering. <span class="info text-info" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Soldering connects components (in this case the header) to your PCB. Each pad 
+                                        that you soldered the header pin to is connected by a trace to the Bluefruit's output pads.
+                                        Thus each of the holes on the front of the header, are connected to the corresponding output
+                                        of the Bluefruit.">What
+                                        is the point of soldering?</span> <span class="text-warning bg-dark">DO NOT
+                                        solder on the
+                                        front of the board.</span> <a class="btn btn-sm btn-info"
+                                        href="https://youtu.be/Qps9woUGkvI" target="_blank" role="button">Soldering
+                                        Demo</a>
+                                </p>
+                                <img src="Images/Initial Steps/solderingGif.gif" class="img-fluid" alt="Headers"
+                                    style="width: 30vw; max-height: 200px;">
+                                <img src="Images/Initial Steps/solderExample.jpg" class="img-fluid" alt="PCB Front"
+                                    style="width: 30vw; max-height: 200px;">
+                                <img src="Images/Initial Steps/Solder_final.jpg" class="img-fluid" alt="PCB Back"
+                                    style="width: 30vw; max-height: 200px;">
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Attach the breadboard</div>
+                                <p>Flip the board back over to the side that says “front.” Peel off the cover on the
+                                    back of the breadboard and attach it below the headers as shown in the image below. <span class="text-warning bg-dark">Attach it as close as possible to the headers to leave room for the stand's screws!</span>
+                                    <a href="#" class="text-info" data-bs-toggle="modal"
+                                        data-bs-target="#breadboardInitialModal">What
+                                        is a breadboard?</a>
+                                </p>
+                                <img src="Images/Initial Steps/BreadboardAttach.jpg" class="img-fluid border border-info border-4"
+                                    alt="Attach Breadboard" style="cursor: pointer; width: 200px" data-bs-toggle="modal"
+                                    data-bs-target="#breadboardInitialModal">
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Bolt the Bluefruit and the display</div>
+                                <p>
+                                    Attach the display (TFT Gizmo) to the front (image bottom/left) and the Bluefruit to
+                                    the back (image bottom/right) of the circuit board using the 12 provided screws.
+                                    Start each of the screws in the order highlighted below (image middle/left). Once
+                                    they are all started, then tighten them down so that standoffs are flush with the
+                                    front of the board (image middle/right). Note: The TFT Gizmo label on the display
+                                    and the USB connector on the Bluefruit should be aligned towards the top of the
+                                    board.
+                                    <span class="text-warning bg-dark">You'll have to remove the orange screw covers on
+                                        the display's standoffs. </span>
+                                    <span class="text-white bg-danger">Be gentle when using the screws to attach the
+                                        display. It is fragile!</span>
+                                </p>
+                                <img src="Images/Initial Steps/bolt_Order.jpg" class="img-fluid"
+                                    alt="Bolt order" style="max-width: 200px;">
+                                <img src="Images/Initial Steps/standoffs.jpg" class="img-fluid"
+                                    alt="Standoffs" style="max-width: 200px;">
+                                <p>Once complete, it should look like this:</p>
+                                <img src="Images/Initial Steps/Display_bolt.jpg" class="img-fluid" alt="Front Bolt Display"
+                                    style="height: 30vh; max-width: 200px;">
+                                <img src="Images/Initial Steps/Display_bolt_back.jpg" class="img-fluid" alt="Back Bolt Display"
+                                    style="height: 30vh; max-width: 200px;">
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Instructor Check</div>
+                                <p class="text-white bg-danger">Verify with your instructor that you have correctly
+                                    assembled the kit!</p>
+                                <span style="font-size: 18em; color: red;">
+                                    <i class="fa-solid fa-hand"></i>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Stand</div>
+                                <p>Attach the circuit board to the acrylic stand.</p>
+                                <img src="Images/Initial Steps/standFront.JPEG" class="img-fluid" alt="Front Stand"
+                                    style="width: 200px">
+                                <img src="Images/Initial Steps/standBack.JPEG" class="img-fluid" alt="Back Stand"
+                                    style="width: 200px">
+                            </div>
+                        </li>
+
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="boardSetupHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#boardSetupCollapse" aria-expanded="false" aria-controls="boardSetupCollapse">
+                    Set up your Adafruit board
+                </button>
+            </h2>
+            <div id="boardSetupCollapse" class="accordion-collapse collapse" aria-labelledby="boardSetupHeading"
+                data-bs-parent="#initialAccordian">
+                <div class="accordion-body">
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Using the USB cable, plug your board into your computer
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Rapidly push the “reset” button in the middle of your board two times:
+                                <p><img src="Images/Initial Steps/ResetButton.png" class="img-fluid" alt="Reset Button"
+                                        style="width: 200px"></p>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                All the LEDs around the outside should turn green and you should have a red and green
+                                LED on either side of your USB cable. You should also see CPLAYBOOT show up as a drive
+                                in your computer's <span data-bs-toggle="tooltip" data-bs-html="true"
+                                    data-bs-placement="right" title='Press window key and E or click on the folder icon on your task bar.
+                                <img src="Images/file_explorer.jpg" class="img-fluid" alt="File Explorer"
+                                    style="width: 200px">' class="info text-info">file explorer</span>.
+                                <p>
+                                    <img src="Images/Initial Steps/resetLights.jpg" class="img-fluid" alt="Reset Lights"
+                                        style="width: 200px">
+                                    <img src="Images/Initial Steps/CPLAYBOOT.png" class="img-fluid" alt="CPLAYBOOT"
+                                        style="width: 200px">
+                                </p>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Click <a href="downloads/Circuit Playground Lab Files.zip" download>here</a> to download
+                                the files
+                                you will need.
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Open your downloaded folder and the “Circuit Playground Lab Files” folder inside it. If
+                                you see the <span class="info text-info" data-bs-toggle="tooltip" data-bs-html="true"
+                                    data-bs-placement="top" title='<img src="Images/Initial Steps/winrar.png" class="img-fluid" alt="winrar"
+                                style="width: 10px">'>WinRAR icon</span>, you will likely need to uninstall the program
+                                to access the
+                                files. See the steps in <a href="Troubleshooting.html">Troubleshooting</a>.
+                                <br>
+                                <img src="Images/Initial Steps/Lab Files.jpg" class="img-fluid"
+                                    alt="CPLAYBOOT" style="max-height: 200px">
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                Drag the file named adafruit-circuitpython-circuitplayground_bluefruit-en_US-#.#.# from
+                                the Circuit Playground Lab Files folder you just opened onto your CPLAYBOOT drive
+                                highlighted in step 3.
+                                <div><img src="Videos/Initial Steps/dragBootFile.gif"
+                                        class="img-fluid" alt="Folders" style="max-height: 400px"></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                After a few seconds, the outer ring of LEDs should start flashing green and the drive
+                                name should change to CIRCUITPY. When you click on that drive, you should see the files
+                                and folders below.
+                                <div><img src="Images/Initial Steps/CIRCUITPY.jpg"
+                                        class="img-fluid" alt="Folders" style="max-height: 200px"></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                If you closed it, open the "Circuit Playground Lab Files" folder you downloaded. Then
+                                open the "lib files" folder.
+                                <p>Drag/copy all the documents (shown in the video below) from that folder /into the "lib" folder in your
+                                    CIRCUITPY drive. <span class="text-warning bg-dark">Do not copy the “lib files”
+                                        folder, just the items inside it!</span></p>
+                                <img src="Videos/Initial Steps/Copying Lib Files.gif"
+                                    class="img-fluid" alt="Headers" style="max-height: 400px;">
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/highlight.min.js"></script>
+
+</body>
+
+</html>
