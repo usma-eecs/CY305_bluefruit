@@ -93,7 +93,7 @@ while True:
         cp.pixels.fill(0) #Turns all of the NeoPixels off
         text_group = displayio.Group(scale=2, x=30, y=70)
         # displays the minimum, maximum, current temperature, and servo speed to the TFT Gizmo display.
-        text = "Min: " + str(round(min_temp, 2)) + " F\nMax: " + str(round(max_temp,2)) + " F\nCurrent: " + str(round(f_avg,2)) + " F\nSpeed: " + str(speed)
+        text = "Min: " + str(round(min_temp, 2)) + " F\nMax: " + str(round(max_temp,2)) + " F\nCurrent: " + str(round(f_avg,2)) + " F\nSpeed: " + str(round(speed*130,1)) + " RPM"
         text_area = label.Label(terminalio.FONT, text=text, color=0xFFD700)
         text_group.append(text_area)
         splash.append(text_group)
