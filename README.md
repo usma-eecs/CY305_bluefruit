@@ -1,7 +1,7 @@
-# CY105_Lab
+# CY10/155_Lab
 ## Libraries:
 
-Formatting: [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+Formatting: [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
 
 [jQuery](https://learn.jquery.com/)
 
