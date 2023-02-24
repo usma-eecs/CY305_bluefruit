@@ -181,7 +181,7 @@
             <div class="row">
                 <div class="col">
                     <div class="row">
-                        <h2 class="text-bg-primary p-2">Temperature Sensor</h2>
+                        <h2 class="text-bg-success p-2">Temperature Sensor</h2>
                         <div>
                         Delete the code currently in the “code” file you opened in <a
                             href="Initial_Steps.html#usingMu">step 5 of Using Mu in the Initial Steps page</a>. Copy and paste the code below into the “code” file and then click “Save”.
@@ -191,16 +191,39 @@
                             the
                             switch is to the right. If the switch is to the left, the NeoPixels should light up based on
                             the
-                            temperature. (If you don't know where the switch is, click "Bluefruit Board".) 
+                            temperature. (If you don't know where the switch or the temperature sensor are, click "Bluefruit Board".) 
                             <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
                                 data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
                                 Bluefruit Board
                             </button></p>
-                        <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info"
+                            <div class="row">
+                                <div class="ms-2 me-auto">
+                                <p class="text-white bg-danger">
+                                        Before you verify this step with your instructor, press your finger directly on
+                                        the temperature sensor to confirm that:
+                                    <ol>
+                                        <li>
+                                            when the switch is to the right, the current temperature increases on the display as 
+                                            you heat up the temperature sensor with your finger.
+                                            <br>
+                                            <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info"
+                                            alt="Bluefruit Board" style="width: 200px">
+                                        </li>
+                                        <li>
+                                            when the switch is to the left, the NeoPixel lights light up counterclockwise as the you 
+                                            heat up the temperature sensor with your finger.
+                                            <br>
+                                            <img src="Images/Sensor/Back_LED_Temp.jpg" class="img-fluid border border-info"
+                                            alt="Bluefruit Board" style="width: 200px">
+                                        </li>
+                                    </ol>
+                                </p>
+                            </div>
+                        </p>
+                        <!-- <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info"
                             alt="Bluefruit Board" style="width: 200px">
                         <img src="Images/Sensor/Back_LED_Temp.jpg" class="img-fluid border border-info"
-                            alt="Bluefruit Board" style="width: 200px">
-
+                            alt="Bluefruit Board" style="width: 200px"> -->
                         <p style="font-size: 18em; color: red;">
                             <i class="fa-solid fa-hand"></i>
                         </p>
@@ -216,5 +239,17 @@
         <script src="scripts/highlight.min.js"></script>
 
 </body>
+
+<br>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="Initial_Steps.html" tabindex="-1">Previous (Initial steps)</a>
+      </li>
+        <a class="page-link" href="Exploration.html">Next (Exploring your board)</a>
+      </li>
+    </ul>
+  </nav>
 
 </html>
