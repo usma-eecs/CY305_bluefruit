@@ -59,6 +59,8 @@ $(function () {
     $('.map').maphilight({
         fill: true,
         fillColor: '00ffff',
+        strokeColor: 'ffff00',
+        strokeWidth: 2,
     });
     $('#rstBtnList').mouseover(function (e) {
         $('#rstBtn').mouseover();
