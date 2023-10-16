@@ -7,7 +7,7 @@ led.brightness = 0.05
 
 # Choose either to play a tone or flash the lights to send a message in Morse Code
 # The code below shows you how to flash the lights or play a tone
-# for a specific ammount of time 
+# for a specific amount of time 
 
 # Plays the 440 hz tone for 1 second.
 cp.play_tone(440, 1)
