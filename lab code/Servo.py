@@ -30,7 +30,7 @@ def display_on_screen(display, text):
     splash = displayio.Group()
     display.show(splash)
     text_group = displayio.Group(scale=3, x=30, y=70)
-    # displays Counter clockwise
+    # displays text
     text_area = label.Label(terminalio.FONT, text=text, color=0xFFD700)
     text_group.append(text_area)
     splash.append(text_group)
@@ -53,8 +53,6 @@ def main():
         time.sleep(2.0)
 
         # Stops for 2 seconds
-        #splash = displayio.Group()
-        #display.show(splash)
         display_on_screen(display, "Stop")
         print("stop")
         my_servo.throttle = 0.0
@@ -62,8 +60,6 @@ def main():
 
 
         # Runs fullspeed clockwise for 2 seconds
-        #splash = displayio.Group()
-        #display.show(splash)
         display_on_screen(display, "Clockwise")
         print("Clockwise")
         my_servo.throttle = -1
