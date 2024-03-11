@@ -4,7 +4,7 @@ import displayio
 import terminalio
 from adafruit_display_text import label
 from adafruit_gizmo import tft_gizmo
-
+#test123
 
 # Create the TFT Gizmo display
 display = tft_gizmo.TFT_Gizmo()
