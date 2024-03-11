@@ -52,7 +52,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 });
 
 // Update this if you add new code blocks to the webpages
-const code_blocks = ["Accelerometer","Buttons","Capacitive_Touch","Morse_Code_Starter","Nightlight_starter","Robot_Button_Starter","LCD_Bitmap","LCD_Text_and_Background","LCD_Turtle","Light_Sensor","Microphone","NeoPixels","Servo","Speaker","Switch_and_red_LED","Temperature","Lab_Robot","Lab_Temp_Sensor","Switch_Buttons_starter","Turtle_Buttons_starter","Song_starter"]
+const code_blocks = ["Accelerometer","Buttons","Capacitive_Touch","Morse_Code_Starter","Nightlight_starter","Robot_Button_Starter","LCD_Bitmap","LCD_Text_and_Background","LCD_Turtle","Light_Sensor","Microphone","NeoPixels","Servo","Speaker","Switch_and_red_LED","Temperature","Lab_Robot","Lab_Temp_Sensor","Switch_Buttons_starter","Turtle_Buttons_starter","Song_starter","Robot_Light_starter","Robot_Accelerometer_starter"]
 
 $(function () {
     //Highlights components of Bluefruit board in pop-out window

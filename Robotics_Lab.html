@@ -48,8 +48,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h6>Buttons</h6>
+                        <h6>Robot Activity 1</h6>
                         <pre><code class="Robot_Button_Starter_code language-python"></code></pre>
+                        <h6>Buttons</h6>
+                        <pre><code class="Buttons_code language-python"></code></pre>
                     </div>
                 </div>
             </div>
@@ -62,10 +64,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h6>Light Sensor</h6>
-                        <pre><code class="Light_Sensor_code language-python"></code></pre>
-                        <h6>Servo Control</h6>
-                        <pre><code class="Lab_Robot_code language-python"></code></pre>
+                        <h6>Robot Activity 2</h6>
+                        <pre><code class="Robot_Light_starter_code language-python"></code></pre>
                     </div>
                 </div>
             </div>
@@ -94,10 +94,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h6>Accelerometer</h6>
-                        <pre><code class="Accelerometer_code language-python"></code></pre>
-                        <h6>Servo Control</h6>
-                        <pre><code class="Lab_Robot_code language-python"></code></pre>
+                        <h6>Robot Activity 3</h6>
+                        <pre><code class="Robot_Accelerometer_starter_code language-python"></code></pre>
                     </div>
                 </div>
 
@@ -159,22 +157,22 @@
                         </li> -->
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                Get the servo, servo horn, and 3 PIN double sided header from your instructor, 
+                                Get the servo, one of the servo horns (your choice which one to use), and a 3 pin double sided header from your instructor, 
                                 if you haven't done so already.
                                 <br>
                                 <img src="Images/Initial Steps/Servo.jpg" class="img-fluid border border-info"
-                                alt="Doublesided headers" style="width: 80px">
-                                <img src="Images/Initial Steps/Servo_horn.jpg" class="img-fluid border border-info"
-                                alt="Doublesided headers" style="width: 80px">
+                                alt="Servo" style="width: 140px">
+                                <img src="Images/Initial Steps/Servo_horns.png" class="img-fluid border border-info"
+                                alt="Servo horns" style="width: 200px">
                                 <img src="Images/Doublesided_headers.jpg" class="img-fluid border border-info"
-                                alt="Doublesided headers" style="width: 80px">
+                                alt="Doublesided headers" style="width: 120px">
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                If needed, plug the servo into a 3 PIN double sided header (image on the right).
-                                <img src="Images/Doublesided_headers.jpg" class="img-fluid border border-info"
-                                    alt="Doublesided headers" style="width: 60px">
+                                If needed, plug the servo into a 3 pin double sided header (image on the right).
+                                <img src="Images/Robot/pin_in_servo.png" class="img-fluid border border-info"
+                                    alt="Doublesided headers" style="width: 150px">
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -183,11 +181,11 @@
                                 plastic bag and gently press it on to the servo shaft.
                                 <br>
                                 <img src="Images/Robot/servo_horns.jpg" class="img-fluid border border-info"
-                                    alt="Servo Horns" style="height: 100px">
+                                    alt="Servo Horns" style="height: 175px">
                                 <img src="Images/Robot/servo_wo_horns.jpg" class="img-fluid border border-info"
-                                    alt="Servo without horns" style="height: 100px">
+                                    alt="Servo without horns" style="height: 175px">
                                 <img src="Images/Robot/servo_w_horn.jpg" class="img-fluid border border-info"
-                                    alt="Servo with horn" style="height: 100px">
+                                    alt="Servo with horn" style="height: 175px">
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -196,7 +194,9 @@
                                 alt="jumper wires" style="width: 100px">'>
                                     wire jumpers
                                 </a>  from your header (the component you soldered onto your PCB) to your breadboard as shown in the table and image
-                                below. Mouse over the table below to highlight the connections. Note: you do not need to use the particular colors noted for each wire.
+                                below. Mouse over the table below to highlight the connections. Then plug in the 3 pin header connected to the servo to the breadboard,
+                                directly beneath where the jumper wires are connected. Note: you do not need to use the particular colors shown for each wire.
+                                Also, note that the image shows shortened wires for clarity - your wires are longer.
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <tr>
@@ -256,19 +256,19 @@
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 The servo should now be alternating between spinning full-speed clockwise, stopping,
-                                spinning full-speed counterclockwise, and stopping, as indicated text in the Mu console.
+                                spinning full-speed counterclockwise, and stopping, as indicated by text in the Mu console and on the Gizmo display.
                                 If the servo doesn't move at all, check the <a href="Troubleshooting.html">troubleshooting step 5</a>.
-                                If the servo is spinning when it is supposed to be stopped, use a small Philips
+                                If the servo is spinning when it is supposed to be stopped, use a small Phillips
                                 screwdriver to turn the potentiometer on the underside of the servo (looks like a tiny
                                 screw head) gently in a clockwise direction. If the servo speeds up, turn the
                                 potentiometer in the other direction until the spinning stops.
                                 <p>
                                     <img src="Images/Robot/servo_screw.jpg" class="img-fluid border border-info"
-                                        alt="Wiring" style="height: 100px">
+                                        alt="Wiring" style="height: 150px">
                                     <img src="Images/Robot/servo_adjust.jpg" class="img-fluid border border-info"
-                                        alt="Wiring" style="height: 100px">
+                                        alt="Wiring" style="height: 150px">
                                 </p>
-                                Once the servo stops and turns in concert with the text in the Mu console display, the
+                                Once the servo stops and turns in concert with the text in the Mu console display and Gizmo display, the
                                 servo is calibrated.
                             </div>
                         </li>
@@ -294,17 +294,17 @@
                                         spin the servo based on that temperature (think), and then sending a
                                         signal to
                                         the servo motor to make it spin at an appropriates speed (act).</li>
-                                    <li>First, take note of lines 27 and 35, which define “base_temp” and
+                                    <li>First, take note of lines 77 and 81, which define “base_temp” and
                                         “min_temp_servo”, respectively. These variables define, for our program, what
                                         temperature
                                         value should correspond to the lowest motor speed (the lowest motor
                                         speed is 0).
                                     </li>
-                                    <li>Next, look at the main loop beginning on line 46. Inside the loop,
+                                    <li>Next, look at the main loop beginning on line 89. Inside the loop,
                                         we have the
-                                        code necessary to sense-think-act. Sense: line 53-55, Think: Lines
-                                        65-74, and
-                                        Act: line 80.</li>
+                                        code necessary to sense-think-act. Sense: Lines 95-101, Think: Lines
+                                        104-115, and
+                                        Act: Line 118.</li>
                                     <li>Now run the program using the “Save” button. The motor is either off
                                         or spinning
                                         slowly for low temperatures (such as the ambient room temperature)
@@ -327,7 +327,8 @@
                                 <p style="font-size: 18em; color: red;">
                                     <i class="fa-solid fa-hand"></i>
                                 </p>
-                                <p class="text-white bg-danger">Once complete, verify this with your instructor. Explain to your instructor where the Sense, Think, and Act steps are present in the code - this is part of your grade!</p>
+                                <p class="text-white bg-danger">Once complete, verify this with your instructor. </p>
+                                <p class="text-white bg-danger">Explain to your instructor where the Sense, Think, and Act steps are present in the code - this is part of your grade!</p>
                             </div>
                         </li>
                     </ol>
@@ -335,10 +336,9 @@
                 <div class="row">
                     <h2 class="text-bg-primary p-2">Robot Activities (GRADED) <a class="anchor-link" id="robotExplorations"
                             aria-label="Link to this section: Explorations"></a></h2>
-                            <h5 class="text-warning bg-dark">You will be graded on your successful completion of one of the activities below.  Starter code is provided; however, it is necessary to modify the code to complete the task. Use your experience with Python programming concepts (loops, conditionals, order of operations, functions, etc.) and the previous examples to complete each task.
-                            </h5>                                        
-                            <p class="text-white bg-danger">Pick one of the following activities  - don't be afraid to try a moderate activity! Once complete, verify this with your instructor.</p>
-                            <div class="fw-bold">Easy Activity</div>
+                            <h5 class="text-warning bg-dark">You will be graded on your successful completion of the three activities below.  Starter code is provided; however, it is necessary to modify the code to complete the task. Use your experience with Python programming concepts (iteration, conditionals, order of operations, functions, etc.) and the previous examples to complete each task.
+                            </h5>                                  
+                            <div class="fw-bold">Robot Activities</div>
                             <ol class="list-group list-group-numbered">
                                 <li class="list-group-item d-flex justify-content-between align-items-start">
                                     <div class="ms-2 me-auto">
@@ -351,9 +351,6 @@
                                         </button>
                                     </div>
                                 </li>
-                            </ol>
-                            <div class="fw-bold">Moderate Activities</div>
-                            <ol class="list-group list-group-numbered">
                                 <li class="list-group-item d-flex justify-content-between align-items-start">
                                     <div class="ms-2 me-auto">
                                         Write a program that will adjust the servo's speed based on input from the
@@ -361,17 +358,6 @@
                                         The brighter it is, the faster the servo should spin.
                                         <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#servoLightModal">
-                                            Starter Code
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="ms-2 me-auto">
-                                        Write a program that will adjust the servo's speed based on input from the
-                                        microphone.
-                                        The louder it is, the faster the servo should spin.
-                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#servoMicrophoneModal">
                                             Starter Code
                                         </button>
                                     </div>
@@ -396,11 +382,8 @@
                                 <i class="fa-solid fa-hand"></i>
                             </p>
                             <p class="text-white bg-danger">Verify this with your instructor. This is part of your
-                                grade! You must complete one robot activity!</p>
-                            <h5 class="text-warning bg-dark">After you have completed one robot activity, return to the <a
-                                href="Exploration.html#Explorations">Sensor Activities</a> and complete the remaining activities to earn the remaining points for this lab (the other easy activity, 2 of 3 moderate activities, and 1 of 2 hard activities).
-                                </h5>  
-                                <h5 class="text-warning bg-dark"> When complete with ALL required sensor activities AND the robotics section, complete the DAAW Honor Acknowledgement Statement in Canvas.
+                                grade! You must complete all three robot activities!</p>
+                                <h5 class="text-warning bg-dark"> When complete with all three required sensor activities AND all three required robot activities, complete the DAAW Honor Acknowledgement Statement in Canvas.
                                 </h5>
                 </div>
             </div>

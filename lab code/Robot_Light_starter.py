@@ -3,7 +3,6 @@ from adafruit_circuitplayground import cp
 import board
 import pwmio
 from adafruit_motor import servo
-#Assigns pin A1 as a PWM output (controls the servo)
 
 #gets the servo set up for initial operation
 def setup_servo():
@@ -14,19 +13,20 @@ def setup_servo():
     s = servo.ContinuousServo(pwm)
     return s
 
-
 def main():
-
-    # Create a servo object named my_servo
+    # Modify the code below to adjust the servo's speed based on input from the
+    # light sensor. The brighter it is, the faster it should spin
     my_servo = setup_servo()
-
-    # Modify the code below to spin the servo counterclockwise if button B is pressed,
-    # clockwise if button A is pressed, and not spinning if neither button is pressed
-    # You will need to use the code that's commented out in the 3 lines below
+    # You may need to use some of the code that's commented out in the 3 lines below
     # my_servo.throttle = 1 # Spins the servo counterclockwise
     # my_servo.throttle = 0.0 # Stops the servo
     # my_servo.throttle = -1 # Spins the servo clockwise
-    # enter code here
 
+    while True:
+        # enter code here
+
+        # display the level of light detected
+        print((cp.light,))
+        time.sleep(0.1)
 
 main()
