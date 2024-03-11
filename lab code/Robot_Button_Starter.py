@@ -16,7 +16,6 @@ def setup_servo():
 
 
 def main():
-
     # Create a servo object named my_servo
     my_servo = setup_servo()
 
