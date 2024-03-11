@@ -14,8 +14,7 @@ def setup_servo():
     return s
 
 def main():
-    # Modify the code below to adjust the servo's speed based on input from the
-    # light sensor. The brighter it is, the faster it should spin
+    # Modify the code below to adjust the servo's speed based on input from the light sensor. The brighter it is, the faster it should spin
     my_servo = setup_servo()
     # You may need to use some of the code that's commented out in the 3 lines below
     # my_servo.throttle = 1 # Spins the servo counterclockwise

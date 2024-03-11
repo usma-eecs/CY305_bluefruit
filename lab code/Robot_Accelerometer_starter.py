@@ -14,9 +14,8 @@ def setup_servo():
     return s
 
 def main():
-    # Modify the code below to adjust the servo's speed based on input from the
-    # accelerometer. If the device is tipped to the left, the servo should spin
-    # counter-clockwise. If it's tipped to the right, the servo should spin clockwise.
+    # Modify the code below to adjust the servo's speed based on input from the accelerometer. If the device is tipped to the left, the servo should spin counter-clockwise. 
+    # If it's tipped to the right, the servo should spin clockwise.
     # The more it is tipped, the faster it should spin.
     # You may need to use some of the code that's commented out in the 3 lines below
     # my_servo.throttle = 1 # Spins the servo counterclockwise
