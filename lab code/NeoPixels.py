@@ -1,11 +1,15 @@
 from adafruit_circuitplayground import cp
 import time
 
-def neopixels():
+def setup():
     # assign all of the pixels to the variable led
     led = cp.pixels
+    return led
 
-    # Set the pixel brightness on a scale from 0 to 1.
+def neopixels():
+    # assign all of the pixels to the variable led
+    led = setup()
+    # set the pixel brightness on a scale from 0 to 1
     led.brightness = 0.05
 
     while True:
