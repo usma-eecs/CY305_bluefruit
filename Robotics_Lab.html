@@ -294,17 +294,17 @@
                                         spin the servo based on that temperature (think), and then sending a
                                         signal to
                                         the servo motor to make it spin at an appropriates speed (act).</li>
-                                    <li>First, take note of lines 77 and 87, which define “base_temp” and
+                                    <li>First, take note of lines 75 and 85, which define “base_temp” and
                                         “min_temp_servo”, respectively. These variables define, for our program, what
                                         temperature
                                         value should correspond to the lowest motor speed (the lowest motor
                                         speed is 0).
                                     </li>
-                                    <li>Next, look at the main loop beginning on line 89. Inside the loop,
+                                    <li>Next, look at the main loop beginning on line 87. Inside the loop,
                                         we have the
-                                        code necessary to sense-think-act. Sense: Lines 95-101, Think: Lines
-                                        104-115, and
-                                        Act: Line 118.</li>
+                                        code necessary to sense-think-act. Sense: Lines 92-99, Think: Lines
+                                        101-111, and
+                                        Act: Line 114.</li>
                                     <li>Now run the program using the “Save” button. The motor is either off
                                         or spinning
                                         slowly for low temperatures (such as the ambient room temperature)

@@ -26,7 +26,6 @@ def setup_servo():
     s = servo.ContinuousServo(pwm)
     return s
 
-
 ###Note: These functions are identical to our temperature sensor program!
 def scale_range(value, min_t, max_t):
     return int((value - min_t) / (max_t - min_t) * 10)
@@ -68,7 +67,6 @@ def get_average_temperature():
 def main():
     my_servo = setup_servo()
 
-
     # Create the TFT Gizmo display
     display = setup_gizmo()
 
@@ -102,7 +100,6 @@ def main():
 
         #THINK
         # Sets the fan speed based off the current and minimum servo temperature
-        # set on line 36
         speed = (f_avg-min_temp_servo)/8
 
         # Adjust the speed if it's out of the 0 to 1 range.
@@ -110,7 +107,6 @@ def main():
             speed = 0 # stop the servo if the temperature is too low
         elif speed > 1:
             speed = 1 # max the servo speed if temperature is too high
-
 
         print((speed,)) #Display the speed to the Mu editor console and plotter
 

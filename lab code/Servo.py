@@ -42,10 +42,7 @@ def main():
     # Create a servo object named my_servo.
     my_servo = setup_servo()
 
-
     while True:
-        # clears the text from the LCD
-
         # Runs fullspeed counterclockwise for 2 seconds
         display_on_screen(display, "Counter \nclockwise")
         print("Counter clockwise")
@@ -57,7 +54,6 @@ def main():
         print("stop")
         my_servo.throttle = 0.0
         time.sleep(2.0)
-
 
         # Runs fullspeed clockwise for 2 seconds
         display_on_screen(display, "Clockwise")
