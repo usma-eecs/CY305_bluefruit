@@ -308,9 +308,14 @@
                         <h2 class="text-bg-primary p-2">Inputs Exploration <a class="anchor-link"
                                 id="DiscoveringInputs"
                                 aria-label="Link to this section: Discovering the board's Inputs"></a></h2>
-                        <h5 class="text-warning bg-dark">For each of the steps below, delete the code currently in the
+                        <h5 class="text-warning bg-dark">
+                            <ul>
+                                <li>For each of the steps below, delete the code currently in the
                             “code” file. Then copy and paste the code from the step you're on into the “code” file. Finally,
-                            click “Save” to watch the code run on your device.
+                            click “Save” to run the code on your device.
+                            </li>
+                            <li>Do some code tracing! Take a little time as you copy the code into your Mu Editor to try to understand what the code is doing. Later you will need to write code yourself.</li>
+                            </ul>
                         </h5>
                         <ol class="list-group list-group-numbered">
                             <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -371,11 +376,13 @@
                                     sensor and watch the values change in the Mu serial window.
                                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
                                         data-bs-placement="right" title="Display Bluefruit's inputs and outputs.">
+                                        <div><em>Note: Observe that we are using the time module below. What does the line time.sleep(1) do?</div>
+                                        <div>The time.sleep(1) line is making the program pause for 1 second before continuing to the next step. In this case, it waits for 1 second after printing the light sensor value before printing the light sensor value again.</em></div>
                                         <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
                                             data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
                                             Bluefruit Board
                                         </button>
-                                    </span>
+                                    </span>                
                                     <pre><code class="Light_Sensor_code language-python"></code></pre>
                                 </div>
                             </li>
