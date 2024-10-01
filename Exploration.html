@@ -168,7 +168,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h6>Night-light</h6>
+                        <h6>Sensor Activity 2</h6>
                         <pre><code class="Nightlight_starter_code language-python"></code></pre>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h6>Sensor Activity 1</h6>
+                        <h6>Sensor Activity 4</h6>
                         <pre><code class="Switch_Buttons_starter_code language-python"></code></pre>
                         <h6>NeoPixels</h6>
                         <pre><code class="NeoPixels_code language-python"></code></pre>
@@ -236,7 +236,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h6>Sensor Activity 3</h6>
+                        <h6>Sensor Activity 1</h6>
                         <pre><code class="Song_starter_code language-python"></code></pre>
                     </div>
                 </div>
@@ -250,7 +250,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h6>Bitmap</h6>
+                        <h6>Sensor Activity 3</h6>
                         <pre><code class="LCD_Bitmap_code language-python"></code></pre>
                     </div>
                 </div>
@@ -531,17 +531,58 @@
                         <h2 class="text-bg-primary p-2">Sensor Activities (GRADED) <a class="anchor-link"
                             id="Explorations"
                             aria-label="Link to this section: Sensor Explorations"></a></h2>
-                            <h5 class="text-warning bg-dark">You will be graded on your successful completion of the three activities below. Starter code is provided; however, it is necessary to modify the code to complete the task. Use your experience with Python programming concepts (iteration, conditionals, order of operations, functions, etc.) and the previous exploration examples to complete each task.
+                            <h5 class="text-warning bg-dark">You will be graded on your successful completion of the four activities below. Starter code is provided; however, it is necessary to modify the code to complete the task. Use your experience with Python programming concepts (iteration, conditionals, order of operations, functions, etc.) and the previous exploration examples to complete each task.
                             </h5>
                             <p class="text-white bg-danger">Once complete with each activity, verify it with your instructor. This is part of
                                 your
-                                grade! When complete with the three graded activities, move on to the next section (Robotics). </p>
+                                grade! When complete with these graded activities, move on to the next section (Robotics). </p>
                             <div class="fw-bold">Graded Sensor Activities</div>
                             <ol class="list-group list-group-numbered">
                                 <li class="list-group-item d-flex justify-content-between align-items-start">
                                     <div class="ms-2 me-auto">
-                                        If the switch is on, the code should do step A. If the switch is off, the code should do
-                                        step B.
+                                        Create a music player! Play a short song (at least 20 notes) using the built-in speaker (it must be an actual song, not just random notes). Consider how you could use multiple functions (and iteration) to make your song! Use the note frequency charts
+                                        here: <a class="btn btn-info btn-sm"
+                                            href="https://professionalcomposers.com/note-frequency-chart/" role="button"
+                                            target="_blank">Frequency Chart
+                                        </a>. Hint: You probably want to work in Octaves 4 or 5!
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#songModal">
+                                            Starter Code
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Create a nightlight! If the light level gets below a certain level (recommend 20), turn
+                                        the NeoPixels on in whatever color you want. Once the light is above another level
+                                        (should be slightly greater than the turn on level), turn the NeoPixels off.
+                                        Make sure you have a delay of at least 1 second between each iteration.
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#NightlightModal">
+                                            Starter Code
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Create a photo album! Display three different images on your LCD. Each image should display for three seconds
+                                        before going to the next image. You can choose your own images (you'll need to
+                                        scale them to 240x240 pixels and save them as bitmaps - <a href="https://imagy.app/how-to-resize-an-image-in-paint/" target="_blank">you can do this with the Paint program.</a>) or you can use the three images provided in the Circuit Playground Lab Files
+                                        folder (click the Loading Images button).
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#bitmapModal">
+                                            Loading Images
+                                        </button>
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#imagesModal">
+                                        Starter Code
+                                    </button>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        Create a mini light show! If the switch is on, the code should do step A. If the switch is off, the code should do
+                                        step B. When looking at the starter code, remember that you will need to incorporate elements from the NeoPixel code, as well as the Switch and Button code.
                                         <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#switchButtonPixelModal">
                                             Starter Code
@@ -553,30 +594,6 @@
                                                 pushed, turn off the NeoPixels.</li>
                                             <li>The NeoPixels should continuously flash red, white, and blue for ½ second each.</li>
                                         </ol>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="ms-2 me-auto">
-                                        Using the A and B buttons steer your turtle around the screen. A should turn the turtle
-                                        right and B should turn the turtle left. Also, if the switch is on, the turtle should
-                                        move forward. If the switch is off, the turtle shouldn't move.
-                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#turtleButtonModal">
-                                            Starter Code
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="ms-2 me-auto">
-                                        Play a short song (at least 20 notes) using the built-in speaker. Consider how you could use multiple functions (and iteration) to make your song! Use the note frequency charts
-                                        here: <a class="btn btn-info btn-sm"
-                                            href="https://professionalcomposers.com/note-frequency-chart/" role="button"
-                                            target="_blank">Frequency Chart
-                                        </a>. Hint: You probably want to work in Octaves 4 or 5!
-                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#songModal">
-                                            Starter Code
-                                        </button>
                                     </div>
                                 </li>
                             </ol>

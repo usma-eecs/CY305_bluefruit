@@ -1,13 +1,9 @@
 import displayio
 from adafruit_gizmo import tft_gizmo
 
-def display_image():
-    display = tft_gizmo.TFT_Gizmo()
-    # Setup the file as the bitmap data source
-    bitmap = displayio.OnDiskBitmap("/EECS.bmp")
-
+# Function to display an image
+def display_image(display, bitmap):
     # Create a TileGrid to hold the bitmap
-    # Notice that you're using the variable bitmap in here twice!
     tile_grid = displayio.TileGrid(bitmap, pixel_shader=bitmap.pixel_shader)
 
     # Create a Group to hold the TileGrid
@@ -20,9 +16,16 @@ def display_image():
     display.show(group)
 
 def main():
-    display_image()
+    # Initialize the display
+    display = tft_gizmo.TFT_Gizmo()
 
-    # Keep the program running indefinitely to display the image
+    # Define the first bitmap
+    bitmap1 = displayio.OnDiskBitmap("/EECS.bmp")
+
+    # Display the first image (bitmap1)
+    display_image(display, bitmap1)
+
+    # Keep the program running to display the image
     # This loop prevents the program from exiting and turning off the display.
     while True:
         pass
