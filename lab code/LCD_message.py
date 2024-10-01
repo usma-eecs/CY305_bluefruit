@@ -12,7 +12,7 @@ def get_color_map():
         "yellow": 0xFFFF00,   # Yellow
         "green": 0x00FF00,    # Green
         "blue": 0x0000FF,     # Blue
-        "purple": 0x800080,   # Purple (for violet)
+        "purple": 0x800080,   # Purple
         "black": 0x000000,    # Black
         "white": 0xFFFFFF     # White
     }
