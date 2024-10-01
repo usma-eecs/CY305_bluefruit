@@ -3,66 +3,116 @@ import terminalio
 from adafruit_display_text import label
 from adafruit_gizmo import tft_gizmo
 import time
+from adafruit_circuitplayground import cp
+import random
 
-# Function to return the dictionary of ROYGBIV colors plus black and white
-def get_color_map():
-    return {
-        "red": 0xFF0000,      # Red
-        "orange": 0xFFA500,   # Orange
-        "yellow": 0xFFFF00,   # Yellow
-        "green": 0x00FF00,    # Green
-        "blue": 0x0000FF,     # Blue
-        "purple": 0x800080,   # Purple
-        "black": 0x000000,    # Black
-        "white": 0xFFFFFF     # White
-    }
-
-# Create the TFT Gizmo display
+# Initialize the TFT Gizmo display
 def create_display():
+    # Initialize and return the TFT Gizmo display object
     display = tft_gizmo.TFT_Gizmo()
     return display
 
-def setup(message, position=(50, 100), text_color="yellow", background_color="black"):
-    # Initialize display and create display group
-    display = create_display()
+# Create the text display for A or B or other messages like ":)", ":(" or "?"
+def show_text(display, message):
+    # Create a group to hold display elements
     splash = displayio.Group()
-    display.show(splash)
 
-    # Get the color map
-    color_map = get_color_map()
-
-    # Convert background color name to hex value using the color map
-    background_color_hex = color_map.get(background_color.lower(), 0x000000)  # Default to black if not found
-
-    # Create a background with the specified color
+    # Create a black background for the display
     color_bitmap = displayio.Bitmap(240, 240, 1)
     color_palette = displayio.Palette(1)
-    color_palette[0] = background_color_hex  # Set background color
+    color_palette[0] = 0x000000  # Black background
 
+    # Create a TileGrid for the background and add it to the group
     bg_sprite = displayio.TileGrid(color_bitmap, pixel_shader=color_palette, x=0, y=0)
     splash.append(bg_sprite)
-
-    # Convert text color name to hex value using the color map
-    text_color_hex = color_map.get(text_color.lower(), 0xFFFF00)  # Default to yellow if not found
-
-    # Create the label for the message with a default scale of 10
-    text_group = displayio.Group(scale=10, x=position[0], y=position[1])
-    text_area = label.Label(terminalio.FONT, text=message, color=text_color_hex)
+    
+    # Position text based on whether it's 'A' or 'B' or another message
+    if message == "A":
+        x_pos = 160  # Display 'A' on the right side of the screen
+    elif message == "B":
+        x_pos = 40   # Display 'B' on the left side of the screen
+    else:
+        x_pos = 100  # Default position for "?", ":)", ":(", etc. (centered)
+ 
+    # Create a text label to show the message (A or B) on the display
+    text_group = displayio.Group(scale=10, x=x_pos, y=90)  # Text size and position
+    text_area = label.Label(terminalio.FONT, text=message, color=0xFFFFFF)  # White text
     text_group.append(text_area)
     splash.append(text_group)
 
-    return display
+    # Show the group on the display and refresh the screen
+    display.show(splash)
+    display.refresh()
 
-def main():
-    message = "Hi"               # Message to display
-    position = (70, 100)          # Adjust this to change the position of the message
-    text_color = "red"          # Set text color (e.g., "red", "blue", "white")
-    background_color = "white"    # Set the background color (e.g., "red", "purple", "black")
+# Wait for player input and return 'A' or 'B' based on button press
+def get_player_input(display):
+    # Display "?" in the middle of the screen while waiting for input
+    show_text(display, "?")
     
-    setup(message, position, text_color, background_color)
+    # Loop until the player presses a button
+    while True:
+        if cp.button_a:  # Check if button A is pressed
+            print("Button A pressed")
+            time.sleep(0.01)  # Short pause to debounce the button
+            return "A"  # Return 'A' for button A press
 
-    # Infinite loop to keep the display active
+        if cp.button_b:  # Check if button B is pressed
+            print("Button B pressed")
+            time.sleep(0.01)  # Short pause to debounce the button
+            return "B"  # Return 'B' for button B press
+
+        time.sleep(0.01)  # Small delay
+
+# Show the sequence of A's and B's
+def show_sequence(display, sequence):
+    # Loop through each item in the sequence
+    for item in sequence:
+        show_text(display, item)  # Show the current item (A or B)
+        time.sleep(0.25)  # Pause to display it
+        show_text(display, "")  # Clear the display (show nothing)
+        time.sleep(0.1)  # Pause between letters
+
+# Main game logic
+def main():
+    display = create_display()  # Initialize the TFT display
+    sequence = []  # Empty sequence to start the game
+    max_length = 10  # Maximum sequence length
+
+    # Start the game loop
+    while len(sequence) < max_length:
+        # Add a random 'A' or 'B' to the sequence
+        sequence += [random.choice(["A", "B"])]
+        
+        # Show the updated sequence to the player
+        show_sequence(display, sequence)
+        
+        # Print the current sequence to the console for debugging
+        print("Sequence:", sequence)
+
+        # Check the player's input for each item in the sequence
+        for i in range(len(sequence)):
+            player_input = get_player_input(display)  # Show "?" while waiting and get player's button press
+            print("Player pressed:", player_input)
+            
+            # If player input does not match the sequence, display ":(" and end the game
+            if player_input != sequence[i]:
+                show_text(display, ":(")  # Show "Game Over" on display
+                print("Game Over! Player made a mistake.")
+                # Keep the ":(" displayed on the screen indefinitely
+                while True:
+                    pass
+                return  # End the game (this line won't be reached)
+
+        # If the player got the sequence correct, show a success message for a short time
+        show_text(display, ":)")
+        time.sleep(1)  # Pause for 1 second before the next round
+
+    # If the player completes all 8 rounds, display ":)" and keep it on the screen
+    show_text(display, ":)")
+    print("Congratulations! You win!")
+    # Keep the ":)" displayed on the screen indefinitely
     while True:
         pass
 
+# Start the game by calling the main function
 main()
