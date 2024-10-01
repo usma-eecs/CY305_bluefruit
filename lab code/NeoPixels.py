@@ -14,9 +14,8 @@ def neopixels():
 
     while True:
         # Set each of the NeoPixels to a different color
-        # Just like with turtle graphics, each NeoPixel
-        # has a red, green, and blue value represented
-        # by the (#, #, #) tuples below.
+        # Each NeoPixelhas a red, green, and blue value 
+        # represented by the (#, #, #) tuples below.
         # Each color can have a value between 0 and 255
         led[0] = (255, 0, 125)
         led[1] = (125, 0, 255)
@@ -31,7 +30,7 @@ def neopixels():
 
         time.sleep(1) # Waits 1 second.
 
-        led.fill((255, 255, 255)) # turns on with specified RGB values
+        led.fill((255, 255, 255)) # turns on all lights with specified RGB values
 
         time.sleep(1)
 
