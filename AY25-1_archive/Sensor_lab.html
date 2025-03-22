@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CY105 Bluefruit Lab</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="scripts/map_highlight/jquery.maphilight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/foundation.min.css">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.jpg">
+</head>
+
+<body>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="BluefruitOffcanvas"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-body">
+            <button type="button" class="btn-close text-reset float-end" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            <img src="Images/Bluefruit.jpg" alt="Bluefruit Board" style="width: 240px" usemap="#BluefruitComponents"
+                class="map">
+            <map name="BluefruitComponents">
+                <!--Inputs-->
+                <area id="rstBtn" shape="rect" coords="112,104,130,125" href="#" title="Reset Button">
+                <area id="switch" shape="rect" coords="105,155,136,172" href="#" title="Switch">
+                <area id="tempSensor" shape="rect" coords="144,62,164,87" href="#" title="Temperature Sensor">
+                <area id="micSensor" shape="rect" coords="165,135,183,149" href="#" title="Microphone">
+                <area id="accelSensor" shape="rect" coords="140,137,157,169" href="#" title="Accelerometer">
+                <area id="lightSensor" shape="rect" coords="85,67,104,95" href="#" title="Light Sensor">
+                <area id="btnA" shape="rect" coords="62,103,88,131" href="#" title="Button A">
+                <area id="btnB" shape="rect" coords="152,103,181,131" href="#" title="Button B">
+                <area class="capTouch" id="A1" shape="circle" coords="222,158,14" title="A1"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A2" shape="circle" coords="222,85,14" title="A2"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A3" shape="circle" coords="203,53,14" title="A3"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A4" shape="circle" coords="39,54,14" title="A4"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A5" shape="circle" coords="22,85,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="A6" shape="circle" coords="22,158,14" title="A5"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <area class="capTouch" id="TX" shape="circle" coords="41,191,14" title="TX"
+                    data-maphilight='{"groupBy":".capTouch"}'>
+                <!--Outputs-->
+                <area id="speaker" shape="rect" coords="66,134,101,168" href="#" title="Speaker">
+                <area id="redLED" shape="rect" coords="148,15,152,25" href="#" title="Red LED">
+                <area class="neoPixels" id="NP0" shape="circle" coords="81,53,12" title="NeoPixel-0"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP1" shape="circle" coords="53,83,12" title="NeoPixel-1"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP2" shape="circle" coords="42,122,12" title="NeoPixel-2"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP3" shape="circle" coords="53,163,12" title="NeoPixel-3"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP4" shape="circle" coords="84,192,12" title="NeoPixel-4"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP5" shape="circle" coords="161,190,12" title="NeoPixel-5"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP6" shape="circle" coords="191,160,12" title="NeoPixel-6"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP7" shape="circle" coords="201,123,12" title="NeoPixel-7"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP8" shape="circle" coords="191,85,12" title="NeoPixel-8"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <area class="neoPixels" id="NP9" shape="circle" coords="161,54,12" title="NeoPixel-9"
+                    data-maphilight='{"groupBy":".neoPixels"}'>
+                <!--Other-->
+                <area id="greenLED" shape="rect" coords="90,14,95,25" href="#" title="Power Indicator LED">
+                <area id="USB" shape="rect" coords="105,5,139,31" href="#" title="USB Port">
+                <area id="CPU" shape="rect" coords="107,65,140,97" href="#" title="CPU">
+            </map>
+            <div style="font-size: 10px;">(Mouse over links below to highlight the items on the image above)</div>
+            <ol class="list-group list-group-numbered" style="font-size: 10px;">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Sensors/Inputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="rstBtnList">Reset Button</span></li>
+                                <li><span class="info text-info" id="switchList">Switch</span></li>
+                                <li><span class="info text-info" id="tempList">Temperature</span></li>
+                                <li><span class="info text-info" id="micList">Microphone</span></li>
+                                <li><span class="info text-info" id="accelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        title="(measures acceleration in 3D)">Accelerometer</span></li>
+                                <li><span class="info text-info" id="lightList">Light</span></li>
+                                <li><span class="info text-info" id="btnAList">Button A</span></li>
+                                <li><span class="info text-info" id="btnBList">Button B</span></li>
+                                <li><span class="info text-info" id="capList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Pads A1-A6 and TX">Capacitive touch
+                                        sensors</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Outputs</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="speakerList">Speaker</span></li>
+                                <li><span class="info text-info" id="redLEDList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Right of the USB">Red LED</span></li>
+                                <li><span class="info text-info" id="pixelList" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Counterclockwise from the top left
+                                    NeoPixel">NeoPixels 0 to 10</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Other</div>
+                        <ol class="alpha">
+                            <div>
+                                <li><span class="info text-info" id="greenLEDList">Power Indicator (left of the
+                                        USB)</span></li>
+                                <li><span class="info text-info" id="USBList">USB Port</span></li>
+                                <li><span class="info text-info" id="CPUList">CPU</span></li>
+                            </div>
+                        </ol>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="modal" id="bitmapModal" tabindex="-1">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dragging your Bitmap</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="Videos/Understanding/load_Bitmap.gif" class="img-fluid border border-info"
+                        alt="Dragging Bitmap">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <a class="anchor-link" id="understandingTop" aria-label="Link to this section: Top"></a>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Initial_Steps.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-terminal"></i></span> Initial Steps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"><span style="font-size: 1em; color: blue;"><i
+                                class="fa-solid fa-temperature-three-quarters"></i></span>Temperature Sensor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="Exploration.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-microchip"></i></span> Exploring your board / Sensor Activities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Robotics_Lab.html"><span style="font-size: 1em; color:blue;"><i
+                                class="fa-solid fa-robot"></i></span> Robotics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Troubleshooting.html"><span style="font-size: 1em; color: red;"><i
+                                class="fa-solid fa-bug"></i></span> Troubleshooting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Further Reading.html"><span style="font-size: 1em; color: green;"><i
+                                class="fa-solid fa-book"></i></span> Further Reading</a>
+                </li>
+            </ul>
+        </div>
+        <div id="mainSensorLab" class="row">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <h2 class="text-bg-primary p-2">Temperature Sensor (GRADED)</h2>
+                        <div>
+                        Delete the code currently in the “code” file you opened in <a
+                            href="Initial_Steps.html#usingMu">step 5 of Using Mu in the Initial Steps page</a>. Copy and paste the code below into the “code” file and then click “Save”.
+                        <pre><code class="Lab_Temp_Sensor_code language-python"></code></pre>
+                        </div>
+                        <p>Your display should show the minimum, maximum, and current temperature like the image below if
+                            the
+                            switch is to the right. If the switch is to the left, the NeoPixels should light up based on
+                            the
+                            temperature. (If you don't know where the switch or the temperature sensor are, click "Bluefruit Board".) 
+                            <button class="btn btn-info btn-sm" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#BluefruitOffcanvas" aria-controls="BluefruitOffcanvas">
+                                Bluefruit Board
+                            </button></p>
+                            <div class="row">
+                                <div class="ms-2 me-auto">
+                                <p class="text-white bg-danger">
+                                        Before you verify this step with your instructor, press your finger directly on
+                                        the temperature sensor to confirm that:
+                                    <ol>
+                                        <li>
+                                            when the switch is to the right, the current temperature increases on the display as 
+                                            you heat up the temperature sensor with your finger.
+                                            <br>
+                                            <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info"
+                                            alt="Bluefruit Board" style="width: 200px">
+                                        </li>
+                                        <li>
+                                            when the switch is to the left, the NeoPixel lights light up counterclockwise as the you 
+                                            heat up the temperature sensor with your finger.
+                                            <br>
+                                            <img src="Images/Sensor/Back_LED_Temp.jpg" class="img-fluid border border-info"
+                                            alt="Bluefruit Board" style="width: 200px">
+                                        </li>
+                                    </ol>
+                                </p>
+                            </div>
+                        </p>
+                        <!-- <img src="Images/Sensor/Front_Temp.jpg" class="img-fluid border border-info"
+                            alt="Bluefruit Board" style="width: 200px">
+                        <img src="Images/Sensor/Back_LED_Temp.jpg" class="img-fluid border border-info"
+                            alt="Bluefruit Board" style="width: 200px"> -->
+                        <p style="font-size: 18em; color: red;">
+                            <i class="fa-solid fa-hand"></i>
+                        </p>
+                        <p class="text-white bg-danger">Verify this with your instructor. This is part of your grade!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="scripts/script.js"></script>
+        <script src="scripts/highlight.min.js"></script>
+
+</body>
+
+<br>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="Initial_Steps.html" tabindex="-1">Previous (Initial steps)</a>
+      </li>
+        <a class="page-link" href="Exploration.html">Next (Exploring your board / Sensor Activities)</a>
+      </li>
+    </ul>
+  </nav>
+
+</html>
