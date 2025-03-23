@@ -71,7 +71,7 @@ def main():
     while True:
         # clears the text from the LCD
         splash = displayio.Group()
-        display.show(splash)
+        display.root_group = splash
 
         #measure the current ambient temperature
         f_avg = get_average_temperature()
