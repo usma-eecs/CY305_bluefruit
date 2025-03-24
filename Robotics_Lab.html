@@ -371,13 +371,19 @@
                                     <div>
                                         <span class="me-2"><strong> Activity 3:</strong></span>
                                     <div class="ms-2 me-auto">
-                                        Create a tilt-activated motor! Write a program that adjusts the servo's speed based on input from the
+                                        Create a tilt-activated motor with NeoPixel light tilt indicators! Write a program that continuously adjusts the servo's speed based on input from the
                                         accelerometer.
                                         If the device is tipped to the left, the servo should spin counterclockwise.
                                         If it's
                                         tipped to the right, the servo should spin clockwise. The more it's tipped,
                                         the faster
                                         the servo should spin.
+                                        <br><br>Additionally, use the NeoPixel lights to visually indicate the direction of the tilt. 
+                                        <ul>
+                                            <li>If the device is tilted to the right, the right half of the NeoPixels should light up green.</li>
+                                            <li>If the device is tilted to the left, the left half of the NeoPixels should light up green.</li>
+                                        </ul>
+                                        This provides both motion and visual feedback based on the tilt of the device!
                                         <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#servoAccelModal">
                                             Starter Code
