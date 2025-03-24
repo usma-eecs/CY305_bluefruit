@@ -41,7 +41,7 @@ def show_text(display, message):
     splash.append(text_group)
 
     # Show the group on the display and refresh the screen
-    display.show(splash)
+    display.root_group = splash
     display.refresh()
 
 # Wait for player input and return 'A' or 'B' based on button press

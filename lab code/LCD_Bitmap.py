@@ -13,7 +13,7 @@ def display_image(display, bitmap):
     group.append(tile_grid)
 
     # Add the Group to the Display
-    display.show(group)
+    display.root_group = group
 
 def main():
     # Initialize the display

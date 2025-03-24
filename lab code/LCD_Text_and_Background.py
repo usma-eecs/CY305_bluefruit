@@ -13,7 +13,7 @@ def setup(message):
     # Draw the gray background
     splash = displayio.Group()
     display = create_display()
-    display.show(splash)
+    display.root_group = splash
 
     color_bitmap = displayio.Bitmap(240, 240, 1) # Creates a 240x240 bitmap with 1 color
     color_palette = displayio.Palette(1) # Creates a color palette of one color
