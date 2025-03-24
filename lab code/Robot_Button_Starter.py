@@ -14,10 +14,24 @@ def setup_servo():
     s = servo.ContinuousServo(pwm)
     return s
 
+def button_A_or_B():
+    while True:
+        # checks to see if button A is pressed
+        if cp.button_a:
+            print("Button A pressed")
+
+        # checks to see if button B is pressed
+        if cp.button_b:
+            print("Button B pressed")
+        time.sleep(0.1)
+
 
 def main():
     # Create a servo object named my_servo
     my_servo = setup_servo()
+
+    # displays which button is pressed (you can use some of the code from this function in main)
+    button_A_or_B()
 
     # Modify the code below to spin the servo counterclockwise if button B is pressed,
     # clockwise if button A is pressed, and not spinning if neither button is pressed

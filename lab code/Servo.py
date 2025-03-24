@@ -28,7 +28,7 @@ def setup_servo():
 
 def display_on_screen(display, text):
     splash = displayio.Group()
-    display.show(splash)
+    display.root_group = splash
     text_group = displayio.Group(scale=3, x=30, y=70)
     # displays text
     text_area = label.Label(terminalio.FONT, text=text, color=0xFFD700)
