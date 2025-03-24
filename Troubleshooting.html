@@ -53,10 +53,19 @@
             <h2 class="text-bg-primary p-1">Setup Bluefruit Board that has WHITE Connector</h2>
         </div>
         <p>
-            <div><b>You should only follow these steps if your Bluefruit has a WHITE connector (the image on the right below).</b></div>
+            <div><b>You should only follow these steps if your Bluefruit has a WHITE connector (the image on the right below), AND you have verified that the <code>INFO_UF2.TXT</code> file is from earlier than 2024. To reiterate, only if the date is earlier than 2024 do you need to follow the additional steps below.</b></div>
             <img src="Images/Initial Steps/bluefruit_options.jpg" class="img-fluid"
                 alt="Bluefruit Options" style="width: 500px">
-            <div>When you have completed all the following steps, return to <a href="Initial_Steps.html#connector_choice">Step 5 from the Initial Steps</a> page and continue with the instructions from there.</div>
+                <br>     <br>
+                <p>
+                    <img src="Images/new_bluefruit/adafruit_100.jpg" class="img-fluid"
+                        alt="UF2_1" style="width: 500px">
+                </p>
+                <p>
+                    <img src="Images/new_bluefruit/adafruit_101.jpg" class="img-fluid"
+                        alt="UF2_2" style="width: 500px">
+                </p>
+                <div>When you have completed all the following steps, return to <a href="Initial_Steps.html#connector_choice">Step 5 from the Initial Steps</a> page and continue with the instructions from there.</div>
         </p>
         <div class="row">
             <ul>
@@ -148,7 +157,18 @@
                                     alt="Arduino 15" style="width: 650px">
                             </p>
                         </li>
-                        <li>When all these steps are complete and the bootloader has been successfully burned, return to <a href="Initial_Steps.html#connector_choice">Step 5 from the Initial Steps</a> page and continue the instructions from there.
+                        <li>
+                            To ensure you followed the steps correctly, open up the CPLAYBTBOOT drive and check the <code>INFO_UF2.TXT</code> file. It should now have a date in 2024.
+                        </li>
+                        <p>
+                            <img src="Images/new_bluefruit/adafruit_100.jpg" class="img-fluid"
+                                alt="UF2_1" style="width: 500px">
+                        </p>
+                        <p>
+                            <img src="Images/new_bluefruit/adafruit_101.jpg" class="img-fluid"
+                                alt="UF2_2" style="width: 500px">
+                        </p>
+                        <li>When all these steps are complete and the <code>INFO_UF2.TXT</code> file has been successfully updated, return to <a href="Initial_Steps.html#connector_choice">Step 5 from the Initial Steps</a> page and continue the instructions from there.
                         </li>
                         </ol>
                     </div>

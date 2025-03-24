@@ -621,28 +621,43 @@
                             <div style="font-weight: bold;">
                             Very important! 
                             <p>If your Bluefruit looks like the one on the left (a BLACK
-                            connector on the bottom), proceed to the next step. 
-                            <br>However, if your Bluefruit looks
-                            like the one on the right (a WHITE connector on the bottom), click <a                            href="Troubleshooting.html">HERE</a> to complete some additional setup steps before returning here.
-                            </p>
-                            </div>
+                            connector on the bottom), proceed immediately Step 5. 
+                            </p>                         
                             <p>
                                 <img src="Images/Initial Steps/bluefruit_options.jpg" class="img-fluid"
                                     alt="Bluefruit Options" style="width: 500px">
+                          <p>
+                            However, ONLY if your Bluefruit looks
+                            like the one on the right (a WHITE connector on the bottom), you need to open your CPLAYBTBOOT drive and check the <code>INFO_UF2.TXT</code> file.
+                          </p>                      
+                          <p>
+                            Open the <code>INFO_UF2.TXT</code> file. Look for the date. 
+                        </p>
+                        <p>
+                            <img src="Images/new_bluefruit/adafruit_100.jpg" class="img-fluid"
+                                alt="UF2_1" style="width: 500px">
+                      <p>
+                        <p>
+                            ONLY if the date is <b>not</b> from 2024 (for example, if it's from 2019), you need to follow the additional steps <a target="_blank" href="Troubleshooting.html">HERE</a>, then return to this point in the instructions. To reiterate, if your <code>INFO_UF2.TXT</code> file looks like the one below, proceed to Step 5. Only if the date is earlier than 2024 do you need to follow the additional steps.
+                        </p>
+                            </div>
+                            <p>
+                                <img src="Images/new_bluefruit/adafruit_101.jpg" class="img-fluid"
+                                    alt="UF2_2" style="width: 500px">
                             </p>
-                        </div>
+                         </div>
                     </li>
                     <li id="connector_choice" class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             <ul>
-                                <li><b>If your Bluefruit has a BLACK connector on the bottom (left image above):</b> <br>Click <a href="downloads/Circuit Playground Lab Files BLACK.zip"
+                                <li><b>If your Bluefruit has a BLACK connector on the bottom (left image at the beginning of Step 4 above):</b> <br>Click <a href="downloads/Circuit Playground Lab Files BLACK.zip"
                                 download>here (BLACK CONNECTOR files)</a>
                             to
                             download
                             the files
                             you will need.
                             </li>
-                            <li><b>If your Bluefruit has a WHITE connector on the bottom (right image above) AND you have completed the additional setup steps linked above:</b> <br>Click <a href="downloads/Circuit Playground Lab Files WHITE.zip"
+                            <li><b>If your Bluefruit has a WHITE connector on the bottom (right image at the beginning of Step 4 above) AND you have completed the additional setup steps linked above (if needed, meaning your <code>INFO_UF2.TXT</code> file now has a date in 2024):</b> <br>Click <a href="downloads/Circuit Playground Lab Files WHITE.zip"
                                 download>here (WHITE CONNECTOR files)</a>
                             to
                             download
