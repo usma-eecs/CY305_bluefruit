@@ -5,14 +5,25 @@ import terminalio
 from adafruit_display_text import label
 from adafruit_gizmo import tft_gizmo
 
-#gets the gizmo set up for initial operation
+#Sets up the gizmo for initial operation
 def setup_gizmo():
     # Create the TFT Gizmo display
     d = tft_gizmo.TFT_Gizmo()
 
+    # Clears the text from the LCD
+    splash = displayio.Group()
+
     # Sets the brightness of the neopixels on a scale of 0-1.
     cp.pixels.brightness = 0.1
-    return d
+    cp.pixels.fill(0) #Turns all of the NeoPixels off
+
+    # Sets up the text area
+    text_group = displayio.Group(scale=2, x=30, y=70)
+    text = ""
+    text_label = label.Label(terminalio.FONT, text=text, color=0xFFD700)
+    text_group.append(text_label)
+    d.root_group = text_group
+    return text_label
 
 def scale_range(value, min_t, max_t):
     return int((value - min_t) / (max_t - min_t) * 10)
@@ -24,6 +35,7 @@ def get_temp_in_f():
     return convert_c_to_f(cp.temperature)
 
 def display_as_lights(f, min_scale, max_scale):
+
     peak = scale_range(f, min_scale, max_scale)
     for i in range(10):
         if i <= peak:
@@ -31,15 +43,11 @@ def display_as_lights(f, min_scale, max_scale):
         else:
             cp.pixels[i] = (0, 0, 0)
 
-def display_on_screen(s, min_temp, max_temp, f):
+def display_on_screen(text_label, min_temp, max_temp, f):
     cp.pixels.fill(0) #Turns all of the NeoPixels off
-    text_group = displayio.Group(scale=2, x=30, y=70)
-    # displays the minimum, maximum, and current temperature to the TFT Gizmo display.
-    text = "Min: " + str(round(min_temp, 2)) + " F\nMax: " + str(round(max_temp,2)) + " F\nCurrent: " + str(round(f,2)) + " F"
-    text_area = label.Label(terminalio.FONT, text=text, color=0xFFD700)
-    text_group.append(text_area)
-    s.append(text_group)
-    return s
+    # Displays the minimum, maximum, and current temperature to the TFT Gizmo display.
+    text_label.text = "Min: " + str(round(min_temp, 2)) + " F\nMax: " + str(round(max_temp,2)) + " F\nCurrent: " + str(round(f,2)) + " F"
+    return
 
 #Gets average temperature (in Fahrenheit)
 def get_average_temperature():
@@ -52,12 +60,13 @@ def get_average_temperature():
 
 def main():
 
-    display = setup_gizmo()
+    text_label = setup_gizmo()
 
     # Get the current ambient temperature, and initialize min and max temp counters
     base_temp = get_temp_in_f()
     min_temp = base_temp
     max_temp = base_temp
+
 
     # This adjusts how many neopixels light up based on the
     # min and max temperature values from lines 48 and 49.
@@ -69,10 +78,6 @@ def main():
     max_temp = min_temp
 
     while True:
-        # clears the text from the LCD
-        splash = displayio.Group()
-        display.root_group = splash
-
         #measure the current ambient temperature
         f_avg = get_average_temperature()
 
@@ -88,10 +93,11 @@ def main():
         # Depending on where the switch is, either display the temperature using
         # the NeoPixels or the LCD.
         if cp.switch: #if switch is off
+            text_label.text = "" #Blank out the text on the screen
             # Determines the number of neopixels to turn on
             display_as_lights(f_avg, min_scale_temp, max_scale_temp)
         else:
-            splash = display_on_screen(splash, min_temp, max_temp, f_avg)
+            display_on_screen(text_label, min_temp, max_temp, f_avg)
 
 
         time.sleep(1) # Waits for 1 second
