@@ -1,4 +1,4 @@
-# CY10/155_Lab
+# CY305 Bluefruit Setup
 ## Libraries:
 
 Formatting: [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/download/)
