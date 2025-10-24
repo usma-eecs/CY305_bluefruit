@@ -157,7 +157,7 @@ $(function () {
     //Loads the .py file code and places it in the correct location finding the <pre><code> tags by id
     for (let code of code_blocks) {
         console.log(code)
-        $.get("https://raw.githubusercontent.com/usma-eecs/CY305_bluefruit/main/lab%20code/"+code+".py", function(data, status){
+        $.get("https://raw.githubusercontent.com/usma-eecs/CY105_Lab/main/lab%20code/"+code+".py", function(data, status){
             
             const collection = document.getElementsByClassName(code+"_code" );
             for (let elem of collection) {
